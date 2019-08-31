@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\newcommand{\w}[0]{\omega}
+\newcommand{\z}[0]{\zeta}
+
+\begin{document}
+
+\section*{Chapter 2}
+
+\begin{enumerate}
+
+\item[8]
+\begin{enumerate}
+    \item[(a)] Let $\w = e^{2\pi i/p}$ where $p$ is an odd prime.
+    Then \[ \text{disc}(\w) = \prod_{1 \le r < s \le n} (\alpha_r - \alpha_s)^2 = \pm p^{p - 2} \]
+    Therefore \[ \Big\lvert \prod_{1 \le r < s \le n} (\alpha_r - \alpha_s)\ \Big\rvert = \sqrt{\pm p^{p - 2}} = p^{(p - 3) / 2} \sqrt{\pm p} \]
+
+    Let $\z = e^{2\pi i /3}$.  Using the above we have the identity $(\z - \z^2) = \sqrt{-3}$.
+
+    Let $\z = e^{2\pi i / 5}$.  Note $\z^4 = -(\z^3 + \z^2 + \z + 1)$.
+
+    We expand the product: \[ (\z - \z^2)(\z - \z^3)(\z - z^4)(\z^2 - \z^3)(\z^2 - \z^4)(\z^3 - \z_4) = 10\z^3 + 10\z^2 + 1 \]
+
+    Observing that this product is negative we flip the signs and divide by $5^{(5 - 3)/2} = 5$ to get the identity $\sqrt{5} = -2\z^3 - 2\z^2 - 1$.
+
+    \item[(b)] The 8th cyclotomic polynomial is $x^4 + 1$, so the 8th cyclotomic field contains all the roots of this equation, which includes $\sqrt{i} = (1/\sqrt{2})(1 + i)$ and its complex conjugate $(1/\sqrt{2})(1 - i)$.  Thus the 8th cyclotomic field also contains their sum $2 / \sqrt{2} = \sqrt{2}$.
+
+    \item[(c)] Let $m$ be a squarefree number.  Then $m$ can be written as $2^{i} q$ where $2 \nmid q$, and $i \in \{0, 1\}$.  We proceed by case analysis, showing for each that $\sqrt{m}$ is contained in the $d$th cyclotomic field, where $d = \text{disc}(\mathbb{A} \cap \mathbb{Q}[\sqrt{m}])$.
+
+    $m = -1$: $\sqrt{-1}$ is contained in the 4th cyclotomic field which contains the complex unit $i$ ($d = -4$).
+
+    $m = 2$: $\sqrt{2}$ is contained in the 8th cyclotomic field by part (b) ($d = 4\cdot 2 = 8$).
+
+    $m = -2$: The 8th cyclotomic field contains $i$ (since it contains the 4th cyclotomic field as a subfield) so it contains $\sqrt{-2} = i\sqrt{2}$ ($d = 4\cdot -2 = -8$).
+
+    $m = q$ where $q \equiv 1 \mod 4$: Because $q \equiv 1 \mod 4$, $q$ has an even number of prime factors $\equiv 3 \mod 4$, meaning that $\sqrt{q}$ must be contained in the $q$-th cyclotomic field ($d = q$ since $q\equiv 1\mod 4$).
+
+    $m = q$ where $q \equiv 3 \mod 4$: The $4q$-th cyclotomic field contains the $q$-th cyclotomic field (containing $\sqrt{-q}$) and the 4th cyclotomic field (containing $\sqrt{-1}$) ($d = 4q$ since $q \equiv 3 \mod 4$), and so contains $\sqrt{q}$.
+
+    $m = 2q$ where $q$ is a product of odd primes:  Here $d = 8q$.  By the above, $\sqrt{q}$ is contained in either the $q$-th or $4q$-th cyclotomic field, depending on its residue mod 4.  Thus $\sqrt{2q}$ is contained in the $8q$-th cyclotomic field.
+
+    This shows every quadratic field $\mathbb{Q}[\sqrt{m}]$ is contained within the $d$-th cyclotomic field.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+
