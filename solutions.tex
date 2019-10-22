@@ -9,6 +9,14 @@
 
 \newcommand{\w}[0]{\omega}
 \newcommand{\z}[0]{\zeta}
+\newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\zquad}[1]{\mathbb{Z}[\sqrt{#1}]}
+\newcommand{\qext}[1]{\mathbb{Q}[#1]}
+\newcommand{\zext}[1]{\mathbb{Z}[#1]}
+\newcommand{\trace}[1]{\text{Tr}(#1)}
+\newcommand{\norm}[1]{\text{N}(#1)}
+\newcommand{\disc}[1]{\text{disc}(#1)}
 
 \begin{document}
 
@@ -123,6 +131,77 @@ where $r = \text{lcm}(k, m)$ ($\text{lcm}(k, m) = km / \text{gcd}(k, m)$).
 \item[10] Show if $m$ is even, $m \mid r$, and $\phi(r) \le \phi(m)$ then $r = m$.
 
 If $m \mid r$ there is some $k$ such that $mk = r$.  Let $d = \gcd(k, m)$, so $r = mdj$ with $j$ satisfiying $\gcd(j, m) = 1$.  Therefore $\phi(r) = \phi(md)\phi(j)$.  Since $d \mid m$, $\phi(md) = d \cdot \phi(m)$, so \[ \phi(r) = d \cdot \phi(m)\phi(j) \le \phi(m) \]  The inequality forces $d = 1$ and $\phi(j) = 1$.  Because $2 \mid m \mid r$, $\phi(j) = 1$ implies $j = 1$.  Therefore $m = r$.
+
+\item[11] TODO
+
+\item[12] TODO
+
+\item[13] Show that 1 and -1 are the only units in the ring $A \cap \Q[\sqrt{m}]$, $m$ squarefree and $m < 0, m \neq -1, -3$.  What if $m = -1, -3$?
+
+Let $u$ be a unit in $A \cap \Q[\sqrt{m}]$.  Then $u = a + b\sqrt{m}$ where $p, q \in A \cap \Q[sqrt{m}]$. Since $N(u) = 1$, then $(a + b\sqrt{m})(a - b\sqrt{m}) = a^2 - b^2 m = 1$.  We proceed by cases on whether $m \equiv 1 \mod 4$.
+
+If $m \not\equiv 1 \mod 4$, then $a$ and $b$ must be integers and so $a^2 - b^2 m = 1$ can only be satisfied if one of the terms is 1 and the other is 0.  If $a^2 = 1$, then $b^2 m = 0$.  This corresponds to the units 1 and -1 in $A \cap \Q[\sqrt{m}]$.  If $-b^2 m = 1$, then $b^2 m = -1$ and so $m = -1$.  This corresponds to the units $i$ and $-i$ in $A \cap \Q[\sqrt{-1}]$.
+
+If $m \equiv 1 \mod 4$ then let $a = r / 2$ and $b = s / 2$.  Therefore $r^2 - s^2 m = 4$.  Since $m$ is negative, both $r^2$ and $-s^2 m$ must be positive.  $r^2$ must be either $0$, $1$, or $4$.
+
+If $r^2$ is 0 then $-s^2 m = 4$, so $s^2 m = -4$, forcing $m = -1$ which is not $\equiv \mod 4$.  (We have considered this case already.)
+
+If $r^2$ is 1 then $-s^2 m = 3$ so $s^2 m = -3$ and $m = -3$, $s = \pm 1$.  This corresponds to the unit $\pm \frac{1}{2} \pm \frac{\sqrt{-3}}{2}$ in the ring $A \cap \Q[\sqrt{-3}]$.
+
+If $r^2$ is 4 then $- s^2 m = 0$, which corresponds to the unit $\pm 1$ in the ring $A \cap \Q[\sqrt{m}]$.
+
+\item[14] Show that $1 + \sqrt{2}$ is a unit in $\mathbb{Z}[\sqrt{2}]$, but not a root of 1.
+
+$1 + \sqrt{2}$ is a unit, as $-(1 - \sqrt{2})$ is its inverse: \[ -(1 + \sqrt{2})(1 - \sqrt{2}) = -1 + (\sqrt{2})^2 = 1 \]
+
+If $1 + \sqrt{2}$ were a root of 1, we would have $(1 + \sqrt{2})^k = 1$ for some $k$.  However by the Binomial Theorem, $(1 + \sqrt{2})^k = \sum^{k}_{i = 0} \binom{k}{i} (\sqrt{2})^i$, which will always contains a term $\sqrt{2}$ multiplied by a positive number.  Therefore $1 + \sqrt{2}$ is not a root of 1.
+
+Let $(1 + \sqrt{2})^k = a + b\sqrt{2}$.  The inverse of this term is \[((1 + \sqrt{2})^k)^{-1} = ((1 + \sqrt{2})^{-1})^{k} = (-1)^k (1 - \sqrt{2})^k = (-1)^k (a - b\sqrt{2})^k \]
+
+Therefore, $(a + b\sqrt{2})^k \cdot (a - b\sqrt{2})^k = \pm 1$ and so the powers of $1 + \sqrt{2}$ give an infinite number of $a$, $b$ such that $a^2 - 2b^2 = \pm 1$.
+
+\item[15]
+\begin{itemize}
+    \item[(a)] Let $a + b\sqrt{-5}$ be an element of $\zquad{-5}$.  Then the norm of $a + b\sqrt{-5}$ is $(a + b\sqrt{-5})(a - b\sqrt{-5}) = a^2 + 5b^2$, where $a, b \in \mathbb{Z}$.  Since there are no integer solutions $a, b$ such that $a^2 + 5b^2 = 2$ or $a^2 + 5b^2 = 3$, there can be no element of $\zquad{-5}$ with a norm of $2$ or $3$.
+    \item[(b)] In $\zquad{-5}$, $6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})$.  If unique factorization held in $\zquad{-5}$, there would be elements $a, b, c, d \in \zquad{-5}$ such that $a \cdot b = 2$, $c \cdot d = 3$, $a \cdot d  =  1 + \sqrt{-5}$, $b \cdot c = 1 - \sqrt{-5}$.
+    However by (a), 2 and 3 are irreducible in $\zquad{-5}$, meaning they are irreducible elements, and so no $a, b, c, d$ can exist.
+\end{itemize}
+
+\item[16]
+We argue in the style of K. Conrad: Trace and Norm, Section 4.  Suppose $\sqrt{3} \in \qext{\alpha}$ where $\alpha = \sqrt[4]{2}$; therefore $\sqrt{3} = a + b\alpha + c\alpha^2 + d\alpha^3$.  We have the following traces:
+\begin{eqnarray*}
+    \trace{\sqrt{3}} &=& \sqrt{3} - \sqrt{3} = 0 \\
+    \trace{\alpha} &=& \alpha - \alpha + i\alpha - i\alpha = 0\\
+    \trace{\alpha^2} &=& \alpha^2 - \alpha^2 + i\alpha^2 - i\alpha^2 = 0\\
+    \trace{\alpha^3} &=& \alpha^3 - \alpha^3 + i\alpha^3 - i\alpha^3 = 0\\
+\end{eqnarray*}
+
+Since $\sqrt{3} = a + b\alpha + c\alpha^2 + d\alpha^3$,
+
+\begin{eqnarray*}
+    \trace{\sqrt{3}} &=& \trace{a + b\alpha + c\alpha^2 + d\alpha^3} \\
+    0 &=& a\trace{1} + b\trace{\alpha} + c\trace{\alpha^2} + d\trace{\alpha^3} \\
+    0 &=& 4a \\
+\end{eqnarray*}
+
+Therefore $a = 0$, and we have $\sqrt{3} = b\alpha + c\alpha^2 + d\alpha^3$.  We have $\trace{\sqrt{3}\alpha} = \trace{\sqrt[4]{9/2}} = \sqrt[4]{9/2} - \sqrt[4]{9/2} + i\sqrt[4]{9/2} - i\sqrt[4]{9/2} = 0$, so $0 = b\trace{1} + c\trace{\alpha} + d\trace{\alpha}^2 = 4b$ and so $b = 0$.
+
+Similarly $\trace{\sqrt{3}/\alpha^2} = \trace{\sqrt{3/2}} = 0$, and so $c = 0$.
+
+From eliminating the coefficients $a, b, c$, we have $d\sqrt[4]{8} = \sqrt{3}$ and so $3 = d^2\sqrt{8} = 2d^2\sqrt{2}$.  Therefore $\sqrt{2}$ is expressible as a rational number $3/d^2$, a contradiction.  Therefore $\sqrt{3} \not\in \qext{\alpha}$.
+
+(Where would this argument break down for $\sqrt{2}$?  $\sqrt{2} = \alpha^2$ so $\sqrt{2} / \alpha^2 = 1$ and so we would conclude that $c = 1$ rather than $c = 0$.)
+
+\item[17] TODO
+
+\item[18] TODO
+
+\item[19] TODO
+
+\item[20] Write $f(x) = (x - \alpha)g(x)$.  By the chain rule $f'(x) = (x - \alpha)g'(x) + g(x)$, so $f'(\alpha) = g(\alpha) = \prod_{\beta \neq \alpha} (\alpha - \beta)$.
+
+\item[21] Let $f(x) = g(x) h(x)$, where $g(x)$ is the minimum polynomial of $\alpha$ over $\mathbb{Z}$.  Then $f'(x) = g'(x)h(x) + g(x) h'(x)$ and $f'(\alpha) = g'(\alpha)h(\alpha)$.  We have \[ \norm{f'(\alpha)} = \norm{g'(\alpha)}\norm{h(\alpha)} \].  By Theorem 8, $\norm{g'(\alpha)} = \pm \disc{\alpha}$, so \[ \norm{f'(\alpha)} = \pm \disc{\alpha}\norm{h(\alpha)} \]
+Therefore $\disc{\alpha}$ divides $\norm{f'(\alpha)}$ as required.
 
 \end{enumerate}
 
