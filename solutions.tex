@@ -132,9 +132,37 @@ where $r = \text{lcm}(k, m)$ ($\text{lcm}(k, m) = km / \text{gcd}(k, m)$).
 
 If $m \mid r$ there is some $k$ such that $mk = r$.  Let $d = \gcd(k, m)$, so $r = mdj$ with $j$ satisfiying $\gcd(j, m) = 1$.  Therefore $\phi(r) = \phi(md)\phi(j)$.  Since $d \mid m$, $\phi(md) = d \cdot \phi(m)$, so \[ \phi(r) = d \cdot \phi(m)\phi(j) \le \phi(m) \]  The inequality forces $d = 1$ and $\phi(j) = 1$.  Because $2 \mid m \mid r$, $\phi(j) = 1$ implies $j = 1$.  Therefore $m = r$.
 
-\item[11] TODO
+\item[11]
+\begin{enumerate}
+    \item[(a)] Suppose all the roots to a monic polynomial $f$ have absolute value $1$.  Show that the coefficient of $x^r$ has absolute value $\le \binom{n}{r}$, where $n$ is the degree of $f$ and $\binom{n}{r}$ is the binomial coefficient.
 
-\item[12] TODO
+    Factor $f$ as $f = (x - \alpha_0) \cdots (x - \alpha_n)$.  Re-expanding $f$ we see that the coefficient of $x^r$ is equal to $\sum_{S \subseteq \{0, \ldots, n\}, |S| = r} x^r \prod_{i \in S} \alpha_i$.  By assumption $|\alpha_i| = 1$ for all $i$, so $|\prod_{i \in S} \alpha_i| = 1$.  There are $\binom{n}{r}$ of these subsets of $S$.
+
+    Using the identity $|a + b| \le |a| + |b|$ we have:
+
+    \begin{eqnarray*}
+        \left|\sum_{S \subseteq \{0, \ldots, n\}, |S| = r} \prod_{i \in S} \alpha_i \right| &\le& \sum_{S \subseteq \{0, \ldots, n\}, |S| = r} | \prod_{i \in S} \alpha_i | \\
+        &\le& \sum_{S \subseteq \{0, \ldots, n\}, |S| = r} 1 \\
+        &\le& \binom{n}{r}
+    \end{eqnarray*}
+
+    \item[(b)] We will consider all monic polynomials $f$ of degree $n$ and show that only a finite number of them can have a root $\alpha$ all of whose conjugates have absolute value 1.
+
+    By Theorem 1, if $\alpha$ is an algebraic integer, than the coefficients of $f$ are integers.  By (b), the absolute value of the coefficients of $f$ are bounded above $\binom{n}{r}$, therefore there are at most $2\binom{n}{r}$ choices for each coefficient beyond the $x^n$th term.  The constant term of the polynomial must be 1 (since $\alpha$ has absolute value 1) and the first term of the polynomial must also be 1 (since $f$ is monic). This gives an upper bound of $\sum_{r=1}^{n - 1} 2\binom{n}{r} = 2(2^n - 2) = 4(2^{n-1} - 1)$ on the number of algebraic integers satisfying the given condition.
+
+    \item[(c)] TODO
+\end{enumerate}
+
+\item[12]
+\begin{enumerate}
+    \item[(a)] Let $u$ be a unit in $\Z[\w]$, where $\w = e^{2\pi i / p}$.  Show $u / \overline{u}$ is a root of 1.
+
+    The field $\Q[\w]$ has Galois group $\simeq \Z_p^{\times}$, which has cardinality $p - 1$ and so has an element of order 2 (complex conjugation).  Therefore $u$ has $p - 1$ conjugates, which consist of $(p - 1) / 2$ elements along with their complex conjugates.  Enumerate the conjugates of $u$ as $a_1, \ldots, a_n, \overline{a_1}, \ldots, \overline{a_n}$.
+
+    Therefore, the conjugates of $u / \overline{u}$ have the form $a_i / \overline{a_i}$ or $\overline{a_i} / a_i$.  Multiplying over all conjugates of $u / \overline{u}$, we have $\prod_{i = 0}^{n} a_i / \overline{a_i} \cdot \prod_{i = 0}^{n} \overline{a_i} / a_i = 1$, and so $u / \overline{u}$ and all its conjugates have absolute value 1.  By 11 (c), $u / \overline{u}$ is then a root of 1, and so has form $\pm \omega^{k}$.
+
+    \item[(b)] Suppose $u / \overline{u} = -\omega^{k}$.  We derive a contradiction.  Raising both sides to the $p$-th power we have $u^p / \overline{u^p} = -(\omega^{k})^p = -(\omega^{p})^k = -1$, and so $u^p = -\overline{u^p}$.  By exercise 1.25, $u^p \equiv a\ (p)$ for some $a \in \Z$.  Applying exercise 1.23, we see $\overline{u^p} \equiv \overline{a} = a\ (p)$, and so $a \equiv -a\ (p)$.  There $a$ must be 0, and $u^p \equiv 0\ (p)$, so $p$ divides $u^p$.  This contradicts $u^p$ being a unit, since if $p$ divided $u^p$, p would also divide the absolute value of $u^p$, which is 1.  Therefore $u / \overline{u} = \omega^{k}$.
+\end{enumerate}
 
 \item[13] Show that 1 and -1 are the only units in the ring $A \cap \Q[\sqrt{m}]$, $m$ squarefree and $m < 0, m \neq -1, -3$.  What if $m = -1, -3$?
 
