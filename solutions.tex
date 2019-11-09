@@ -231,6 +231,15 @@ From eliminating the coefficients $a, b, c$, we have $d\sqrt[4]{8} = \sqrt{3}$ a
 \item[21] Let $f(x) = g(x) h(x)$, where $g(x)$ is the minimum polynomial of $\alpha$ over $\mathbb{Z}$.  Then $f'(x) = g'(x)h(x) + g(x) h'(x)$ and $f'(\alpha) = g'(\alpha)h(\alpha)$.  We have \[ \norm{f'(\alpha)} = \norm{g'(\alpha)}\norm{h(\alpha)} \].  By Theorem 8, $\norm{g'(\alpha)} = \pm \disc{\alpha}$, so \[ \norm{f'(\alpha)} = \pm \disc{\alpha}\norm{h(\alpha)} \]
 Therefore $\disc{\alpha}$ divides $\norm{f'(\alpha)}$ as required.
 
+\item[33] Let $\w = e^{2\pi i / m}$, where $m \ge 3$.  We know that $N(\w) = \pm 1$ because $\w$ is a unit.  Show the $+$ sign holds.
+
+Write $e^{2\pi i k /m}$ as $\w_k$.  The conjugates of $\w$ have the form $\w_k$ where $(k, m) = 1$.  There are $\phi(m)$ of these, which is even for all $m \ge 3$.  If $\w_k$ is a conjugate, then $\w_{m - k}$ is also a conjugate, since $(k, m) = 1$ implies there exist integers $a, b$ such that $ak + bm = 1$, so $-a(m - k) + (b + a)m = 1$, and so $(m - k, m) = 1$.
+
+For each conjugate $\w_k$, $\w_k \ne \w_{m - k}$; if this were the case, $k = -k \ (m)$, so $2k = 0 \ (m)$ and so $k$ would divide $m$, contradicting $(k, m) = 1$.  Therefore all the conjugates are distinct.
+
+Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computing the norm of $\w$, all the conjugates cancel out and the norm of $\w$ is seen to be $1$.
+
+
 \end{enumerate}
 
 \end{document}
