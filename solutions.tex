@@ -231,6 +231,21 @@ From eliminating the coefficients $a, b, c$, we have $d\sqrt[4]{8} = \sqrt{3}$ a
 \item[21] Let $f(x) = g(x) h(x)$, where $g(x)$ is the minimum polynomial of $\alpha$ over $\mathbb{Z}$.  Then $f'(x) = g'(x)h(x) + g(x) h'(x)$ and $f'(\alpha) = g'(\alpha)h(\alpha)$.  We have \[ \norm{f'(\alpha)} = \norm{g'(\alpha)}\norm{h(\alpha)} \].  By Theorem 8, $\norm{g'(\alpha)} = \pm \disc{\alpha}$, so \[ \norm{f'(\alpha)} = \pm \disc{\alpha}\norm{h(\alpha)} \]
 Therefore $\disc{\alpha}$ divides $\norm{f'(\alpha)}$ as required.
 
+
+\item[25] Let $\alpha$ be an algebraic number, so there is some $f \in \Q[x]$ such that $f(\alpha) = 0$.  We convert this polynomial into a (non-monic) $g \in \Z[x]$ by through multiplying by the GCD $m$ for all of the denominators in the coefficients of $f$.  Then $g = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_0$ and $g(\alpha) = 0$.  Multiplying through by $a_n ^ {n - 1}$ gives the relationship $(a_n \alpha)^n + a_{n-1} a_n^{n- 1} \alpha^{n - 1} + \cdots + a_n^{n-1} a_0 = 0$.  This is a monic polynomial with integer coefficients, so $m a_n^{n} \alpha$ is an algebraic integer.
+
+Given any finite set of algebraic numbers, $\{\alpha_0, \ldots \alpha_n \}$ let $m_i$ be such that $m_i \alpha_i$ is an algebraic integer.  Therefore taking $M$ to be the least common multiple of each $m_i$ gives us a number $M$ such that each $M\alpha_i$ is an algebraic integer.
+
+\item[29] Let $\Q[\sqrt{m}, \sqrt{n}]$, where $(m, n) = 1$.  Find an integral basis and the discriminant of this basis for (a): the case where $m, n \equiv 1\ (4)$ and (b) where $m \equiv 1\ (4)$, $n \not\equiv 1\ (4)$.
+
+For both given scenarios, the ring of integers is a linear combination of the ring of integers of $\Q[\sqrt{m}]$ and $\Q[\sqrt{n}]$, and so Theorem 12, Corollary 1 applies, and an integral basis can be found as a combination of the bases of the individual rings.
+
+\begin{enumerate}
+    \item [(a)] $m, n \equiv 1\ (4)$: The corresponding rings of integers for $\Q[\sqrt{m}]$ and $\Q[\sqrt{n}]$ are $\Z[(1 + \sqrt{m})/2]$ and $\Z[(1 + \sqrt{n})/2)]$ with discriminants $m$ and $n$.  By assumption, these discriminants are relatively prime, so Theorem 12, Corollary 1 applies.  The field $\Q[\sqrt{m}, \sqrt{n}]$ thus has an integral basis $\{ 1, (\sqrt{m} + 1)/2, (\sqrt{n} + 1)/2, (1 + \sqrt{m} + \sqrt{n} + \sqrt{nm})/4 \}$.  By Exercise 23 (c), the discriminant for this basis is $m^2 n^2$ .
+
+    \item [(b)] The rings of integers for $\Q[\sqrt{m}]$ and $\Q[\sqrt{n}]$ are $\Z[(1 +\sqrt{m})/2]$ and $\Z[\sqrt{n}]$, with discriminants $m$ and $4n$.  Since $m$ was assumed to be squarefree, $(m, 4n) = 1$, so Theorem 12, Corollary 1 applies again.  The field $\Q[\sqrt{m}, \sqrt{n}]$ thus has an integral basis $\{ 1, (\sqrt{m} + 1)/2, \sqrt{n}, (\sqrt{mn} + \sqrt{n})/2 \}$.  By Exercise 23 (c), the discriminant for this basis is $m^2 (4n)^2 = 16m^2 n^2$.
+\end{enumerate}
+
 \item[33] Let $\w = e^{2\pi i / m}$, where $m \ge 3$.  We know that $N(\w) = \pm 1$ because $\w$ is a unit.  Show the $+$ sign holds.
 
 Write $e^{2\pi i k /m}$ as $\w_k$.  The conjugates of $\w$ have the form $\w_k$ where $(k, m) = 1$.  There are $\phi(m)$ of these, which is even for all $m \ge 3$.  If $\w_k$ is a conjugate, then $\w_{m - k}$ is also a conjugate, since $(k, m) = 1$ implies there exist integers $a, b$ such that $ak + bm = 1$, so $-a(m - k) + (b + a)m = 1$, and so $(m - k, m) = 1$.
