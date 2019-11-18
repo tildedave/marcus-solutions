@@ -151,7 +151,7 @@ If $m \mid r$ there is some $k$ such that $mk = r$.  Let $d = \gcd(k, m)$, so $r
 
     By Theorem 1, if $\alpha$ is an algebraic integer, than the coefficients of $f$ are integers.  By (b), the absolute value of the coefficients of $f$ are bounded above $\binom{n}{r}$, therefore there are at most $2\binom{n}{r}$ choices for each coefficient beyond the $x^n$th term.  The constant term of the polynomial must be 1 (since $\alpha$ has absolute value 1) and the first term of the polynomial must also be 1 (since $f$ is monic). This gives an upper bound of $\sum_{r=1}^{n - 1} 2\binom{n}{r} = 2(2^n - 2) = 4(2^{n-1} - 1)$ on the number of algebraic integers satisfying the given condition.
 
-    \item[(c)] TODO
+    \item[(c)]{(TODO)}
 \end{enumerate}
 
 \item[12]
@@ -221,11 +221,11 @@ From eliminating the coefficients $a, b, c$, we have $d\sqrt[4]{8} = \sqrt{3}$ a
 
 (Where would this argument break down for $\sqrt{2}$?  $\sqrt{2} = \alpha^2$ so $\sqrt{2} / \alpha^2 = 1$ and so we would conclude that $c = 1$ rather than $c = 0$.)
 
-\item[17] TODO
+\item[17]{(TODO)}
 
-\item[18] TODO
+\item[18]{(TODO)}
 
-\item[19] TODO
+\item[19]{(TODO)}
 
 \item[20] Write $f(x) = (x - \alpha)g(x)$.  By the chain rule $f'(x) = (x - \alpha)g'(x) + g(x)$, so $f'(\alpha) = g(\alpha) = \prod_{\beta \neq \alpha} (\alpha - \beta)$.
 
@@ -234,14 +234,47 @@ Therefore $\disc{\alpha}$ divides $\norm{f'(\alpha)}$ as required.
 
 \item[23]
 \begin{enumerate}
-    \item [(c)] Let $\{ \alpha_1, \ldots, \alpha_n \}$ be an integral basis for $K$ ($n = [K : \Q$) and $\{ \beta_1, \ldots, \beta_m \}$ be an integral basis for $L$ ($m = [L : \Q]$).  Therefore $\{ \alpha_i \beta_j \ |\ 1 \le i \le n, 1 \le j \le m\}$ is an integral basis for $KL$.  We have the tower of field extensions $KL : K : \Q$ where $[KL : K] = m$, $[K : \Q] = n$.  By the formula established in (b), $\disc{\alpha_i \beta_j} = (\disc{\alpha_i})^m N^{K}_{\Q} \disc{\beta_j} = (\text{disc}\ R)^m (\text{disc}\ S)^n$ (because $\text{disc}\ S$ is an integer, its norm is the degree of $K$ over $\Q$).
+    \item [(c)] Let $\{ \alpha_1, \ldots, \alpha_n \}$ be an integral basis for $K$ ($n = [K : \Q$) and let $\{ \beta_1, \ldots, \beta_m \}$ be an integral basis for $L$ ($m = [L : \Q]$).  Therefore \[ \{ \alpha_i \beta_j \ |\ 1 \le i \le n, 1 \le j \le m \] is an integral basis for $KL$.
+
+    We have the tower of field extensions $KL : K : \Q$ where $[KL : K] = m$, $[K : \Q] = n$.  By the formula established in (b), $\disc{\alpha_i \beta_j} = (\disc{\alpha_i})^m N^{K}_{\Q} \disc{\beta_j} = (\text{disc}\ R)^m (\text{disc}\ S)^n$ (because $\text{disc}\ S$ is an integer, its norm is the degree of $K$ over $\Q$).
 
 \end{enumerate}
-
 
 \item[25] Let $\alpha$ be an algebraic number, so there is some $f \in \Q[x]$ such that $f(\alpha) = 0$.  We convert this polynomial into a (non-monic) $g \in \Z[x]$ by through multiplying by the GCD $m$ for all of the denominators in the coefficients of $f$.  Then $g = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_0$ and $g(\alpha) = 0$.  Multiplying through by $a_n ^ {n - 1}$ gives the relationship $(a_n \alpha)^n + a_{n-1} a_n^{n- 1} \alpha^{n - 1} + \cdots + a_n^{n-1} a_0 = 0$.  This is a monic polynomial with integer coefficients, so $m a_n^{n} \alpha$ is an algebraic integer.
 
 Given any finite set of algebraic numbers, $\{\alpha_0, \ldots \alpha_n \}$ let $m_i$ be such that $m_i \alpha_i$ is an algebraic integer.  Therefore taking $M$ to be the least common multiple of each $m_i$ gives us a number $M$ such that each $M\alpha_i$ is an algebraic integer.
+
+\item[28]
+\begin{enumerate}
+    \item [(a)] Taking the derivative of the polynomial, we have $f'(x) = 3x^2 + a$.  We then have:
+    \begin{eqnarray*}
+        f'(\alpha) &=& 3\alpha^2 + a \\
+        \alpha f'(\alpha) &=& 3\alpha^3 + a\alpha \\
+        \alpha f'(\alpha) &=& -3(a\alpha + b) + a\alpha \\
+        \alpha f'(\alpha) &=& -2a\alpha - 3b \\
+        f'(\alpha) &=& -(2a\alpha + 3b) / \alpha \\
+    \end{eqnarray*}
+    \item [(b)] It is straightforward that $2a\alpha + 3b$ is a root of the polynomial $g(x) = (\frac{x - 3b}{2a})^3 + a(\frac{x - 3b}{2a}) + b$.  To calculate the norm of $2a\alpha + 3b$ over $\Q[\alpha]$, we thus divide the zero coefficient of $g(x)$ by negative the initial coefficient of $g(x)$ (negative since $n = 3$ is odd):
+    \[ -(2a)^3\left(\frac{(-3b)^3}{(2a)^3} - \frac{3b}{2} + b\right) \]
+    Reducing terms gives us
+    \[ \norm{2a\alpha + 3b} = (3b)^3 + (2^2)a^3b = 27b^3 + 4a^3b \]
+    \item[(c)] By Theorem 8, $\disc{a} = -\norm{f'(\alpha)}$ (the negative sign holds since $n = 3 \not\equiv 0,1 \ (4)$, ).
+
+    Note that given the factoring of $f(x)$ into $(x - \alpha_1)(x - \alpha_2)(x - \alpha_3)$, $(-1)\alpha_1\alpha_2\alpha_3 = -\norm{\alpha} = b$, $\norm{\alpha} = -b$.
+
+    We now compute the discriminant of $\alpha$:
+    \begin{eqnarray*}
+        \disc{\alpha} &=& -\norm{f'(\alpha)} \\
+                      &=& -\norm{-(2a\alpha + 3b)/\alpha} \\
+                      &=& \frac{27b^3 + 4a^3b}{-b} \\
+                      &=& -(27b^2 + 4a^3)
+    \end{eqnarray*}
+    This is the required result.
+
+    \item[(d)] If $\alpha^3 = \alpha + 1$, then $a = -1$ and $b = -1$.  By (c), $\disc{\alpha} = -27 - 4 = -31$, which is squarefree.  By 27 (c) the powers of $\alpha$ thus form an integral basis for $\mathbb{A} \cap \Q[\alpha]$.
+
+    Similarly if $a = 1$ and $b = -1$, then $\disc{\alpha} = -27 + 4 = -23$ (squarefree) and so again by 27 (c) the powers of $\alpha$ form an integral basis for $\mathbb{A} \cap \Q[\alpha]$.
+\end{enumerate}
 
 \item[29] Let $\Q[\sqrt{m}, \sqrt{n}]$, where $(m, n) = 1$.  Find an integral basis and the discriminant of this basis for (a): the case where $m, n \equiv 1\ (4)$ and (b) where $m \equiv 1\ (4)$, $n \not\equiv 1\ (4)$.
 
@@ -274,6 +307,12 @@ For both given scenarios, the ring of integers is a linear combination of the ri
     \item[(d)] The result of (c) is that $\bar{f}$ has at least 4 irreducible factors in $\Z_3[x]$.  However, $\bar{f}$ is of degree at most 4, since $\alpha \in \Q[\sqrt{7}, \sqrt{10}]$.  For there to be at least 4 irreducible factors of $\bar{f}$ it would imply each are of degree 1, but there are only 3 monic polynomials of degree 1 in $\Z_3[x]$: $x$, $x - 1$, $x - 2$.  Therefore $\mathbb{A} \cap \Q[\sqrt{7}, \sqrt{10}] \neq \Z[\alpha]$ for any $\alpha$.
 \end{enumerate}
 
+\item[31] Show that $\frac{\sqrt{3} + \sqrt{7}}{2}$ is an algebraic integer.
+
+$\frac{\sqrt{3} + \sqrt{7}}{2}$ is the root of the degree 4 polynomial $f(x) = x^4 - 5x^2 + 1$.  This shows that the intersection of the ring of integers $\Z[\sqrt{3}]$ and $\Z[\sqrt{7}]$ is not $\Z[\sqrt{3}, \sqrt{7}]$; neither original ring contains fractional elements.  (Their discriminants are 12 and 28 respectively, sharing a factor of 4.)
+
+\item[32]{(TODO)} Find two fields of degree 3 over $\Q$ whose composition has degree 6.
+
 \item[33] Let $\w = e^{2\pi i / m}$, where $m \ge 3$.  We know that $N(\w) = \pm 1$ because $\w$ is a unit.  Show the $+$ sign holds.
 
 Write $e^{2\pi i k /m}$ as $\w_k$.  The conjugates of $\w$ have the form $\w_k$ where $(k, m) = 1$.  There are $\phi(m)$ of these, which is even for all $m \ge 3$.  If $\w_k$ is a conjugate, then $\w_{m - k}$ is also a conjugate, since $(k, m) = 1$ implies there exist integers $a, b$ such that $ak + bm = 1$, so $-a(m - k) + (b + a)m = 1$, and so $(m - k, m) = 1$.
@@ -282,6 +321,65 @@ For each conjugate $\w_k$, $\w_k \ne \w_{m - k}$; if this were the case, $k = -k
 
 Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computing the norm of $\w$, all the conjugates cancel out and the norm of $\w$ is seen to be $1$.
 
+\item[43] Let $f(x) = x^5 + ax + b$ with $a, b \in \Z$ and $f$ irreducible over $\Q$.  Let $\alpha$ be a root of $f$.
+
+\begin{enumerate}
+    \item [(a)] Show $\disc{\alpha} = 4^4 a^5 + 5^5 b^4$.
+
+    We proceed in a similar fashion to Exercise 28: first, we determine $f'(\alpha)$, then we determine $\norm{f'(\alpha)}$ by collecting the most and least significant the coefficients of its polynomial.
+
+    $f'(x) = 5x^4 + a$, so $\alpha f'(x) = 5\alpha^5 + a = -5(a\alpha + b) + a = -4a \alpha - 5b$ and $f'(\alpha) = (-4a\alpha - 5b) / \alpha$.  The expression $4a\alpha + 5b$ is a root of the polynomial $(\frac{x - 5b}{4a})^5 + a(\frac{x - 5b}{4a}) + b$.  The norm $\norm{4a\alpha + 5b}$ is the negative of the $x^0$ coefficient divided by the $x^5$ coefficient (again, negative because 5 is odd), so we calculate those values.
+
+    The $x^0$ coefficient is $(\frac{-5b}{4a})^5 + a(\frac{-5b}{4a}) + b = (\frac{-5b}{4a})^5 + \frac{-b}{4}$, and the $x^5$ coefficient is $(\frac{1}{4a})^5$, so $\norm{4a\alpha + 5b} = 5^5 b^5 + 4^4 a^5 b$.
+
+    Therefore, \[ \disc{\alpha} = \norm{-(4a\alpha + 5b)/\alpha} = -\frac{5^5 b^5 + 4^4 a^5 b}{-b} = 5^5 b^4 + 4^4 a^5 \]  This is the required result.  (The plus sign for the discriminant holds because $5 \equiv 1\ (4)$)
+
+    \item [(b)] Suppose $\alpha^5 = \alpha + 1$.  We are given that this polynomial is irreducible because it is irreducible modulo 3.  (The options are $0$, $1$, and $2$: $0^5 \not\equiv 0 + 1\ (3)$, $1^5 \not\equiv 1 + 1\ (3)$, and $2^5 = 2 \not\equiv 1 + 2 = 0\ (3)$.)
+
+    In this case $a = -1$ and $b = -1$ so the above formula gives $\disc{\alpha} = 5^5 - 4^4 = 125 \cdot 25 - 16 \cdot 16 = 2869 = 19 \cdot 151$.  Since the discriminant is squarefree, $\mathbb{A} \cap \Q[\alpha] = \Z[\alpha]$.
+
+    \item[(c)] Let $a$ be squarefree and not equal to $\pm 1$.  Let $\alpha$ be a root and $d_1, d_2, d_3, d_4$ be as in Theorem 13.  Prove that if $4^4 a + 5^5$ is squarefree then $d_1 = d_2 = 1$ and $d_3 d_4 \divides a^2$.
+
+    By exercise 40, \[ \disc{\alpha} = 5^5 a^4 + 4^4 a^5 = a^4(5^5 + 4^4 a) =(d_1 d_2 d_3 d_4)^2 \disc{R} \]
+
+    Here $d_1 d_2 \divides d_3$, $d_1 d_2 \divides d_4$, and $d_1 d_3 \divides d_4$.  Therefore $d_1$ and $d_2$ both have 6 factors represented in the $\disc{\alpha}$ expression which is impossible unless they are both $1$.  Since $5^5 + 4^4 a$ is squarefree, $(d_3 d_4)^2$ must divide $a^4$ and so $d_3 d_4 \divides a^2$.
+
+    Verify that $4^4 a + 5^5$ is squarefree when $a = -2, -3, -6, -7, -10, -11, -13$, and $-15$.
+
+    \begin{verbatim}
+sage: [(factor(x), is_squarefree(x)) for x in
+       map(lambda a: 5^5 + 4^4 *a,
+       [-2, -3, -6, -7, -10, -11, -13, -15])]
+
+[(3 * 13 * 67, True),
+    (2357, True),
+    (7 * 227, True),
+    (31 * 43, True),
+    (5 * 113, True),
+    (3 * 103, True),
+    (-1 * 7 * 29, True),
+    (-1 * 5 * 11 * 13, True)]
+    \end{verbatim}
+
+    Experimenting a bit more with Sage, we can quickly test integers using the following code:
+    \begin{verbatim}
+sage: def test_poly_degree_5(a):
+....:     return (is_squarefree(5^5 + 4^4 *a) and
+....:             is_squarefree(a))
+....:
+sage: filter(lambda x: test_poly_degree_5(x),
+....:        range(2, 30))
+[2, 3, 5, 6, 7, 10, 11, 14, 15, 17, 19, 21, 23, 26, 29]
+sage: filter(lambda x: test_poly_degree_5(x),
+....:        range(-2, -30, -1))
+[-2, -3, -6, -7, -10, -11, -13, -15, -17, -19, -21,
+ -22, -26, -29]
+    \end{verbatim}
+
+    \item[(d)] Let $\alpha$ be as in part (c) ($\alpha$ is the root of a polynomial $f(x) = x^5 + ax + a$).  Show $\alpha + 1$ is a unit.
+
+    We have $\alpha^5 = -a(\alpha + 1)$, so we take the norm of both sides.  $\norm{\alpha^5} = -a^5 = \norm{-a} \norm{\alpha + 1} = -a^5 \norm{\alpha+1}$, so $\norm{\alpha + 1} = 1$.  Therefore $\alpha + 1$ is a unit in $\mathbb{A} \cap \Q[\alpha]$.
+\end{enumerate}
 
 \end{enumerate}
 
