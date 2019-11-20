@@ -301,6 +301,9 @@ For each conjugate $\w_k$, $\w_k \ne \w_{m - k}$; if this were the case, $k = -k
 
 Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computing the norm of $\w$, all the conjugates cancel out and the norm of $\w$ is seen to be $1$.
 
+\item[37.] Let $\alpha$ be an algebraic integer of degree $n$ over $\Q$ and let $f$ and $g$ be polynomials over $\Q$, each of degree $< n$, such that $f(\alpha) = g(\alpha)$.  Show $f = g$.
+
+Let $h(x)$ be the minimal polynomial for $\alpha$.  If $f(\alpha) = g(\alpha)$, then $(f - g)(\alpha) = 0$.  Since $h$ is the minimum polynomial for $\alpha$, $h \mid f - g$.  However, $f - g$ has degree $< n$, and so $f - g = 0$.  Therefore $f = g$.
 
 \item[43. (a)] Let $f(x) = x^5 + ax + b$ with $a, b \in \Z$ and $f$ irreducible over $\Q$.  Let $\alpha$ be a root of $f$.  Show $\disc{\alpha} = 4^4 a^5 + 5^5 b^4$.
 
@@ -358,11 +361,9 @@ sage: filter(lambda x: test_poly_degree_5(x),
 
 We have $\alpha^5 = -a(\alpha + 1)$, so we take the norm of both sides.  $\norm{\alpha^5} = -a^5 = \norm{-a} \norm{\alpha + 1} = -a^5 \norm{\alpha+1}$, so $\norm{\alpha + 1} = 1$.  Therefore $\alpha + 1$ is a unit in $\mathbb{A} \cap \Q[\alpha]$.
 
-\item[44] Let $f(x) = x^5 + ax^4 + b$ where $a, b \in \Z$, and let $\alpha$ be a root of $f$.
+\item[44. (a)] Let $f(x) = x^5 + ax^4 + b$ where $a, b \in \Z$, and let $\alpha$ be a root of $f$.  To determine the discriminant of $\alpha$, we proceed as in exercise 28 and 43.  The derivative of $f(x)$ is $f'(x) = 5x^4 + 4ax^3$, so  \[ f'(\alpha) = \alpha^3(5\alpha + 4a) \]  $\norm{a^3} = -b^3$ so determine the norm of $5\alpha + 4a$ by observing it is the root of the polynomial $(\frac{x - 4a}{5})^5 + (\frac{x - 4a}{5})^4 + b$.  The $x^0$ term is $(\frac{-4a}{5})^5 + (\frac{-4a}{5})^4 + b$ while the $x^5$ term is $\frac{1}{5^5}$, \[ \norm{5\alpha + 4a} = (4a)^5 - 5a (4a)^4 - 5^5 b = -(4a)^5 \cdot (-4 + 5) - 5^5 b = -(4^5 a^5 + 5^5 b) \]  Therefore $\disc{\alpha} = (4^5 a^5 + 5^5 b)b^3$ as required (the discriminant is positive since $5 \equiv 1\ (4)$).
 
-\item[(a)] To determine the discriminant of $\alpha$, we proceed as in exercise 28 and 43.  The derivative of $f(x)$ is $f'(x) = 5x^4 + 4ax^3$, so  \[ f'(\alpha) = \alpha^3(5\alpha + 4a) \]  $\norm{a^3} = -b^3$ so determine the norm of $5\alpha + 4a$ by observing it is the root of the polynomial $(\frac{x - 4a}{5})^5 + (\frac{x - 4a}{5})^4 + b$.  The $x^0$ term is $(\frac{-4a}{5})^5 + (\frac{-4a}{5})^4 + b$ while the $x^5$ term is $\frac{1}{5^5}$, \[ \norm{5\alpha + 4a} = (4a)^5 - 5a (4a)^4 - 5^5 b = -(4a)^5 \cdot (-4 + 5) - 5^5 b = -(4^5 a^5 + 5^5 b) \]  Therefore $\disc{\alpha} = (4^5 a^5 + 5^5 b)b^3$ as required (the discriminant is positive since $5 \equiv 1\ (4)$).
-
-\item[(b)] TODO
+\item[44. (b)] TODO
 
 \end{enumerate}
 
