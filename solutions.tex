@@ -1,7 +1,6 @@
 \documentclass{article}
 
 \usepackage{fancyhdr}
-\usepackage{extramarks}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -11,6 +10,7 @@
 \newcommand{\w}[0]{\omega}
 \newcommand{\z}[0]{\zeta}
 \newcommand{\Q}[0]{\mathbb{Q}}
+\newcommand{\R}[0]{\mathbb{R}}
 \newcommand{\Z}[0]{\mathbb{Z}}
 \newcommand{\zquad}[1]{\mathbb{Z}[\sqrt{#1}]}
 \newcommand{\qext}[1]{\mathbb{Q}[#1]}
@@ -222,7 +222,8 @@ Therefore $\disc{\alpha}$ divides $\norm{f'(\alpha)}$ as required.
 
 \item[23. (c)] Let $\{ \alpha_1, \ldots, \alpha_n \}$ be an integral basis for $K$ ($n = [K : \Q$) and let $\{ \beta_1, \ldots, \beta_m \}$ be an integral basis for $L$ ($m = [L : \Q]$).  Therefore \[ \{ \alpha_i \beta_j \ |\ 1 \le i \le n, 1 \le j \le m \] is an integral basis for $KL$.
 
-We have the tower of field extensions $KL : K : \Q$ where $[KL : K] = m$, $[K : \Q] = n$.  By the formula established in (b), $\disc{\alpha_i \beta_j} = (\disc{\alpha_i})^m N^{K}_{\Q} \disc{\beta_j} = (\text{disc}\ R)^m (\text{disc}\ S)^n$ (because $\text{disc}\ S$ is an integer, its norm is the degree of $K$ over $\Q$).
+We have the tower of field extensions $KL : K : \Q$ where $[KL : K] = m$, $[K : \Q] = n$.  By the formula established in (b), \[ \disc{\alpha_i \beta_j} = (\disc{\alpha_i})^m N^{K}_{\Q} \disc{\beta_j} = (\text{disc}\ R)^m (\text{disc}\ S)^n \]
+Because $\text{disc}\ S$ is an integer, its norm is the degree of $K$ over $\Q$.
 
 \item[25] Let $\alpha$ be an algebraic number, so there is some $f \in \Q[x]$ such that $f(\alpha) = 0$.  We convert this polynomial into a (non-monic) $g \in \Z[x]$ by through multiplying by the GCD $m$ for all of the denominators in the coefficients of $f$.  Then $g = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_0$ and $g(\alpha) = 0$.  Multiplying through by $a_n ^ {n - 1}$ gives the relationship $(a_n \alpha)^n + a_{n-1} a_n^{n- 1} \alpha^{n - 1} + \cdots + a_n^{n-1} a_0 = 0$.  This is a monic polynomial with integer coefficients, so $m a_n^{n} \alpha$ is an algebraic integer.
 
@@ -300,6 +301,23 @@ Write $e^{2\pi i k /m}$ as $\w_k$.  The conjugates of $\w$ have the form $\w_k$ 
 For each conjugate $\w_k$, $\w_k \ne \w_{m - k}$; if this were the case, $k = -k \ (m)$, so $2k = 0 \ (m)$ and so $k$ would divide $m$, contradicting $(k, m) = 1$.  Therefore all the conjugates are distinct.
 
 Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computing the norm of $\w$, all the conjugates cancel out and the norm of $\w$ is seen to be $1$.
+
+\item[35. (a)]  Let $\w = e^{2\pi i /m}$ and $\theta = \w + \w^{-1}$.  Then $\w^2 - (\w + \w^{-1})(\w) + 1 = 0$ and so $\w$ is a root of the polynomial $x^2 + \theta x + 1$.  $\w \not\in \Q[\theta]$, therefore $\Q[\w] : \Q[\theta]$ has degree 2.
+
+\item[35. (b)]  Since $\theta = \w + \w^{-1} \in \R$, clearly $\Q[\theta]  \subseteq \Q[\w] \cap \R$.  We therefore have the tower of field extensions $\Q[\theta] \subseteq \Q[\w] \cap \R \subsetneq \Q[\w]$.  By (a), $[\Q[w] : \Q[\theta]] = 2$.  By the Tower Law, $[\R \cap \Q[\w] : \Q[\theta]]$ must be a divisor of 2 by distinct from 2 (since $w \not\in \R)$.  Therefore the degree must be 1 and so $\R \cap \Q[\w] = \Q[\theta]$.
+
+\item[35. (c)]  Let $\sigma$ be the automorphism defined by $\sigma(\w) = \w^{-1}$.  Then $\sigma(\theta) = \theta$, and so $\Q[\theta]$ is in the fixed field of the automorphism $\sigma$.  As the degree of $\Q[\w]$ over $\Q[\theta]$ is 2, there can be no distinct intermediate field between $\Q[\w]$ and $\Q[\theta]$.  $\Q[\w]$ is not in the fixed field of $\sigma$ and so $\Q[\theta]$ must be the fixed field of this automorphism.
+
+\item[35. (d)]  Show that $\mathbb{A} \cap \Q[\theta] = \R \cap \Z[\theta]$.
+
+\begin{align}
+    \mathbb{A} \cap \Q[\theta]
+        &= \mathbb{A} \cap (\R \cap \Q[\w]) & \text{By 35 (b).}\\
+        &= (\mathbb{A} \cap \Q[\w]) \cap \R & \text{By associativity of intersection}\\
+        &= \Z[\w] \cap \R & \text{By Theorem 12, Corollary 2}
+\end{align}
+
+This is the required result.
 
 \item[37.] Let $\alpha$ be an algebraic integer of degree $n$ over $\Q$ and let $f$ and $g$ be polynomials over $\Q$, each of degree $< n$, such that $f(\alpha) = g(\alpha)$.  Show $f = g$.
 
