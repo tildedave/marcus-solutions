@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{MnSymbol}
+\usepackage{kbordermatrix}
 
 \newcommand{\w}[0]{\omega}
 \newcommand{\z}[0]{\zeta}
@@ -344,7 +345,34 @@ For $\theta^{k}\w$, the power of ranges between $-k + 1$ and $k + 1$ for $\theta
 
 Therefore, there is a lower triangular translation matrix $A$ between the basis (1) and (2).  $A$ has 1s in the diagonal, and so $A$ has discriminant 1, and so is invertible.  Since (1) is an integral basis of $\Z[\w]$, so is (2).
 
-TODO: typeset this matrix
+\[
+    A\ =\hspace{5mm}
+    \bordermatrix{
+             & 1 & \w& \w^{-1} & \w^2 & \w^{-2} & \ldots \cr
+    1        & 1 &  0  & 0 & 0 & 0 & \ldots \cr
+    \w       &  0  & 1 & 0 & 0 & 0 & \ldots \cr
+    \theta   &  0  & 1 & 1 & 0 & 0 & \ldots \cr
+    \theta\w &  1  & 0 & 0 & 1 & 0 & \ldots \cr
+    \theta^2 &  2  & 0 & 0 & 1 & 1 & \ldots \cr
+    \vdots   & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \cr
+    }
+\]
+
+\item[35. (f)] Show that $\{ 1, \theta, \theta^2, \ldots, \theta^{n-1} \}$ is an integral basis for $\mathbb{A} \cap \Q[\theta]$.
+
+By (d), $\mathbb{A} \cap \Q[\theta] = \R \cap \Z[\theta]$, and by (e), any member $\alpha$ of $\Z[\theta]$ is expressible in terms of the basis vectors $\{ 1, \w, \theta, \theta\w, \theta^2, \ldots \}$:
+\[ \beta = a_0 + a_1 \w + a_2 \theta + a_3 \theta \w + \ldots + a_{m-1} \theta^{n-1} \]
+
+Since $\beta \in \mathbb{R}$, $\sigma(\beta) = \beta$ (where $\sigma$ is complex conjugation).  Therefore:
+
+\begin{eqnarray*}
+\beta &=& \sigma(a_0 + a_1 \w + a_2 \theta + a_3 \theta\omega + \ldots + a_{m-1}\theta^{n-1})\\
+    &=& \sigma(a_0) + \sigma(a_1 \w) + \sigma(a_2 \theta) + \sigma(a_3 \theta\omega) + \ldots + \sigma(a_{m-1}\theta^{n-1}) \\
+    &=& a_0 + a_1 \sigma(\w) + a_2 \sigma(\theta) + a_3 \theta\sigma(\omega) + \ldots + a_{m-1}\theta^{n-1} \\
+    &=& a_0 + a_1 \w^{-1}+ a_2 \theta + a_3 \theta\sigma(\omega) + \ldots + a_{m-1}\theta^{n-1}
+\end{eqnarray*}
+
+Since the elements of basis are linearly independent, each odd $a_{i}$ must be equal to 0, and so $\beta$ must be expressible as $a_0 + a_2\theta + \ldots + a_{m-1}\theta^{n-1}$, and so $\Q[\theta]$ is an integral basis for $\mathbb{A} \cap \Q[\theta]$.
 
 \item[37.] Let $\alpha$ be an algebraic integer of degree $n$ over $\Q$ and let $f$ and $g$ be polynomials over $\Q$, each of degree $< n$, such that $f(\alpha) = g(\alpha)$.  Show $f = g$.
 
