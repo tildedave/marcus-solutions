@@ -310,14 +310,41 @@ Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computi
 
 \item[35. (d)]  Show that $\mathbb{A} \cap \Q[\theta] = \R \cap \Z[\theta]$.
 
-\begin{align}
+\begin{align*}
     \mathbb{A} \cap \Q[\theta]
         &= \mathbb{A} \cap (\R \cap \Q[\w]) & \text{By 35 (b).}\\
         &= (\mathbb{A} \cap \Q[\w]) \cap \R & \text{By associativity of intersection}\\
         &= \Z[\w] \cap \R & \text{By Theorem 12, Corollary 2}
-\end{align}
+\end{align*}
 
 This is the required result.
+
+\item[35. (e)] Let $n = \phi(m) / 2$.  The set $\{ 1, \w, \w^2, \ldots, \w^{n-1}, \w^{n}, \w^{n+1}, \ldots, \w^{m-1} \}$ is an integral basis for $\Z[\w]$.
+
+Since $w^{n-k} = \w^{-k}$, we can write this basis as $\{1, \w, \w^{-1}, \w^2, \w^{-2}, \ldots, \w^{-n}\}$ instead (note $\w^{n} = \w^{-n}$).  We examine the set $\{1, \w, \theta, \theta\w, \theta^2, \theta^2\w, \ldots, \theta^{n} \}$.
+
+Now we pair up the expressions $\theta^{k}\w$ with $\w^{k+1}$ and $\theta^{k}$ with $\w^{-k}$:
+
+\begin{gather}
+\{1, \w, \w^{-1}, \w^2,     \w^{-2},  \w^{3},     \ldots, \w^{-n} \} \\
+\{1, \w, \theta,  \theta\w, \theta^2, \theta^2\w, \ldots, \theta^{n} \}
+\end{gather}
+
+We evaluate the expression $\theta^{k}$ using the Binomial Theorem:
+
+\[ \theta^{k} = (\w + \w^{-1})^k = \sum_{i = 0}^{k} \binom{k}{i}\ \w^{i} \w^{-(k-i)} = \sum_{i = 0}^{k} \binom{k}{i}\ \w^{2i - k} \]
+
+Therefore
+
+\[ \theta^{k}\w = \sum_{i = 0}^{k} \binom{k}{i}\ \w^{2i - k + 1} \]
+
+For $\theta^{k}$, the power of $\w$ ranges between $-k$ and $k$ for $\theta^{k}$, and it uses 1 term of the power $\w^{-k}$ and no power of $\w$ with absolute value greater than $k$.
+
+For $\theta^{k}\w$, the power of ranges between $-k + 1$ and $k + 1$ for $\theta^{k}\w$.  It uses 1 power of $\w^{k}$ and no other power of $\w$ with absolute value of greater than or equal to $k$.
+
+Therefore, there is a lower triangular translation matrix $A$ between the basis (1) and (2).  $A$ has 1s in the diagonal, and so $A$ has discriminant 1, and so is invertible.  Since (1) is an integral basis of $\Z[\w]$, so is (2).
+
+TODO: typeset this matrix
 
 \item[37.] Let $\alpha$ be an algebraic integer of degree $n$ over $\Q$ and let $f$ and $g$ be polynomials over $\Q$, each of degree $< n$, such that $f(\alpha) = g(\alpha)$.  Show $f = g$.
 
