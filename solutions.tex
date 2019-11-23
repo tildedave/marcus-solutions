@@ -327,8 +327,8 @@ Since $w^{n-k} = \w^{-k}$, we can write this basis as $\{1, \w, \w^{-1}, \w^2, \
 Now we pair up the expressions $\theta^{k}\w$ with $\w^{k+1}$ and $\theta^{k}$ with $\w^{-k}$:
 
 \begin{gather}
-\{1, \w, \w^{-1}, \w^2,     \w^{-2},  \w^{3},     \ldots, \w^{-n} \} \\
-\{1, \w, \theta,  \theta\w, \theta^2, \theta^2\w, \ldots, \theta^{n} \}
+\{1, \w, \w^{-1}, \w^2,     \w^{-2},  \w^{3},     \ldots, \w^{n} \} \\
+\{1, \w, \theta,  \theta\w, \theta^2, \theta^2\w, \ldots, \theta^{n-1}\w \}
 \end{gather}
 
 We evaluate the expression $\theta^{k}$ using the Binomial Theorem:
@@ -343,7 +343,7 @@ For $\theta^{k}$, the power of $\w$ ranges between $-k$ and $k$ for $\theta^{k}$
 
 For $\theta^{k}\w$, the power of ranges between $-k + 1$ and $k + 1$ for $\theta^{k}\w$.  It uses 1 power of $\w^{k}$ and no other power of $\w$ with absolute value of greater than or equal to $k$.
 
-Therefore, there is a lower triangular translation matrix $A$ between the basis (1) and (2).  $A$ has 1s in the diagonal, and so $A$ has discriminant 1, and so is invertible.  Since (1) is an integral basis of $\Z[\w]$, so is (2).
+Therefore, there is a lower triangular translation matrix $A$ between the basis (1) and (2).  $A$ has all 1s in the diagonal, and so $A$ has discriminant 1, and so is invertible over $\Z$.  Since (1) is an integral basis of $\Z[\w]$, so is (2).
 
 \[
     A\ =\hspace{5mm}
@@ -374,9 +374,62 @@ Since $\beta \in \mathbb{R}$, $\sigma(\beta) = \beta$ (where $\sigma$ is complex
 
 Since the elements of basis are linearly independent, each odd $a_{i}$ must be equal to 0, and so $\beta$ must be expressible as $a_0 + a_2\theta + \ldots + a_{m-1}\theta^{n-1}$, and so $\Q[\theta]$ is an integral basis for $\mathbb{A} \cap \Q[\theta]$.
 
+\item[35. (g)] Let $p$ be an odd prime.  Use exercise 23 to show that $\disc{\theta} = \pm p^{(p-3)/2}$.  Show the plus sign must hold.
+
+By Exercise 23,
+\begin{eqnarray*}
+\disc{1, \w, \theta, \theta\w, \ldots, \theta^{n-1}} &=&
+    \disc{\theta}^2 \text{N}^{\Q[\theta]}_{\Q} \text{disc}^{\Q[\w]}_{\Q[\theta]}(\w) \\
+    p^{p - 2} &=& \disc{\theta}^2 \text{N}^{\Q[\theta]}_{\Q} (2\w - \theta) \\
+    &=& \disc{\theta}^2 \text{N}^{\Q[\theta]}_{\Q} (\w - \w^{-1}) \\
+    &=& \disc{\theta}^2 \text{N}^{\Q[\theta]}_{\Q} (\w^{-1}(\w + 1 )(\w - 1))\\
+    &=& \disc{\theta}^2 p\\
+    \pm p^{(p - 3)/2} &=& \disc{\theta}
+\end{eqnarray*}
+As pointed out in the exercise, the square root of the discriminant is present in $\Q[\theta]$.  Since $\Q[\theta] \subseteq \R$, $\disc{\theta} = p^{(p-3)/2}$.
+
 \item[37.] Let $\alpha$ be an algebraic integer of degree $n$ over $\Q$ and let $f$ and $g$ be polynomials over $\Q$, each of degree $< n$, such that $f(\alpha) = g(\alpha)$.  Show $f = g$.
 
 Let $h(x)$ be the minimal polynomial for $\alpha$.  If $f(\alpha) = g(\alpha)$, then $(f - g)(\alpha) = 0$.  Since $h$ is the minimum polynomial for $\alpha$, $h \mid f - g$.  However, $f - g$ has degree $< n$, and so $f - g = 0$.  Therefore $f = g$.
+
+\item[41. (a)] Let $m$ be a cubefree integer, $\alpha = \sqrt[3]{m}$, and write $m$ as $hk^2$ with $h, k$ relatively prime.  Let $R = \mathbb{A} \cap \Q[\alpha]$.  (Therefore $k^2$ has any square factors of $m$.).  Show $\disc{\alpha} = -27m^2$ (the 2018 edition has a typo).
+
+Let $f(x) = x^3 - m$; $f(x)$ is the minimum polynomial of $\alpha$ over $\Q$ and has degree 3 (not $\equiv 0, 1\ (4)$), so $\disc{\alpha} = -\norm{f'(\alpha)}$.  $f'(\alpha) = 3\alpha^2$ so $\alpha f'(\alpha) = 3m$ and $f'(\alpha) = 3m / \alpha$.  Note $\norm{\alpha} = m$ so $\norm{\alpha^{-1}} = 1/m$.  Therefore we have
+\begin{gather*}
+    \norm{3m/\alpha} = 27m^3 \norm{\alpha^{-1}} = 27m^2 \\
+    \disc{\alpha} = -27m^2
+\end{gather*}
+Using Exercise 40, we see $-27m^2 = (d_1 d_2)^2 \disc{R}$ and $d_1^2 | d_2$, so writing $d_2 = d_1^2 j$, we have \[ -27m^2 = d_1^4 j^2 \disc{R} \]
+
+Since $d_1$ has a sextic factor on the righthand-size, the only possibilities for $d_1$ are 1 or 3.  If $d_1 = 3$ then $9 \mid m$.
+
+\item[41. (b)]  Show $d_1 = 1$ even when $9 \mid m$.
+
+Suppose $9 \mid m$ and $d_1 = 3$.  Then $R$ has an integral basis with $1$ and $(\alpha + a)/3$ as two of the three basis vectors.
+
+Let $\beta = (\ alpha + a) / 3$ for some integer $a$.  As suggested in the exercise hint we consider the trace of $\beta^3$.  First, we determine the trace of $\alpha$ and $\alpha^2$ as these will be important to evaluate $\trace{\beta}$.
+\begin{gather*}
+    \trace{\alpha} = \alpha + \w\alpha + \w^2\alpha = \alpha(\w^2 + \w + 1) = 0\\
+    \trace{\alpha^2} = \alpha^2 + \w^2 \alpha^2 + \w\alpha^2 = \alpha^2(\w^2 + \w + 1) = 0
+\end{gather*}
+With these in hand we now have \[ \beta^3 = \frac{(\alpha + a)^3}{27} = \frac{m + 3\alpha^2 a + 3a^2 \alpha + a^3}{27} \]
+
+By the additive linearity of trace, we have
+\begin{eqnarray*}
+    \trace{\beta^3} &=& \frac{m}{9} + \frac{3a}{27}\trace{\alpha^2} + \frac{3a^2}{27}\trace{\alpha} + \frac{3a^3}{27}\\
+    &=& \frac{m}{9} + \frac{3a^3}{27} \\
+    &=& \text{Integer} + \frac{3a^3}{27}
+\end{eqnarray*}
+
+Since $\beta$ is an algebraic integer, $\beta^3$ is also an algebraic integer, and its trace must be a member of $\Z$.  Therefore $\frac{3a^3}{27}$ must be an integer, and so $27$ must divide $3a^3$, which means that $9$ divides $a^3$ and so 3 divides $a$.
+
+Since 3 divides $a$, $\frac{\alpha + a}{3} = \frac{\alpha}{3} + \text{Integer}$.  Therefore $\alpha/3$ is a member of $R$, so $(\alpha / 3)^3 = m / 27 \in R$.  However, $m$ is cubefree and so $m / 27 \not \in \Z$.  This contradicts Corollary 1 of Theorem 1 - the only members of $\Q$ that are algebraic integers are members of $\Z$.
+
+Therefore $d_1 = 1$ in all cases, and so $R$ has a basis containing $1$ and $\alpha$.  The third basis vector has yet to be determined.
+
+\item[41. (c)] Write $m$ as $hk^2$.  Then $(\alpha^2 / k)^3 = m^2 / k^3 = (h^2 k^4)(k^3) = h^2 k$, and so $\alpha^2 / k$ is the root of the polynomial $f(x) = x^3 - h^2k$, and so $\alpha^2 / k \in R$.
+
+\item[41. (d)] Suppose $m \equiv \pm 1\ (9)$.  Let $\beta = (\alpha \mp 1)^2 / 3$.
 
 \item[43. (a)] Let $f(x) = x^5 + ax + b$ with $a, b \in \Z$ and $f$ irreducible over $\Q$.  Let $\alpha$ be a root of $f$.  Show $\disc{\alpha} = 4^4 a^5 + 5^5 b^4$.
 
