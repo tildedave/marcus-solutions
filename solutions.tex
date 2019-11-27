@@ -486,8 +486,23 @@ Moving the terms around, we have the required result:
 
 Since $m \equiv \pm 1\ (9)$, $1 \pm 2m$ is divisible by 3, and $m \mp 1$ is divisible by 9, so $(m \mp 1)^2$ is divisible by 27.  Therefore $\beta$ is the root of a monic polynomial with integer coefficients and so $\beta \in R$.
 
-\item[41. (e) - TODO] Using (c) and (d), show that if $m \equiv \pm 1\ (9)$ then
+\item[41. (e)] Using (c) and (d), show that if $m \equiv \pm 1\ (9)$ then
 \[ \frac{\alpha^2 \pm k^2 \alpha + k^2}{3k} \in R \]
+
+Since $\alpha^2 / k \in R$, we can adding $k\alpha + k$ to the element to see that \[ \frac{\alpha^2 + k^2\alpha + k^2}{k} \in R \]
+
+Next, observe that $\modequiv{k^2}{1}{3}$ - it cannot be 0 since $\modequiv{m}{\pm 1}{9}$.  Therefore $(k^2 - 1)/3$ and $(k^2 + 2)/3$ are integers.  Taking $(\alpha^2 \mp 2\alpha + 1)/3$, we add $(k^2 - 1)/3$ to see that \[ \frac{\alpha^2 \mp 2\alpha + k^2}{3} \in R \]
+
+Next we have
+\[ \frac{\alpha^2 \mp 2\alpha + k^2}{3} \pm \frac{\alpha(k^2 - 2)}{3} = \frac{\alpha^2 \pm k^2\alpha + k^2}{3} \in R \]
+
+Since $3 \nmid k$ and 3 is a prime, there exist integers $a, b$ such that $3a + bk = 1$.  Therefore
+\begin{eqnarray*}
+    b\left(\frac{\alpha^2 \pm k^2\alpha + k^2}{3}\right) + a\left(\frac{\alpha^2 \pm k^2\alpha + k^2}{k}\right) &=& \frac{(kb + 3a)(\alpha^2 \pm k^2\alpha + k^2)}{3k} \\
+    &=& \frac{\alpha^2 \pm k^2\alpha + k^2}{3k} \in R
+\end{eqnarray*}
+
+This is the required result.
 
 \item[41. (f)]  We have $\disc{\alpha} = -27m^2$.  By Exercise 40(a), $d_2^2 \disc{R} = \disc{\alpha} = -27m^2 = -27h^2 k^4$.  We know $k \mid d_2$ so write $d_2 = jk$, thus $j^2 k^2 \disc{R} = -27h^2 k^4$ and so $j^2 \disc{R} = -27h^2 k^2 = -27mh$.  By assumption $h$ is squarefree, so $j^2 \mid -27m$, implying either $j \mid 3$ or $j \mid m$.  Therefore $j \mid 3m$.
 
