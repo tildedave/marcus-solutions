@@ -19,6 +19,8 @@
 \newcommand{\trace}[1]{\text{Tr}(#1)}
 \newcommand{\norm}[1]{\text{N}(#1)}
 \newcommand{\disc}[1]{\text{disc}(#1)}
+\newcommand{\modequiv}[3]{#1 \equiv #2\ (#3)}
+\newcommand{\modnotequiv}[3]{#1 \not\equiv #2\ (#3)}
 
 \begin{document}
 
@@ -58,7 +60,7 @@ Therefore the quadratic fields are each distinct.
 
     We finish by considering $m \mod 4$ and seeing under which statements the given equation is solvable.  The key is that integer squares are either equivalent to 0 or 1 modulo 4.
     \begin{itemize}
-        \item {\bf $m \equiv 1 \mod 4$}:  Let $a$ be even - then $a^2 \equiv 0 \mod 4$, and to satisfy the equality, $b^2 \equiv 0 \mod 4$ and so $b$ must also be even.  Similarly, if $a$ is odd, then $a^2 \equiv 1 \mod 4$ - to satisfy the equality, $b$ must also be odd.  Therefore $\alpha = \frac{a + b\sqrt{m}}{2}$ for all $a \equiv b\ (2)$ as required.
+        \item {\bf $\modequiv{m}{1}{4}$}:  Let $a$ be even - then $a^2 \equiv 0 \mod 4$, and to satisfy the equality, $b^2 \equiv 0 \mod 4$ and so $b$ must also be even.  Similarly, if $a$ is odd, then $a^2 \equiv 1 \mod 4$ - to satisfy the equality, $b$ must also be odd.  Therefore $\alpha = \frac{a + b\sqrt{m}}{2}$ for all $a \equiv b\ (2)$ as required.
         \item {\bf $m \equiv 2, 3 \mod 4$}: For the equation to be solvable, both $a$ and $b$ must be equivalent to 0 or 2 modulo 4 (and so even), meaning $\alpha = c + d\sqrt{m}$ for $c, d \in \mathbb{Z}$ as required.
     \end{itemize}
 
@@ -156,11 +158,11 @@ Therefore, the conjugates of $u / \overline{u}$ have the form $a_i / \overline{a
 
 \item[13] Show that 1 and -1 are the only units in the ring $A \cap \Q[\sqrt{m}]$, $m$ squarefree and $m < 0, m \neq -1, -3$.  What if $m = -1, -3$?
 
-Let $u$ be a unit in $A \cap \Q[\sqrt{m}]$.  Then $u = a + b\sqrt{m}$ where $p, q \in A \cap \Q[sqrt{m}]$. Since $N(u) = 1$, then $(a + b\sqrt{m})(a - b\sqrt{m}) = a^2 - b^2 m = 1$.  We proceed by cases on whether $m \equiv 1 \mod 4$.
+Let $u$ be a unit in $A \cap \Q[\sqrt{m}]$.  Then $u = a + b\sqrt{m}$ where $p, q \in A \cap \Q[sqrt{m}]$. Since $N(u) = 1$, then $(a + b\sqrt{m})(a - b\sqrt{m}) = a^2 - b^2 m = 1$.  We proceed by cases on whether $\modequiv{m}{1}{4}$.
 
 If $m \not\equiv 1 \mod 4$, then $a$ and $b$ must be integers and so $a^2 - b^2 m = 1$ can only be satisfied if one of the terms is 1 and the other is 0.  If $a^2 = 1$, then $b^2 m = 0$.  This corresponds to the units 1 and -1 in $A \cap \Q[\sqrt{m}]$.  If $-b^2 m = 1$, then $b^2 m = -1$ and so $m = -1$.  This corresponds to the units $i$ and $-i$ in $A \cap \Q[\sqrt{-1}]$.
 
-If $m \equiv 1 \mod 4$ then let $a = r / 2$ and $b = s / 2$.  Therefore $r^2 - s^2 m = 4$.  Since $m$ is negative, both $r^2$ and $-s^2 m$ must be positive.  $r^2$ must be either $0$, $1$, or $4$.
+If $\modequiv{m}{1}{4}$ then let $a = r / 2$ and $b = s / 2$.  Therefore $r^2 - s^2 m = 4$.  Since $m$ is negative, both $r^2$ and $-s^2 m$ must be positive.  $r^2$ must be either $0$, $1$, or $4$.
 
 If $r^2$ is 0 then $-s^2 m = 4$, so $s^2 m = -4$, forcing $m = -1$ which is not $\equiv \mod 4$.  (We have considered this case already.)
 
@@ -484,8 +486,69 @@ Moving the terms around, we have the required result:
 
 Since $m \equiv \pm 1\ (9)$, $1 \pm 2m$ is divisible by 3, and $m \mp 1$ is divisible by 9, so $(m \mp 1)^2$ is divisible by 27.  Therefore $\beta$ is the root of a monic polynomial with integer coefficients and so $\beta \in R$.
 
-\item[41. (e)] Using (c) and (d), show that if $m \equiv \pm 1\ (9)$ then
+\item[41. (e) - TODO] Using (c) and (d), show that if $m \equiv \pm 1\ (9)$ then
 \[ \frac{\alpha^2 \pm k^2 \alpha + k^2}{3k} \in R \]
+
+\item[41. (f)]  We have $\disc{\alpha} = -27m^2$.  By Exercise 40(a), $d_2^2 \disc{R} = \disc{\alpha} = -27m^2 = -27h^2 k^4$.  We know $k \mid d_2$ so write $d_2 = jk$, thus $j^2 k^2 \disc{R} = -27h^2 k^4$ and so $j^2 \disc{R} = -27h^2 k^2 = -27mh$.  By assumption $h$ is squarefree, so $j^2 \mid -27m$, implying either $j \mid 3$ or $j \mid m$.  Therefore $j \mid 3m$.
+
+\item[41. (g)]  Letting $p$ be a prime such that $p \neq 3$, $p \mid m$, $p^2 \mid m$.  Let $p \mid d_2$, and write $d_2 = pj$.  Therefore if $(\alpha^2 + a\alpha + b) / d_2 \in R$, then \[ j(\alpha^2 + a\alpha + b) / d_2 = (\alpha^2 + a\alpha + b) / p \in R \]  Since $(\alpha^2 + a\alpha + b)/p \in R$, its trace must be an integer; however $\trace{\alpha^2} =\trace{\alpha} = 0$, and so $3b / p \in \Z$.  $p \neq 3$, therefore $p \mid b$.  Therefore $(\alpha^2 + a\alpha) / p \in R$.
+
+\[ \trace{((\alpha^2 + a\alpha)/p)^3} = \trace{(m^2 + a^3 m)/p^3} \]
+
+Therefore $p^3 \mid 3(m^2 + a^3 m)$.  Since $p \neq 3$, $p^3 \mid m(m + a^3)$.  $m$ is cubefree and $p^2 \nmid m$, so $p^2 \mid m + a^3$.  Therefore $a^3 \equiv 0\ (p)$, meaning $a \equiv 0\ (p)$.  Considering the equation modulo $p^2$ we then have $m \equiv 0\ (p^2)$, a contradiction.  Therefore this case is impossible.
+
+\item[41. (h)] Let $p \neq 3$ and $p^2 \mid m$.  By the previous problem $(\alpha^2 + a\alpha)/p^2 \in R$ and so we consider the trace:
+\[ \trace{((\alpha^2 + a\alpha)/p^2)^3} = \trace{(m^2 + a^3 m)/p^6} \]
+Therefore $p^6 \mid m(m + a^3)$.  Since $p^2 \mid m$, $p^4 \mid m + a^3$.  Considering the equation modulo $p^2$, we must have $a^3 \equiv 0\ (p^2)$, so $p^2 \mid a^3$.  Therefore $p \mid a$ and so $p^3 \mid a^3$.  Therefore $m + a^3 \equiv 0\ (p^3)$ and so $m \equiv 0\ (p^3)$ again contradicting $m$ cubefree.
+
+Together with (g) this shows that $d_2$ has no common prime factor with $m$ that is not equal to 3.
+
+\item[41. (i)] Take $(\alpha^2 + a\alpha + b)/d_2$.
+
+\begin{eqnarray*}
+    \frac{(\alpha^2 + a\alpha + b)^2}{d_2^2} &=& \frac{m\alpha + 2am + 2\alpha^2b + a^2\alpha^2 + 2ab\alpha + b^2}{d_2^2} \\
+     &=& \frac{\alpha^2 (a^2 + 2b) + \alpha(m + 2ab) + (2am + b^2)}{d_2^2}
+\end{eqnarray*}
+
+Since this is an element of the ring and the basis element of order 2 has denominator $d_2$, $d_2$ must divide each of $a^2 + 2b$, $m + 2ab$, and $2am + b^2$.
+
+\item[41. (j)]  We now consider what power of 3 divides $d_2$.  We know $d_2 \mid 3m$.  If $3 \nmid m$, then $9 \nmid d_2$.  Therefore, if $m \equiv \pm 1\ (9)$, $d_2 = 3k$; it cannot be any non-3 prime dividing $m$ by (g) and (h), and 9 does not divide $m$.
+
+We now consider the case where $m \nequiv \pm 1\ (9)$ and $3 \nmid m$.  We assume $3 \mid d_2$ (to show a contradiction).
+
+We evaluate the congruences obtained in (i) modulo 3.  Since $a^2 + 2b \equiv 0\ (3)$, $a^2 - b \equiv 0\ (3)$, and so $b \equiv a^2\ (3)$.  Substituting $b$ with $a^2$ in the equation $m + 2ab \equiv 0\ (3)$, we have $m + 2a^3 \equiv 0\ (3)$ and so $m - a^3 \equiv m - a \equiv 0\ (3)$, so therefore $a \equiv m\ (3)$.  Substituting $m$ for $a$ in the equivalence $b^2 + 2am \equiv 0\ (3)$, we have $b^2 \equiv -2a^2 \equiv a^2 \ (3)$.  Therefore since $a^2 + 2b \equiv 0\ (3)$, we have $b(b + 2) \equiv b(b - 1) \equiv 0\ (3)$.  $b \not\equiv 0\ (3)$ (as this would imply $m \equiv 0\ (3)$) so we must have $b \equiv 1\ (3)$.
+
+Therefore we can write the basis element of order 2 as $\frac{\alpha^2 + (m + 3l)\alpha + (3j + 1)}{3i}$ for some $i, l, j$, and so by multiplying through by $i$ and subtracting the term $3l\alpha + 3j$ from the resulting fraction, we have:
+
+\[ \frac{\alpha^2 + m\alpha + 1}{3} \in R \]
+
+We now proceed by case on $m$ congruence to 3.  (Almost there!)
+
+Suppose $\modequiv{m}{1}{3}$.  Then $\frac{\alpha^2 + \alpha + 1}{3} \in R$ and so by subtracing $\alpha$, $\frac{\alpha^2 - 2\alpha + 1}{3} = \frac{(\alpha - 1)^2}{3} \in R$.
+
+We raise this to the fourth power and take the trace.  The only terms that contribute to the trace are those where $\alpha$ is raised to a power divisible by 3, so we have:
+
+\begin{eqnarray*}
+    \trace{\frac{(\alpha - 1)^8}{3^4}} &=& \frac{3}{3^4}\left(\binom{8}{6}\alpha^6 (-1)^2 + \binom{8}{3}\alpha^3 (-1)^5 + (-1)^8\right)\\
+    &=& \frac{1}{27} \left(28m^2 - 56m + 1\right)
+\end{eqnarray*}
+
+Therefore, 27 must divide $28m^2 - 56m + 1$.  Congruent to 9, this equation reduces to $m^2 - 2m + 1 \equiv 0\ (9)$ so $(m + 1)(m - 1) \equiv 0\ (9)$.  However this contradicts $m \not\equiv \pm 1\ (9)$.  So $m$ cannot be congruent to 1 mod 3.
+
+Next, suppose $m \equiv 2\ (3)$.  Threefore $\frac{\alpha^2 + 2\alpha + 1}{3} = \frac{(\alpha + 1)^2}{3} \in R$.  Again we raise this to the fourth power and take the trace.  (The equation is the same except for the negative terms.)
+
+\[ \trace{\frac{(\alpha + 1)^8}{3^4}} = \frac{1}{27}\left(28m^2 + 56m + 1\right) \]
+Modulo 9 we have $\modequiv{m^2 + 2m + 1}{0}{9}$ so $\modequiv{(m+1)^2}{0}{9}$ and so $\modequiv{m}{-1}{9}$, again contradicting $\modnotequiv{m}{\pm 1}{9}$.
+
+Therefore if $3 \nmid m$ and $\modnotequiv{m}{\pm 1}{9}$, $3 \nmid d_2$.
+
+\item[41. (k)]  Suppose $3 \mid m$ but $9 \nmid m$.  We assume $3 \mid d_2$ to show a contradiction.  By (i), $\modequiv{a^2 + 2b}{0}{3}$, so $\modequiv{a^2}{b}{3}$ (*).  Plugging this into $\modequiv{m + 2ab}{0}{3}$ we have $\modequiv{m - a^3}{0}{3}$.  Since $\modequiv{a^3}{a}{3}$, we thus have $\modequiv{m}{a}{3}$ and so $\modequiv{a}{0}{3}$, and also $\modequiv{b}{0}{3}$ by (*).
+
+Therefore we can write the basis element of order 2 as $\frac{\alpha^2 + 3i\alpha + 3j}{3l}$, and by multiplying through by $l$ and subtracting $i\alpha + j$, we have $\frac{\alpha^2}{3} \in R$.  Cubing this element and taking the trace we must have $m^2  / 9 \in \Z$, contradicting $9 \nmid m$.  Therefore $3 \nmid d_2$.
+
+\item[41. (l)]  Suppose $9 \mid m$.  We show $9 \nmid d_2$.  Assume $9 \mid d_2$ (to show a contradiction).  By (i), $9 \mid ab$ and $9 \mid b^2$ so either $9 \mid b$ or $3 \mid b$.  Assume $3 \mid b$, therefore since $\modequiv{a^2 + 2b}{0}{9}$, we must have $\modequiv{a^2}{-6 \equiv 3}{9}$.  However, 3 is not the square of any element mod 9, so this equation is unsatisfiable.  We must have $9 \mid b$.
+
+Therefore, $(a^2 + a\alpha) / 9 \in R$.  Taking this to the third power and considering the trace, we must have $9^3 \mid 3(m^2 + ma^3)$ and $9^2 3 \mid m(m + a^3)$.  Since $m$ is cubefree and $9 \mid m$, therefore $27 \mid m + a^3$.  Considering $m + a^3$ modulo 9, we have $\modequiv{a^3}{0}{9}$; therefore $a$ must be congruent to 0, 3, or 6 modulo 9.  In all these cases we have $\modequiv{a^2}{0}{9}$.  Since $9^2 \mid a^3$ and $9^2 \mid (m + a^3)$, $9^2 \mid m$, which contradicts $m$ being cube-free.  Therefore $9 \nmid d_2$.
 
 \item[43. (a)] Let $f(x) = x^5 + ax + b$ with $a, b \in \Z$ and $f$ irreducible over $\Q$.  Let $\alpha$ be a root of $f$.  Show $\disc{\alpha} = 4^4 a^5 + 5^5 b^4$.
 
