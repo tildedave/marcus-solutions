@@ -52,7 +52,7 @@ Therefore the quadratic fields are each distinct.
 
     (We should expect this; $\mathbb{Z}[\sqrt{-3}]$ is an order of conductor $2$ in $\mathbb{Z}[\frac{1 + \sqrt{-3}}{2}]$ and $I$ is not prime to the conductor, meaning it is not invertible.)
 
-\item[3]
+\item[3.]
     Complete the proof of Corollary 2, Theorem 1.
 
     The statement of the text leaves off with $\alpha$ being an algebraic integer if and only if $2r$ and $r^2 - ms^2$ are both integers, where $r, s \in \mathbb{Q}$.
@@ -65,14 +65,14 @@ Therefore the quadratic fields are each distinct.
         \item {\bf $m \equiv 2, 3 \mod 4$}: For the equation to be solvable, both $a$ and $b$ must be equivalent to 0 or 2 modulo 4 (and so even), meaning $\alpha = c + d\sqrt{m}$ for $c, d \in \mathbb{Z}$ as required.
     \end{itemize}
 
-\item[4]
+\item[4.]
     Suppose $a_0, \ldots, a_{n_1}$ are algebraic integers and $\alpha$ is a complex number satisfiying $\alpha^n + a_{n-1}\alpha^{n-1} + \cdots + a_1\alpha + a_0 = 0$.  Show the ring $\mathbb{Z}{[a_0, \ldots, a_{n-1}, \alpha]}$ has a finitely generated additive group.
 
     For each $a_i$ let $k_i$ be the degree of the algebraic integer $a_i$ over $\mathbb{Q}$: therefore for any power $k >= k_i$, it can be written as a linear combination of powers of $a_i$ less than $k_i$.  Additionally any power of $\alpha^k$ where $k \ge n$ can be written as a linear combination of powers of $\alpha$ multiplied by each of the $a_i$.  Therefore only a finite number of powers of $a_0^{m_0} \cdots a_n^{m_n} \alpha^{m}$ are needed; the $a_i$ terms are capped to be lower than $k_i$ and the $\alpha$ term is capped to be lower than $n$.
 
     Since $\alpha$ is a member of a subring of $\mathbb{C}$ that is finitely generated, $\alpha$ is therefore an algebraic integer.
 
-\item[5]
+\item[5.]
     Let $f$ be a polynomial over $\mathbb{Z}_p$ where $p$ is a prime.  We prove $f(x^p) = (f(x))^p$ by induction on number of terms.
 
     If $f(x) = kx^{b}$ where $k \in \mathbb{Z}_p$, then $f(x^p) = kx^{pb} = k^p x^{bp} = (kx^{b})^p$ (since $k^p = k$ for all $k \in \mathbb{Z}_p$).
@@ -87,9 +87,9 @@ Therefore the quadratic fields are each distinct.
     \end{eqnarray*}
     This is the required result.
 
-\item[6] If $f$ and $g$ are polynomials over a field $K$ and $f^2 \mid g$, then $g = f^2 h$.  Therefore $g' = f^2 h' + 2 h f f'$, so $f \mid g'$.
+\item[6.] If $f$ and $g$ are polynomials over a field $K$ and $f^2 \mid g$, then $g = f^2 h$.  Therefore $g' = f^2 h' + 2 h f f'$, so $f \mid g'$.
 
-\item[7] Complete the proof of Corollary 2, Theorem 3.
+\item[7.] Complete the proof of Corollary 2, Theorem 3.
 
 Let $\phi_{k}$ be the automorphism of $\mathbb{Q}[\omega]$ sending $\omega$ to $\omega^k$.  Then $(\phi_{a} \circ \phi_{b}) (\omega) = (\omega^{a})^{b} = \omega^{ab} = \phi_{ab}$, giving the required result that composition of automorphisms corresponds to multiplication modulo $m$.
 
@@ -123,11 +123,11 @@ $m = 2q$ where $q$ is a product of odd primes:  Here $d = 8q$.  By the above, $\
 
 This shows every quadratic field $\mathbb{Q}[\sqrt{m}]$ is contained within the $d$-th cyclotomic field.
 
-\item[9] Let $\theta$ be a primitive $k$-th root of unity, i.e. $\theta = e^{2\pi i / k}$.  Let $\text{gcd}(k, m) = d$.  Using Euclid's extended algorithm we can find $u, v$ such that $uk + vm = d$.  Then we have
+\item[9.] Let $\theta$ be a primitive $k$-th root of unity, i.e. $\theta = e^{2\pi i / k}$.  Let $\text{gcd}(k, m) = d$.  Using Euclid's extended algorithm we can find $u, v$ such that $uk + vm = d$.  Then we have
 \[ \w^u \theta^v = e^{(2\pi i u)/m} e^{(2\pi i v) / k} = e^{2\pi i (uk + vm) / km} = e^{2\pi i d / km} = e^{2\pi i / r} \]
 where $r = \text{lcm}(k, m)$ ($\text{lcm}(k, m) = km / \text{gcd}(k, m)$).
 
-\item[10] Show if $m$ is even, $m \mid r$, and $\phi(r) \le \phi(m)$ then $r = m$.
+\item[10.] Show if $m$ is even, $m \mid r$, and $\phi(r) \le \phi(m)$ then $r = m$.
 
 If $m \mid r$ there is some $k$ such that $mk = r$.  Let $d = \gcd(k, m)$, so $r = mdj$ with $j$ satisfiying $\gcd(j, m) = 1$.  Therefore $\phi(r) = \phi(md)\phi(j)$.  Since $d \mid m$, $\phi(md) = d \cdot \phi(m)$, so \[ \phi(r) = d \cdot \phi(m)\phi(j) \le \phi(m) \]  The inequality forces $d = 1$ and $\phi(j) = 1$.  Because $2 \mid m \mid r$, $\phi(j) = 1$ implies $j = 1$.  Therefore $m = r$.
 
@@ -157,7 +157,7 @@ Therefore, the conjugates of $u / \overline{u}$ have the form $a_i / \overline{a
 
 \item[12. (b)] Suppose $u / \overline{u} = -\omega^{k}$.  We derive a contradiction.  Raising both sides to the $p$-th power we have $u^p / \overline{u^p} = -(\omega^{k})^p = -(\omega^{p})^k = -1$, and so $u^p = -\overline{u^p}$.  By exercise 1.25, $u^p \equiv a\ (p)$ for some $a \in \Z$.  Applying exercise 1.23, we see $\overline{u^p} \equiv \overline{a} = a\ (p)$, and so $a \equiv -a\ (p)$.  There $a$ must be 0, and $u^p \equiv 0\ (p)$, so $p$ divides $u^p$.  This contradicts $u^p$ being a unit, since if $p$ divided $u^p$, p would also divide the absolute value of $u^p$, which is 1.  Therefore $u / \overline{u} = \omega^{k}$.
 
-\item[13] Show that 1 and -1 are the only units in the ring $A \cap \Q[\sqrt{m}]$, $m$ squarefree and $m < 0, m \neq -1, -3$.  What if $m = -1, -3$?
+\item[13.] Show that 1 and -1 are the only units in the ring $A \cap \Q[\sqrt{m}]$, $m$ squarefree and $m < 0, m \neq -1, -3$.  What if $m = -1, -3$?
 
 Let $u$ be a unit in $A \cap \Q[\sqrt{m}]$.  Then $u = a + b\sqrt{m}$ where $p, q \in A \cap \Q[sqrt{m}]$. Since $N(u) = 1$, then $(a + b\sqrt{m})(a - b\sqrt{m}) = a^2 - b^2 m = 1$.  We proceed by cases on whether $\modequiv{m}{1}{4}$.
 
@@ -171,7 +171,7 @@ If $r^2$ is 1 then $-s^2 m = 3$ so $s^2 m = -3$ and $m = -3$, $s = \pm 1$.  This
 
 If $r^2$ is 4 then $- s^2 m = 0$, which corresponds to the unit $\pm 1$ in the ring $A \cap \Q[\sqrt{m}]$.
 
-\item[14] Show that $1 + \sqrt{2}$ is a unit in $\mathbb{Z}[\sqrt{2}]$, but not a root of 1.
+\item[14.] Show that $1 + \sqrt{2}$ is a unit in $\mathbb{Z}[\sqrt{2}]$, but not a root of 1.
 
 $1 + \sqrt{2}$ is a unit, as $-(1 - \sqrt{2})$ is its inverse: \[ -(1 + \sqrt{2})(1 - \sqrt{2}) = -1 + (\sqrt{2})^2 = 1 \]
 
@@ -181,14 +181,11 @@ Let $(1 + \sqrt{2})^k = a + b\sqrt{2}$.  The inverse of this term is \[((1 + \sq
 
 Therefore, $(a + b\sqrt{2})^k \cdot (a - b\sqrt{2})^k = \pm 1$ and so the powers of $1 + \sqrt{2}$ give an infinite number of $a$, $b$ such that $a^2 - 2b^2 = \pm 1$.
 
-\item[15]
-\begin{itemize}
-    \item[(a)] Let $a + b\sqrt{-5}$ be an element of $\zquad{-5}$.  Then the norm of $a + b\sqrt{-5}$ is $(a + b\sqrt{-5})(a - b\sqrt{-5}) = a^2 + 5b^2$, where $a, b \in \mathbb{Z}$.  Since there are no integer solutions $a, b$ such that $a^2 + 5b^2 = 2$ or $a^2 + 5b^2 = 3$, there can be no element of $\zquad{-5}$ with a norm of $2$ or $3$.
-    \item[(b)] In $\zquad{-5}$, $6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})$.  If unique factorization held in $\zquad{-5}$, there would be elements $a, b, c, d \in \zquad{-5}$ such that $a \cdot b = 2$, $c \cdot d = 3$, $a \cdot d  =  1 + \sqrt{-5}$, $b \cdot c = 1 - \sqrt{-5}$.
+\item[15. (a)] Let $a + b\sqrt{-5}$ be an element of $\zquad{-5}$.  Then the norm of $a + b\sqrt{-5}$ is $(a + b\sqrt{-5})(a - b\sqrt{-5}) = a^2 + 5b^2$, where $a, b \in \mathbb{Z}$.  Since there are no integer solutions $a, b$ such that $a^2 + 5b^2 = 2$ or $a^2 + 5b^2 = 3$, there can be no element of $\zquad{-5}$ with a norm of $2$ or $3$.
+\item[15. (b)] In $\zquad{-5}$, $6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})$.  If unique factorization held in $\zquad{-5}$, there would be elements $a, b, c, d \in \zquad{-5}$ such that $a \cdot b = 2$, $c \cdot d = 3$, $a \cdot d  =  1 + \sqrt{-5}$, $b \cdot c = 1 - \sqrt{-5}$.
     However by (a), 2 and 3 are irreducible in $\zquad{-5}$, meaning they are irreducible elements, and so no $a, b, c, d$ can exist.
-\end{itemize}
 
-\item[16]
+\item[16.]
 We argue in the style of K. Conrad: Trace and Norm, Section 4.  Suppose $\sqrt{3} \in \qext{\alpha}$ where $\alpha = \sqrt[4]{2}$; therefore $\sqrt{3} = a + b\alpha + c\alpha^2 + d\alpha^3$.  We have the following traces:
 \begin{eqnarray*}
     \trace{\sqrt{3}} &=& \sqrt{3} - \sqrt{3} = 0 \\
@@ -213,15 +210,15 @@ From eliminating the coefficients $a, b, c$, we have $d\sqrt[4]{8} = \sqrt{3}$ a
 
 (Where would this argument break down for $\sqrt{2}$?  $\sqrt{2} = \alpha^2$ so $\sqrt{2} / \alpha^2 = 1$ and so we would conclude that $c = 1$ rather than $c = 0$.)
 
-\item[17]{(TODO)}
+\item[17 - TODO]
 
-\item[18]{(TODO)}
+\item[18 - TODO]
 
-\item[19]{(TODO)}
+\item[19 - TODO]
 
-\item[20] Write $f(x) = (x - \alpha)g(x)$.  By the chain rule $f'(x) = (x - \alpha)g'(x) + g(x)$, so $f'(\alpha) = g(\alpha) = \prod_{\beta \neq \alpha} (\alpha - \beta)$.
+\item[20.] Write $f(x) = (x - \alpha)g(x)$.  By the chain rule $f'(x) = (x - \alpha)g'(x) + g(x)$, so $f'(\alpha) = g(\alpha) = \prod_{\beta \neq \alpha} (\alpha - \beta)$.
 
-\item[21] Let $f(x) = g(x) h(x)$, where $g(x)$ is the minimum polynomial of $\alpha$ over $\mathbb{Z}$.  Then $f'(x) = g'(x)h(x) + g(x) h'(x)$ and $f'(\alpha) = g'(\alpha)h(\alpha)$.  We have \[ \norm{f'(\alpha)} = \norm{g'(\alpha)}\norm{h(\alpha)} \].  By Theorem 8, $\norm{g'(\alpha)} = \pm \disc{\alpha}$, so \[ \norm{f'(\alpha)} = \pm \disc{\alpha}\norm{h(\alpha)} \]
+\item[21.] Let $f(x) = g(x) h(x)$, where $g(x)$ is the minimum polynomial of $\alpha$ over $\mathbb{Z}$.  Then $f'(x) = g'(x)h(x) + g(x) h'(x)$ and $f'(\alpha) = g'(\alpha)h(\alpha)$.  We have \[ \norm{f'(\alpha)} = \norm{g'(\alpha)}\norm{h(\alpha)} \].  By Theorem 8, $\norm{g'(\alpha)} = \pm \disc{\alpha}$, so \[ \norm{f'(\alpha)} = \pm \disc{\alpha}\norm{h(\alpha)} \]
 Therefore $\disc{\alpha}$ divides $\norm{f'(\alpha)}$ as required.
 
 \item[23. (c)] Let $\{ \alpha_1, \ldots, \alpha_n \}$ be an integral basis for $K$ ($n = [K : \Q$) and let $\{ \beta_1, \ldots, \beta_m \}$ be an integral basis for $L$ ($m = [L : \Q]$).  Therefore \[ \{ \alpha_i \beta_j \ |\ 1 \le i \le n, 1 \le j \le m \] is an integral basis for $KL$.
@@ -307,7 +304,13 @@ For both given scenarios, the ring of integers is a linear combination of the ri
 
 \item [29. (b)] The rings of integers for $\Q[\sqrt{m}]$ and $\Q[\sqrt{n}]$ are $\Z[(1 +\sqrt{m})/2]$ and $\Z[\sqrt{n}]$, with discriminants $m$ and $4n$.  Since $m$ was assumed to be squarefree, $(m, 4n) = 1$, so Theorem 12, Corollary 1 applies again.  The field $\Q[\sqrt{m}, \sqrt{n}]$ thus has an integral basis $\{ 1, (\sqrt{m} + 1)/2, \sqrt{n}, (\sqrt{mn} + \sqrt{n})/2 \}$.  By Exercise 23 (c), the discriminant for this basis is $m^2 (4n)^2 = 16m^2 n^2$.
 
-\item[30. (a)] TODO (Write Up)
+\item[30.] Let $f$ be the monic irreducible polynomial for $\alpha$ over $\Z$ and for each $g \in \Z[x]$, let $\overline{g}$ denote the polynomial in $\Z_3[x]$ obtained by reducing the coefficients mod 3.
+
+\item[30. (a)] Show that $g(\alpha)$ is divisible by 3 in $\Z[\alpha]$ if and only if $\overline{g}$ is divisible by $\overline{f}$ in $\Z_3[x]$.
+
+Suppose $g(\alpha)$ is divisible by 3.  Then $g(\alpha) = 3m$ for some $m$ and so $(g - 3m)(\alpha) = 0$.  Since this is a polynomial in $\alpha$ and $f$ is the minimum polynomial, $f \mid g - 3m$.  Therefore $\overline{f} \mid \overline{g - 3m} = \overline{g}$.
+
+If $\overline{g}$ is divisible by $\overline{f}$ in $\Z_3[x]$, then $\overline{g} = \overline{f}\overline{h}$ for some $h \in \Z[x]$, and so $g = (f + 3j)h$ in $\Z[x]$ for some poylnomial $j(x) \in \Z[x]$.  So $g(\alpha) = 3j(\alpha)h(\alpha)$ and $g(\alpha)$ is divisible by 3.
 
 \item[30. (b)] Consider the four algebraic integers:
 \begin{eqnarray*}
@@ -323,9 +326,9 @@ We show that $\alpha_i^n / 3$ is not an algebraic integer by considering its tra
 
 Therefore the trace of $\alpha_i^n$ is an integer $\equiv 1\ (3)$, and so $\trace{\alpha_i^n / 3}$ cannot be an integer, and so by Corollary 2 to Theorem 4, $\alpha_i^n / 3$ must not be an algebraic integer.
 
-\item[30. (c)] Let $\alpha_i$ from (b) be defined by $f_i(\alpha)$ (for any fixed $\alpha$).  Because $\alpha_i \alpha_j$ is divisible by 3, by (a), $\bar{f} \divides \bar{f_i}\bar{f_j}$.  However, $\bar{f} \not \divides \bar{f_i}^n$ for any power of $n$ (or else 3 would $\bar{f_i}^n$ which is not the case by (b)), so $\bar{f_i}\bar{f_j} \ne \bar{f_i}^n$ for any $n$.  Therefore, since $\Z_3[x]$ is a UFD, $\bar{f}$ has an irreducible factor that does not divide $\bar{f_i}$ but does divide $\bar{f_j}$ for all $j \neq i$.
+\item[30. (c)] Let $\alpha_i$ from (b) be defined by $f_i(\alpha)$ (for any fixed $\alpha$).  Because $\alpha_i \alpha_j$ is divisible by 3, by (a), $\overline{f} \divides \overline{f_i}\overline{f_j}$.  However, $\overline{f} \not \divides \overline{f_i}^n$ for any power of $n$ (or else 3 would $\overline{f_i}^n$ which is not the case by (b)), so $\overline{f_i}\overline{f_j} \ne \overline{f_i}^n$ for any $n$.  Therefore, since $\Z_3[x]$ is a UFD, $\overline{f}$ has an irreducible factor that does not divide $\overline{f_i}$ but does divide $\overline{f_j}$ for all $j \neq i$.
 
-\item[30. (d)] The result of (c) is that $\bar{f}$ has at least 4 irreducible factors in $\Z_3[x]$.  However, $\bar{f}$ is of degree at most 4, since $\alpha \in \Q[\sqrt{7}, \sqrt{10}]$.  For there to be at least 4 irreducible factors of $\bar{f}$ it would imply each are of degree 1, but there are only 3 monic polynomials of degree 1 in $\Z_3[x]$: $x$, $x - 1$, $x - 2$.  Therefore $\mathbb{A} \cap \Q[\sqrt{7}, \sqrt{10}] \neq \Z[\alpha]$ for any $\alpha$.
+\item[30. (d)] The result of (c) is that $\overline{f}$ has at least 4 irreducible factors in $\Z_3[x]$.  However, $\overline{f}$ is of degree at most 4, since $\alpha \in \Q[\sqrt{7}, \sqrt{10}]$.  For there to be at least 4 irreducible factors of $\overline{f}$ it would imply each are of degree 1, but there are only 3 monic polynomials of degree 1 in $\Z_3[x]$: $x$, $x - 1$, $x - 2$.  Therefore $\mathbb{A} \cap \Q[\sqrt{7}, \sqrt{10}] \neq \Z[\alpha]$ for any $\alpha$.
 
 \item[31.] Show that $\frac{\sqrt{3} + \sqrt{7}}{2}$ is an algebraic integer.
 
@@ -341,6 +344,8 @@ For each conjugate $\w_k$, $\w_k \ne \w_{m - k}$; if this were the case, $k = -k
 
 Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computing the norm of $\w$, all the conjugates cancel out and the norm of $\w$ is seen to be $1$.
 
+\item[34 - TODO]
+
 \item[35. (a)]  Let $\w = e^{2\pi i /m}$ and $\theta = \w + \w^{-1}$.  Then $\w^2 - (\w + \w^{-1})(\w) + 1 = 0$ and so $\w$ is a root of the polynomial $x^2 + \theta x + 1$.  $\w \not\in \Q[\theta]$, therefore $\Q[\w] : \Q[\theta]$ has degree 2.
 
 \item[35. (b)]  Since $\theta = \w + \w^{-1} \in \R$, clearly $\Q[\theta]  \subseteq \Q[\w] \cap \R$.  We therefore have the tower of field extensions $\Q[\theta] \subseteq \Q[\w] \cap \R \subsetneq \Q[\w]$.  By (a), $[\Q[w] : \Q[\theta]] = 2$.  By the Tower Law, $[\R \cap \Q[\w] : \Q[\theta]]$ must be a divisor of 2 by distinct from 2 (since $w \not\in \R)$.  Therefore the degree must be 1 and so $\R \cap \Q[\w] = \Q[\theta]$.
@@ -348,7 +353,6 @@ Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computi
 \item[35. (c)]  Let $\sigma$ be the automorphism defined by $\sigma(\w) = \w^{-1}$.  Then $\sigma(\theta) = \theta$, and so $\Q[\theta]$ is in the fixed field of the automorphism $\sigma$.  As the degree of $\Q[\w]$ over $\Q[\theta]$ is 2, there can be no distinct intermediate field between $\Q[\w]$ and $\Q[\theta]$.  $\Q[\w]$ is not in the fixed field of $\sigma$ and so $\Q[\theta]$ must be the fixed field of this automorphism.
 
 \item[35. (d)]  Show that $\mathbb{A} \cap \Q[\theta] = \R \cap \Z[\theta]$.
-
 \begin{align*}
     \mathbb{A} \cap \Q[\theta]
         &= \mathbb{A} \cap (\R \cap \Q[\w]) & \text{By 35 (b).}\\
