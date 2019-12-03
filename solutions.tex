@@ -759,6 +759,8 @@ sage: -(b*n^n - a^n * (n - 1)^(n - 1))*b^(n-2)
 
     As an additive subgroup of $R$, $I$ must be a free abelian group of order $\le n$.  Let $\{\beta_1, \ldots, \beta_n\}$ be a basis for $R$, and take $\alpha \in I$.  $\{\alpha\beta_1, \ldots, \alpha\beta_n\} \subseteq I \subseteq R$ is a free abelian group of order $n$.  Since $I$ contains $\alpha I$, the rank of $I$ must also be $n$.
 
+    \item[8.] If $I + J = 1$ then there exist $\alpha \in I, \beta \in J$ such that $\alpha + \beta = 1$.  Raising both powers to the $m + n$th power, we have $(\alpha + \beta)^{m + n} = 1^{m + n} = 1$.  By the binomial theorem, $(\alpha + \beta)^{m + n} = \sum_{k = 0}^{m + n} \binom{m + n - k}{k}\alpha^{m + n - k}\beta^{k}$.  If $k < n$, this element is a member of $I^{m}$ (as $\alpha^{n + \text{positive}} \in I^{m}$); otherwise this element is a member of $J^{n}$.  Therefore $(\alpha + \beta)^{m + n} \in I^{m} + J^{n}$.
+
     \item [18. (a)]  Show $\disc{r\alpha_1, \alpha_2, \ldots, \alpha_n} = r^2 \disc{\alpha_1, \ldots, \alpha_n}$.
 
     Writing the discriminant as the determinant of each of the $\sigma_j$ conjugates of $\alpha_n$, we have:
