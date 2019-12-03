@@ -747,7 +747,7 @@ sage: -(b*n^n - a^n * (n - 1)^(n - 1))*b^(n-2)
 \begin{enumerate}
     \item[2.] Prove that every finite integral domain $D$ is a field.
 
-    For $\alpha \in D$, consider the set $\{1, \alpha, \alpha^2, \ldots\}$.  Since $D$ is finite this set must also be finite, so there must be $\{1, \alpha, \ldots, \alpha_n \}$.  As $D$ is an integral domain each of these $\alpha_i$ are non-zero.  Therefore $\alpha_{n+1} = 1$ so $\alpha^{-1} = \alpha_{n}$.  Therefore every element in $D$ has an inverse, and so it is a field.
+    For $\alpha \in D$, consider the set $\{1, \alpha, \alpha^2, \ldots\}$.  Since $D$ is finite this set must also be finite, so there must be some $i, j$, $i \neq j$ such that $\alpha^i = \alpha^j$.  Thus $\alpha^{j - i} = 1$, and $\alpha^{j - i - 1}\alpha = \alpha^{j - i} = 1$, so every element in $D$ has an inverse, and $D$ is therefore a field.
 
     \item[3.] Let $G$ be a free abelian group of rank $n$, with additive notation.  Show for any $m \in \Z$, $G / mG$ is the direct sum of $n$ cyclic group of order $m$.
 
