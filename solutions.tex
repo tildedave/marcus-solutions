@@ -344,7 +344,14 @@ For each conjugate $\w_k$, $\w_k \ne \w_{m - k}$; if this were the case, $k = -k
 
 Finally, for each conjugate $\w_{k}$, $\w_k \cdot \w_{m - k} = 1$, so in computing the norm of $\w$, all the conjugates cancel out and the norm of $\w$ is seen to be $1$.
 
-\item[34 - TODO]
+\item[34. (a)] Show that $1 + \w + \w^2 + \ldots + \w^{k - 1}$ is a unit in $\Z[\w]$ if $k$ is relatively prime to $\w$.
+
+\[ (1 + \w + w^2 + \ldots + \w^{k-1}) \left(\frac{1 - w}{1 - \w^k}\right) = \frac{1 - \w^k}{1 - \w^k} = 1 \]
+Therefore, if $\frac{1 - w}{1 - \w^k} \in \Z[\w]$ then $1 + \w + \ldots + \w^{k-1}$ is a unit.  Since $(k, m) = 1$, then there exist $a, b \in \Z$ such that $ak + bm = 1$, and so $\w = \w^{ak + bm} = \w^{ak} \w^{bm} = \w^{ak}$.  Since $\w^{ak} = \w^{(m - a)k}$ for negative $a$, $a$ can be assumed to be positive.  We then have \[ \frac{1 - \w}{1 - \w^k} = \frac{1 - \w^{ak}}{1 - \w^{k}} = 1 + \w^{k} + \w^{2k} + \ldots + \w^{(a - 1)k} \in \Z[\w] \]
+This implies $1 + \w + \w^2 + \ldots + \w^{k-1}$ is a unit in $\Z[\w]$.
+
+\item[34. (b)] The conjugates of $1 - \w$ are $\w^{kp^{r-1}} - 1$ for $1 \le k \le p - 1$.  By (a), $1 - w^{k} = \frac{1 - \w}{1 + \w + \ldots + \w^{k}}$, so \[ \norm{1 - w} = (1 - \w)^{n}\left(\prod_{(j, p^r) = 1} \sum_{i = 0}^{j} \w^{i}\right)^{-1} \]
+By (a) the sum of the $\w^{i}$ factors is a unit in $\Z[\w]$, so the inverse of the product of each of these is also a unit, call it $u$.  Therefore \[ \norm{1-w} = u(1 - w)^n\]  However as $f(x) = 1 + x^{p^{r-1}} + \ldots + x^{(p-1)p^{r-1}}$ is the $p^r$th cyclotomic polynomial, the norm of $1 - w$ is the constant coefficient of the polynomial $1 + (1 - x)^{p^{r-1}} + \ldots + (1 - x)^{(p - 1)p^{r-1}} = p$, and so $\norm{1 - w} = p$.  Setting both sides equal to one another gives $p = u(1 - \w)^n$.
 
 \item[35. (a)]  Let $\w = e^{2\pi i /m}$ and $\theta = \w + \w^{-1}$.  Then $\w^2 - (\w + \w^{-1})(\w) + 1 = 0$ and so $\w$ is a root of the polynomial $x^2 + \theta x + 1$.  $\w \not\in \Q[\theta]$, therefore $\Q[\w] : \Q[\theta]$ has degree 2.
 
