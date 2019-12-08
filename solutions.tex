@@ -13,6 +13,8 @@
 \newcommand{\Q}[0]{\mathbb{Q}}
 \newcommand{\R}[0]{\mathbb{R}}
 \newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\p}[0]{\mathfrak{p}}
+\newcommand{\q}[0]{\mathfrak{q}}
 \newcommand{\zquad}[1]{\mathbb{Z}[\sqrt{#1}]}
 \newcommand{\qext}[1]{\mathbb{Q}[#1]}
 \newcommand{\zext}[1]{\mathbb{Z}[#1]}
@@ -762,6 +764,28 @@ sage: -(b*n^n - a^n * (n - 1)^(n - 1))*b^(n-2)
     \item[8. (c)] Let $f \in \Z[x]$ be irreducible over $\Z$.  Show $f$ is irreducible over $\Q$.
 
     Suppose $f$ is irreducible over $\Z$ but reducible over $\Q$, i.e. $f = gh$ for $g, h \in \Q[x]$.  Then we can pull out the denominators from $g, h$, giving us $gh = \frac{g'h'}{d}$ where $g', h' \in \Z[x]$.  Let $a$ and $b$ tbe the GCD of the coefficients of $g'$ and $h'$ respectively.  We must have $ab != d$ because otherwise then $f$ would be reducible into the product of two polynomials in $\Z[x]$.  Therefore, reducing to lowest terms if necessary, we have $ab \nmid d$.  However, multiplying both sides of the equation by $d$ gives $df = g'h' = ab(g'' h'')$ for some $g''$ and $h''$ and so by (b), $ab \mid d$; this is a contradiction.  Therefore $f$ must be also irreducible over $\Q[x]$.
+
+    \item[9.] Let $K$ and $L$ be number fields, $K \subset L$, $R = \ringofintegers{K}, S = \ringofintegers{L}$.
+
+    \item[9. (a) - TODO] Let $I$ and $J$ be ideals in $R$ and suppose $IS \mid JS$.  Show $I \mid J$.
+
+    % Let $I = \p_1 \cdots \p_k$ and $J = \q_1 \cdots \q_m$ be the factorization of $I$ and $J$ into prime ideals in $R$.  Since $IS \mid JS$, there is an ideal $A \subset S$ such that $IAS = JS$.  Taking the prime factorization of $I$ and $J$ in $S$, we have $\p_1 \cdots \p_k A S = (\q_1 S) \cdots (\q_m S)$.
+
+    % Since factorization of ideals is unique, $\p_1$ must appear in the right-hand factorization, and so there must be some $\q_i S$ such that $\p_1 \mid \q_i S$; assume without loss of generality it is $\q_1$.
+
+    \item [13. (a)] Let $S = \Z[\alpha]$, $\alpha^3 = \alpha + 1$.  Verify $23S = (23, \alpha - 10)^2 (23, \alpha - 3)$.
+
+    Let $I = (23, \alpha - 10)^2 (23, \alpha - 3)$.  The generators of $I$ are:\setcounter{equation}{0}\begin{gather}23^3 \\ 23^2 (\alpha -3) \\ 23^2 (\alpha - 10)\\ (\alpha - 10)^2 (\alpha - 3) = -23 (\alpha^2 - 7\alpha + 13) \\ 23 (\alpha - 10)^2 = 23(\alpha^2 - 20\alpha + 100) \\ 23(\alpha - 10)(\alpha - 3) = 23(\alpha^2 - 13\alpha + 30) \end{gather}
+    From the generators it is clear that 23 divides every member of $I$, and so $23S \subset I$. To show the required result we need to show $\{23, 23\alpha, 23 \alpha^2\} \in I$.
+    \begin{gather} (4) + (5) = 23(-13\alpha + 87) \\
+        2 \cdot (6) - (5) + (4) = 23\alpha + 53 \cdot 23\\
+        13 \cdot (8) - (7) = 23 \cdot 602
+    \end{gather}
+    From (1), (2), and (3), we must have $23^2 \in I$ as this is the GCD of (1) with the sum of (2) and (3); since $23 \cdot 602 \in I$, therefore $23 \in $I as it is the GCD of these two integers.  Subtracting a multiple of $23 \in $I from (8) gives us $23\alpha \in I$, and we thus have $23\alpha^2 \in I$ as well by subtracting the appropriate terms from (5) or (6).  This verifies $\{23, 23\alpha, 23\alpha^2\} \in I$ and so $23S = (23, \alpha - 10)^2 (23, \alpha - 3)$.
+
+    \item [13. (b)] Show that $(23, \alpha - 10, \alpha - 3) = S$.  Conclude that $(23, \alpha - 10)$ and $(23, \alpha - 3)$ are relatively prime.
+
+    Since $-10 \cdot [(\alpha - 10) - (\alpha - 3)] - 3 \cdot 23 = 1$, $(23, \alpha - 10, \alpha - 3) = S$.  Since $(23, \alpha -10) \mid 23S$ and $(23, \alpha -3) \mid 23S$, neither is the whole ring $S$ and so they must be relatively prime ideals in $S$.
 
     \item [18. (a)]  Show $\disc{r\alpha_1, \alpha_2, \ldots, \alpha_n} = r^2 \disc{\alpha_1, \ldots, \alpha_n}$.
 
