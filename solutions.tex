@@ -777,6 +777,14 @@ Suppose $f$ is irreducible over $\Z$ but reducible over $\Q$, i.e. $f = gh$ for 
 
 % Since factorization of ideals is unique, $\p_1$ must appear in the right-hand factorization, and so there must be some $\q_i S$ such that $\p_1 \mid \q_i S$; assume without loss of generality it is $\q_1$.
 
+\item[10.] Show $e$ and $f$ are multiplicative in terms of towers.
+
+Let $K \subset L \subset M$ and $R \subset S \subset T$ be the associated number fields and $P \subset Q \subset U$ prime ideals.
+
+{\bf f is multiplicative:} By the third isomorphism theorem, there is the field series of field inclusions: $R / P \to S / Q \to T / U$.  $[S / Q : R / P] = f(Q|P)$ and $[T/U : S/Q] = f(U|Q)$; therefore the composition map from $R / P \to T / U$  must have degree $f(U|P) = f(Q|P)f(U|Q)$ by the tower law for field extensions.
+
+{\bf e is multiplicative:} $P = Q^{e(Q|P)} I$ and $Q = U^{e(U|Q)} J$ for ideals $I, J$ such that $I + Q$ and $J + U$ are relatively prime.  Therefore $P = U^{e(U|Q)e(Q|P)} IJ$ with $U^{e(Q|P)e(U|Q)}$ and $IJ$ relatively prime; the factor of $U$ dividing $P$ is $e(U|P)$ so $e(U|P) = e(U|Q)e(Q|P)$.
+
 \item[11.] Since $\alpha \in I$, $I \mid (\alpha)$, and so $I \cdot J = (\alpha)$.  Taking norms of both sides, $||I|| \cdot ||J|| = || (a) ||$.  By Theorem 22 (c), $|| (\alpha) || = \norm^{K}_{\Q}(\alpha)$, so $||I|| \mid \norm^{K}_{\Q}(\alpha)$, with equality holding if $I$ is principal.
 
 \item[12. (a)] Verify that $5S = (5, \alpha + 2)(5, \alpha^2 + 3\alpha - 1)$ in $S = \Z[\sqrt[3]{2}]$, $\alpha = \sqrt[3]{2}$.
