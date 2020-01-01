@@ -1046,5 +1046,69 @@ Taking $r = 4$ and $p = 5$, we see $4^5 + 2\cdot 4 - 2 = 130 \equiv 0\ (5)$.  Le
 
 \end{enumerate}
 
+\section*{Chapter 4}
+
+\begin{enumerate}
+    \item [1.] Prove from the definitions that $E(Q|P) \triangleleft D(Q|P)$.
+
+    Let $\sigma \in E(Q|P)$ and $\tau in D(Q|P)$.  We have the following series of equivalences:
+    \begin{eqnarray*}
+        \alpha &\equiv& \alpha\mod Q \\
+        \tau(\alpha) &\equiv& \tau(\alpha)\mod Q\\
+        \sigma(\tau(\alpha)) &\equiv& \tau(\alpha) \mod Q\\
+        \tau^-1(\sigma(\tau(\alpha))) &\equiv& \tau^{-1}\tau(\alpha) \equiv \alpha\mod Q
+    \end{eqnarray*}
+    Therefore $E$ is normal in $D$.
+
+    \item[3. (a)]
+    Let $p$ be an odd prime.  Since the multiplicative group of any prime is cyclic, it must have a generator $g$ with order $p - 1$.  As $\modequiv{g^{p-1}}{1}{p}$, $\modequiv{g^{(p-1)/2}}{-1}{p}$.  Therefore if $\modequiv{p}{1}{4}$ then $\modequiv{g^{(p-1)/4})^2}{-1}{p}$ and $\left(\frac{-1}{p}\right) = 1$.  Conversely, if $\left(\frac{-1}{p}\right) = 1$, let $a$ be such that $\modequiv{a^2}{-1}{p}$; therefore $\modequiv{a^4}{1}{p}$ and so $4 \mid p - 1$.
+
+    % Still to show: a/p b /p = ab /p for integers a/b coprime to p.
+
+    \item [5.] Let $K$ and $L$ be number fields, $L$ a normal extension of $K$ with Galois group $G$, and $P$ a prime of $K$.  By "intermediate field" we mean "intermediate field distinct from $K$ and $L$".
+
+    \item [5. (a)] If $P$ is inert in $L$, then as $ref = n$, $f = n$.  The decomposition group $D(Q|P)$ is thus all of $G$.  As $G$ is normal in itself, Corollary 1 to Theorem 28 gives us that $G$ is cyclic of order $n$.
+    \item [5. (b)] Suppose $P$ is totally ramified in every intermediate field, but not totally ramified in $L$.  Take $L_E$ to be the inertia field of $P$; by Theorem 28, the ramification index of $L_{E}$ is 1.  By assumption $L_{E}$ is totally ramified and so $[L_{E} : K] = 1$; therefore $L_{E} = K$ and so $f(Q|P) = 1$ and $r(Q|P) = 1$; therefore $P$ must be totally ramified in $L$ also, contradicting our assumption.  Therefore no intermediate fields distinct from $K$ and $L$ must exist.
+
+    Since no intermediate fields exist, $G$ must have no proper subgroups and so be of prime order for some prime $p$, and so must also be cyclic.
+
+    \item [5. (c)] Suppose every intermediate field contains a unique prime lying over $P$ but $L$ does not.  We argue in similar style to (c).  Take $L_D$ to be the decomposition field of $P$.  By Theorem 28, there must only be 1 unique prime lying over $L_D$ and so $[L_D : K] = 1$ and therefore $r = 1$.  Therefore $n = ef$ and so there is one unique prime lying over $P$ in $L$, contradicting our assumption, and so no intermediate fields distinct from $K$ and $L$ exist.  Therefore $G$ is cyclic of prime order as in (b).
+
+    \item [5. (d)] If $P$ is unramified in every intermediate field but ramified in $L$, then in particular $P$ is unramified in $L_{E}$.  Let $H \subset G$, then as $L_{H}$ is unramified, $L_{H} \subset L_{E}$ and so $E \triangleleft H$.  As $L_{E}$ is also an intermediate field and is unramified, $[L : L_{E}] \neq 1$ and so $E$ is nontrivial.  Therefore $E$ is the unique smallest nontrivial subgroup of $G$.
+
+    Since $E$ has no subgroups, it must be of prime order for some prime $p$.  As it is the unique subgroup of order $p$, it must be normal in $G$, as it is the sole element of its conjugacy class.  Since $Z(G) \neq \emptyset$ in a group of prime power order and is a normal subgroup of $G$, $E$ must also contained be $Z(G)$.
+
+    Because every subgroup of $G$ contains $E$, by the Sylow theorems, every subgroup of $G$ must have prime power order, including $G$ itself.  (Otherwise there would be a $q$-subgroup $H$ with $H \cap E \neq \emptyset$ which would give an element of $H$ with order $p$, a contradiction.)
+
+    \item [5. (e)] If $P$ splits completely in every intermediate field but not in $L$, then $P$ must split completely in $L_{D}$ and so $L_{D} \neq K$.
+
+    Let $M$ be an intermediate field of $L$; then $r_{M} = [L : M]$; but $r_{M} \leq r$.  Therefore any intermediate field of $L$ must be a subfield of $L_{D}$ and there are no intermediate fields between $L_{D}$ and $L$.
+
+    Therefore, for any nontrivial subgroup $H \subset G$, $D \subset H$, and $D$ has have no proper subgroups.  Therefore it must be of prime order for some $p$ and so cyclic.  As in (d), $G$ must be a group of order $p^k$, $D \triangleleft G$, and $D \subset Z(G)$.
+
+    {\bf An example over $\Q$:} Let $L$ be the cyclotomic field $\Q[\zeta_5]$.  The Galois group of $L$ has order 4 and is cyclic with generator $\sigma$.
+
+    Let $p = 19$; $\modequiv{19}{-1}{5}$ so $\modequiv{19^2}{1}{5}$ and so 19 has multiplicative order 2 mod 5.  By Theorem 26, its inertial degree in $\Z[\zeta_5]$ is 2 and as $\gcd(5, 19) = 1$, its ramification index is 1; since $ref = 4$, 19 must split into 2 primes in $\Z[\zeta_5]$.
+
+    Because there are 2 primes lying over 19 in $\Z[\zeta_5]$, and $\sigma$ generates the Galois group, $\sigma$ must permute the primes lying over 19, meaning its decomposition group $D = \{e, \sigma^2\}$.  This is a normal subgroup in $G$ and so Corollary 2 to Theorem 28 applies.
+
+    As there are no other subgroups of $G$, 19 splits completely in every proper subfield of $\Q[\zeta_5]$ but not in $\Q[\zeta_5]$, where it has inertial degree 2.
+
+    \item [5. (f)]  Let $P$ be inert in every intermediate field but not inert in $L$.  By (b), for there to be an intermediate field, $P$ must be ramified in $L$ with degree $e$.  By (d), $G$ is a group of prime power order.
+
+    Let $E$ be the inertia subgroup of $P$: since $P$ remains inert in every subgroup, there $E$ is a maximal subgroup in $G$.  Applying (a) to $L_{E}$ we have that $E$ is cyclic; as $E$ is a unique maximal subgroup, $G$ is therefore also cyclic.
+
+    \item[7. (a)] Let $p = 3$, $K = \Q[\sqrt{-3}]$, $L = \Q[\sqrt{3}]$.  Since $\Q[i] \subset KL$ and $p$ is inert in $\Q[i]$, $p$ is not totally ramified in $KL$ despite being totally ramified in $K$ and $L$.
+
+    \item[7. (b)] Let $p = 2$.  By Theorem 25, $p$ ramifies in any quadratic field $\Q[\sqrt{m}]$ with $\modequiv{m}{3}{4}$; however, $p$ splits in any qudaratic field $\modequiv{1}{3}{4}$.  Since $\modequiv{3^2}{1}{4}$, any two extensions of $\Q$ $\modequiv{m, n}{3}{4}$, $\gcd(m, n) = 1$, and $\modnotequiv{mn}{5}{8}$ will contain a subfield where $p = 2$ splits into 2 distinct primes.
+
+    Let $K = \Q[\sqrt{7}]$, $L = \Q[\sqrt{15}]$: then $\modequiv{7 \cdot 15}{1}{8}$ and so $2$ does not remain inert and splits into two primes in its subfield $\Q[\sqrt{105}]$.  Therefore $2$ is splits into two ramified prime ideals in $KL$.
+
+    \item[7. (c)] Let $p = 2$.  By Theorem 25, $p$ is inert in any quadratic field $\Q[\sqrt{m}]$ where $\modequiv{m}{5}{8}$.  Therefore $p$ is inert in both $K = \Q[\sqrt{5}]$ and $L = \Q[\sqrt{13}]$. However, the composite field $KL$ contains the subfield $\Q[\sqrt{65}]$ and $\modequiv{65}{1}{8}$, and by Theorem 25, $2$ splits into two primes in $\Q[\sqrt{65}]$.  Therefore $2$ also splits into two primes in $KL$ each with inertial degree 2.
+
+    \item[7. (d)] Let $p = 2$.  We reverse the procedure we used in (b) and look for any two relatively prime integers $m, n$ such that $\modequiv{mn}{5}{8}$.  Take $m = 3, n = 15$; then $p$ is ramified in both $K = \Q[\sqrt{3}]$ and $L = \Q[\sqrt{15]}$ but remains inert in the subfield $\Q[\sqrt{5}] \subset KL$.  Therefore $p$ has a residue field extension of degree 2 in $KL$.
+
+\end{enumerate}
+
 \end{document}
 
