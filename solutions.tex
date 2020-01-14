@@ -20,6 +20,7 @@
 \newcommand{\zext}[1]{\mathbb{Z}[#1]}
 \newcommand{\trace}[1]{\text{Tr}(#1)}
 \newcommand{\norm}[0]{\text{N}}
+\newcommand{\diff}[1]{\text{diff}\ #1}
 \newcommand{\disc}[1]{\text{disc}(#1)}
 \newcommand{\kernel}[0]{\text{kern}}
 \newcommand{\modequiv}[3]{#1 \equiv #2\ (#3)}
@@ -1078,19 +1079,57 @@ Using the claim, $A A^{-1} = \alpha^{-1}\alpha \beta^{-1} IJ = \beta^{-1} (\beta
 Let $I$ have the factorization into prime ideals $P_1^{e_1} \cdots P_k^{e_k}$, $(r)$ have factorization $P_{k+1}^{e_{k+1}} \cdots P_{m}^{e_m}$, and $(s)$ have factorization $P_{m+1}^{e_{m+1}} \cdots P_{r}^{e_r}$; combining the terms and removing the primes raised to the 0th power, gives the prime factorization of $A$ as \[ A = P_1^{e_1} \cdots P_k^{e_k} P_{k+1}^{e_{k+1}} \cdots P_{m}^{e_m} P_{m+1}^{-e_{m+1}} \cdots P_{r}^{-e_r} \]
 Given two different factorizations of $A$, $A = P_1^{e_1} \cdots P_k^{e_k} = Q_1^{e'_1} \cdots Q_j^{e'_j}$, we have $R = (P_1^{e_1} \cdots P_k^{e_k})^{-1} Q_1^{e'_1} \cdots Q_j^{e'_j} = (P_1^{-e_1} \cdots P_k^{-e_k}) Q_1^{e'_1} \cdots Q_j^{e'_j}$.  Since this product is equal to $R$, the $P_i$ and $Q_i$ terms must all cancel showing that the factorizations were identical.
 
-REMAINS TO SHOW: How the multiplicative group is related to the multiplicative group of $K$.
-
 \item[31. (d-f)] TODO
 
+\item[34.] TODO
+
+\item[35.] Let $\alpha \in L$, $L = K[\alpha]$.  Let $f$ be the monic irreducible polynomial for $\alpha$ over $K$, and write $f(x) = (x - a)g(x)$.  Then we have \[ g(x) = \gamma_0 + \gamma_1 x + \ldots + \gamma_{n-1}x^{n-1} \]
+We claim that \[ \left\{ \frac{\gamma_0}{f'(\alpha)}, \ldots, \frac{\gamma_{n-1}}{f'(\alpha)} \right\} \] is the dual basis to $\{ 1, \alpha, \ldots, \alpha^{n-1} \}$.
+
+\item[35. (a)] Let $\sigma_1, \ldots, \sigma_n$ be the embeddings of $L$ in $\mathbb{C}$ fixing $K$ pointwise.  Then the $\sigma_i(\alpha)$ are the roots of $f$.  Applying $\sigma_i$ to $f(x)$ gives \[\sigma_i(f(x)) = \sigma_i(x - \alpha)\sigma_i(g(x)) = (x - \alpha_i)g_{i}(x)\] where $g_i(x)$ is $g(x)$ with $\sigma_i$ applied to each coefficient and $\alpha_i$ is the conjugate $\sigma_i(\alpha)$.
+\item[35. (b)] By the chain rule, we have
+\[ f'(x) = (x - \alpha_i)g'_i(x) + g_i(x) \]
+So rearranging terms gives \[g_i(\alpha_j) = f'(\alpha_j) - (\alpha_j - \alpha_i)g'_i(\alpha_j) \] Clearly $g_i(\alpha_i) = f'(\alpha_i)$.  If $i \neq j$, $f'(\alpha_j) = (\alpha_j - \alpha_i)g_i'(\alpha_j) + g_i(\alpha_j)$; $g_i(\alpha_j) = 0$ since $g_i$ is a root of all conjugates of $\alpha$ except for $\alpha_i$.  Therefore $g_i(\alpha_j) = 0$.
+
+\item[35. (c)] Let $M$ be the matrix formed by $[ \alpha_j^{i-1}]$ where $i$ is the row and $j$ is the column.  Let $N$ be the matrix $[\sigma_i(\gamma_{j - 1}/f'(\alpha))]$.
+
+Take $NM_{ij}$ as the $i$th row and $j$th column of the matrix product $NM$.  Then $NM_{ij} = \sum^{n}_{k = 1} \alpha_{j}^{k - 1} \sigma_i(\gamma_{k - 1} / f'(\alpha)) = \frac{1}{f'(\alpha)} g'_i(\alpha)$.  By (b) this value is 1 when $i = j$ and 0 otherwise; therefore $NM$ is the identity matrix.
+
+Since $\alpha$ is the root of a monic polynomial over $K$ it must be such that $\alpha \neq K$ and $\disc{\alpha} \neq 0$; therefore the matrix $M$ is invertible and so $NM = I$ implies $N = M^{-1}$; so $MN = I$.  $MN_{ij} = \sum_{k = 1}^{n} \sigma_{k}(\alpha^{i - 1}\gamma_{j - 1}/f'(\alpha)) = \trace{\alpha^{i-1}\gamma_{j - 1}/f'(\alpha)}$.
+
+Since $MN$ is also the identity element the set $\{ \frac{\gamma_{0}}{f'(\alpha)}, \ldots, \frac{\gamma_{n - 1}}{f'(\alpha)} \}$ is therefore the dual basis to $\{ 1, \alpha, \ldots, \alpha^{n-1} \}$.
+
+\item[35. (d)]
+Let $a_i$ be the coefficient of the $i$th power of $f(x)$.  Multipliying out $f(x) = (x - \alpha)g(x)$, \[ -\gamma_0\alpha + (\gamma_0 - \gamma_1 \alpha)x + (\gamma_1 - \gamma_2 \alpha)x^2 + \cdots \gamma_{n-1}x^n \]
+
+To show the the $\gamma_i$ as an $R$-module generate $R[\alpha]$ we prove the following lemma by induction:
+
+\begin{lemma}
+     Each $\gamma_i$ $(i \neq n - 1)$ can be written in terms of powers of $\alpha_i$ with the form $\alpha^{n - i - 1} + \ldots + a_{i + 1}$.
+\end{lemma}
+\begin{proof}
+From the above multiplication, $-\gamma_0\alpha = a_0 = -(\alpha^n + a_{n-1} \alpha^{n-1} + \ldots + a_1 \alpha)$ and so $\gamma_0 = \alpha^{n-1} + a_{n-1} \alpha^{n-2} + \ldots + a_1$.  This is a sum of powers with leading coefficient 1 and constant term equal to $a_{i}$.  Therefore the base case is satisfied.
+
+Next, assume $\gamma_i = \alpha^{n - i - 1} + \ldots + a_{i + 1}$. From the above expansion we have $a_{i + 1} = (\gamma_{i} - \alpha\gamma_{i + 1})$, so $a_{i + 1} = a_{i + 1} + a_{i + 2}\alpha + \ldots + \alpha^{n - i - 1} + \alpha\gamma_{i + 1}$ and so $\alpha\gamma_{i + 1} = \alpha(\alpha^{n - i - 2} + \ldots + a_{i + 2})$.  Therefore $\gamma_{i + 1}$ can also be written in the appropriate form.
+\end{proof}
+
+For $i = n - 1$, $\gamma_{n-1} = 1$ since $f(x)$ is a monic polynomial.   There is then a translation matrix between the powers of $\alpha$ and the $\gamma_i$s with 1s on the diagonal.  This translation matrix is upper triangular since the power of $\alpha$ in row $i$ is $i - 1$.  This matrix is invertible over $\Z$ and the powers of $\alpha$s must also be writable in terms of the $\gamma_i$s.  Therefore the $\gamma_i$s generate $R[\alpha]$ as an the $R$-module.
+
+\item[35. (e)] We have the following: \begin{align*}(R[\alpha])^{*} &= \left\{ \frac{\gamma_0}{f'(\alpha)}, \ldots, \frac{\gamma_{n-1}}{f'(\alpha)}\right\} & \text{By 34. (b)} \\ &= \frac{1}{f'(\alpha)}\left\{ \gamma_0, \ldots, \gamma_{n-1}\right\}\\ &= \frac{1}{f'(\alpha)}R[\alpha] & \text{By 35. (d)} \end{align*}
+
+\item[35. (f)] Let $\beta \in \diff R[\alpha]$; then $\beta (R[\alpha])^{*} \subset S$.  By (e), $\beta(\frac{1}{f'(\alpha)})R[\alpha] \subset S$ so $\beta R[\alpha] \subset f'(\alpha)S$.  Therefore $\beta \in f'(\alpha)S$.  Therefore $\diff R[\alpha] \subset f'(\alpha)S$.  The reverse inclusion is straightforward.  Therefore $\diff R[\alpha] = f'(\alpha)S$.
+
+\item[35. (g)] Let $R[\alpha] \subset S$ so $\diff R[\alpha] = R[\alpha]\ \diff S \subset \diff S$ by the final equality of Exercise 33.  By (f), $\diff R[\alpha] = f'(\alpha) S$.  Since $f'(\alpha) \in \diff f'(\alpha)S$ therefore $f'(\alpha)\in \diff S$.
 
 \end{enumerate}
+
 
 \section*{Chapter 4}
 
 \begin{enumerate}
     \item [1.] Prove from the definitions that $E(Q|P) \triangleleft D(Q|P)$.
 
-    Let $\sigma \in E(Q|P)$ and $\tau in D(Q|P)$.  We have the following series of equivalences:
+    Let $\sigma \in E(Q|P)$ and $\tau \in D(Q|P)$.  We have the following series of equivalences:
     \begin{eqnarray*}
         \alpha &\equiv& \alpha\mod Q \\
         \tau(\alpha) &\equiv& \tau(\alpha)\mod Q\\
@@ -1146,6 +1185,43 @@ REMAINS TO SHOW: How the multiplicative group is related to the multiplicative g
     \item[7. (c)] Let $p = 2$.  By Theorem 25, $p$ is inert in any quadratic field $\Q[\sqrt{m}]$ where $\modequiv{m}{5}{8}$.  Therefore $p$ is inert in both $K = \Q[\sqrt{5}]$ and $L = \Q[\sqrt{13}]$. However, the composite field $KL$ contains the subfield $\Q[\sqrt{65}]$ and $\modequiv{65}{1}{8}$, and by Theorem 25, $2$ splits into two primes in $\Q[\sqrt{65}]$.  Therefore $2$ also splits into two primes in $KL$ each with inertial degree 2.
 
     \item[7. (d)] Let $p = 2$.  We reverse the procedure we used in (b) and look for any two relatively prime integers $m, n$ such that $\modequiv{mn}{5}{8}$.  Take $m = 3, n = 15$; then $p$ is ramified in both $K = \Q[\sqrt{3}]$ and $L = \Q[\sqrt{15]}$ but remains inert in the subfield $\Q[\sqrt{5}] \subset KL$.  Therefore $p$ has a residue field extension of degree 2 in $KL$.
+
+    \item[8.] Let $r, e, f$ be positive integers.  I will assume Dirichlet's Theorem on primes in arithmetic progression: given integers $a$ and $d$ such that $\gcd(a, d) = 1$, there exists a prime $p$ such that $p = a + nd$.
+
+    \item[8. (a)] The $q$th cyclotomic field has degree $q - 1$ over $\Q$.  Since $q$ is the only prime dividing $\disc{\Z[\zeta_q]}$, no distinct prime $p$ will ramify in $\Q[\zeta_q]$; therefore, by Theorem 26, if $p$ has multiplicative order $f$ mod $q$, it will split into $(q - 1) / f$ distinct primes in $\Q[\zeta_q]$.
+
+    For any given $r$, take $q$ a prime such that $q \equiv 1\ (r)$; by Exercise 30 (c), there are an infinite number of primes that satisfy this property.
+
+    Since $q$ is a prime, it has a primitive root $g$ and $g^{r}$ has order $f$ in $q$.  It remains to find a prime $p$ such that $\modequiv{p}{g^{r}}{q}$.  Such a prime $p$ always exists by Dirichlet's Theorem on primes in arithmetic progression.
+
+    \item[(b)] Take $q$ to be a prime such that $\modequiv{q}{rf}{1}$; then there exists some $k$ such that $krf + 1 = q$.  Let $g$ be a primitive root for $q$: then $q^{r}$ is an element of order $fk$, so using Dirichlet's Theorem we find $p$ such that $\modequiv{p}{g^{r}}{q}$.  Since $p$ has order $fk$ mod $q$, the prime ideal $(p)$ in $\Z$ splits into $r$ distinct prime ideals in $\Q[\zeta_{q}]$.
+
+    As $\text{Gal}(\Q[\zeta_{q}])$ is cyclic, the comment after Theorem 28 applies and $\Q[\zeta_{q}]$ splits into $r$ distinct prime ideals in every subfield containing the decomposition field, which is of order $r$.  Therefore $p$ also splits into $r$ distinct prime ideals in the subfield $K'$ of degree $rf$.
+
+    \item[(c)] When choosing $p$, we apply the Chinese Remainder Theorem to the system of equivalences $\modequiv{g^{kr}}{p}{q}$ and $\modequiv{p}{1}{e}$ (choosing a $q$ such that $\gcd(q, e) = 1$).  This gives an integer $M$, possibly composite, such that $\modequiv{M}{1}{e}$ and $\modequiv{M}{g^{kr}}{q}$.  We know that $\modnotequiv{M}{1}{q}$ since $g$ was chosen to be a primitive root of $q$.  Therefore $\gcd(M, qe) = 1$, and we can apply Dirichlet's Theorem on primes in arithmetic progression to find a prime $p$ such that $p = M + nqe$ for some $n$; therefore $\modequiv{p}{1}{e}$ and $\modequiv{p}{g^{kr}}{q}$.
+
+    \item[(d)] In the $p$th cyclotomic field, $p$ is totally ramified.  Since $\Q[\zeta_p]$ is normal over $\Q$, $p$ is totally ramified in every intermediate field.  Finally, $\text{Gal}(\Q[\zeta_p])$ is cyclic so it has a normal subgroup of order $d$ for each divisor of $p - 1$.  As $p$ was chosen such that $\modequiv{p}{1}{e}$.  It follows that $\Q[\zeta_p]$ has a subfield $K''$ such that $[K'' : \Q] = e$.
+
+    The composition field $K' K'' \subset \Q[\zeta_{q}]$ and has degree $ref$ over $\Q$.  Since $p$ splits into $r$ distinct factors in $K'$ and is ramified in $K''$, it splits into $r$ distinct factors, each with ramificiation index $e$.
+
+    \item[(e)]  Take $e = 2, f = 3, r = 5$.  We start by finding a prime $q$ such that $\modequiv{q}{1}{fr}$; $q = 31$ works (here $k = 2$).  31 has several primitive roots - we want to choose one such that $g^{r} = g^{5}$ is smallest as this will make our search for a prime easiest.  In particular $13$ is a primitive root of 31 and $\modequiv{13^{5}}{6}{31}$, so we choose $p = 37$.
+
+    The $31 \cdot 37 = 1147$th cyclotomic field therefore has a subfield of degree $ref = 30$ over $\Q$ (by (d)) where the prime ideal $(5)$ splits into $5$ distinct primes, each with ramification index $2$.
+
+\item[9.] Let $L$ be a normal extension of $K$, $P$ a prime of $K$, and $Q$ and $Q'$ of $L$ lying over $P$.  Since $L$ is normal there is some $\sigma$ such that $Q' = \sigma Q$.  Let $D$ and $E$ be the decomposition and inertia groups for $Q$ over $P$ and $D'$ and $E'$ the corresponding things for $Q'$ over $P$.
+
+\item[9. (a)] Prove that $D' = \sigma D \sigma^{-1}$ and $E' = \sigma E \sigma^{-1}$.
+
+{\bf $D' = \sigma D \sigma^{-1}$:} Suppose $\tau \in D$; then $\tau(Q) = Q$.  As $Q' = \sigma Q$, $\sigma^{-1}(Q') = Q$.  Then $\sigma(\tau(\sigma^{-1}))(Q') = Q'$, $\sigma \tau \sigma^{-1} \in D'$, so $\sigma D \sigma^{-1} \subseteq D'$.
+
+Conversely assume $\tau' \in D'$, so $\tau'(Q') = Q'$ and $\tau'(\sigma(Q)) = Q'$. Thus $\sigma^{-1} \tau'(\sigma(Q)) = Q$, so $\sigma^{-1} \tau' \sigma \in D$ and $\tau' \in \sigma D \sigma^{-1}$.  Therefore $D' \subseteq \sigma D \sigma^{-1}$; we conclude $D = \sigma D \sigma^{-1}$.
+
+{\bf $E' = \sigma E \sigma^{-1}$: } Let $\tau \in E$; then $\modequiv{\alpha}{\tau(\alpha)}{Q}$ for all $\alpha \in S$, so $\alpha - \tau(\alpha) \in Q$.  In particular $\sigma^{-1}(\alpha) - \tau(\sigma^{-1})(\alpha) \in Q$, and so $\alpha - \sigma(\tau(\sigma^{-1}(\alpha))) \in \sigma Q = Q'$.  Therefore $\sigma \tau \sigma^{-1} \in E'$ and $\sigma E \sigma^{-1} \subset E'$.
+
+Conversely assume $\tau' \in E'$; then $\alpha - \tau'(\alpha) \in Q'$ for any $\alpha \in S$.  So $\sigma(\alpha) - \tau'(\sigma(\alpha)) \in Q'$ and $\alpha - \sigma^{-1}(\tau'(\sigma(\alpha))) \in \sigma^{-1}Q' = Q$.  Therefore $\sigma^{-1} E' \sigma \subset E$ and so $E' \subset \sigma E \sigma^{-1}$; we conclude $E = \sigma E' \sigma^{-1}$.
+
+\item [9. (b)] Let $\modequiv{\psi(\alpha)}{\alpha^{||P||}}{Q}$; then $\psi(\alpha) - \alpha^{||P||} \in Q$ for any $\alpha \in S$.  In particular $\psi(\sigma(\alpha)) - \sigma(\alpha)^{||P||} \in Q$ and so $\sigma^{-1}\psi(\sigma(\alpha)) - \alpha^{||P||} \in \sigma^{-1}Q = Q'$.  Therefore $\psi' = \sigma^{-1}\psi \sigma$.
+
 
 \end{enumerate}
 
