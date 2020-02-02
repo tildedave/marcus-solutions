@@ -6,7 +6,6 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{MnSymbol}
-\usepackage{kbordermatrix}
 
 \newcommand{\w}[0]{\omega}
 \newcommand{\z}[0]{\zeta}
@@ -25,6 +24,7 @@
 \newcommand{\kernel}[0]{\text{kern}}
 \newcommand{\modequiv}[3]{#1 \equiv #2\ (#3)}
 \newcommand{\modnotequiv}[3]{#1 \not\equiv #2\ (#3)}
+\newcommand{\gal}[2]{\text{Gal}(#1 / #2)}
 \newcommand{\ringofintegers}[1]{\mathbb{A} \cap #1}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -1230,6 +1230,63 @@ Conversely assume $\tau' \in E'$; then $\alpha - \tau'(\alpha) \in Q'$ for any $
 
 \item [9. (b)] Let $\modequiv{\psi(\alpha)}{\alpha^{||P||}}{Q}$; then $\psi(\alpha) - \alpha^{||P||} \in Q$ for any $\alpha \in S$.  In particular $\psi(\sigma(\alpha)) - \sigma(\alpha)^{||P||} \in Q$ and so $\sigma^{-1}\psi(\sigma(\alpha)) - \alpha^{||P||} \in \sigma^{-1}Q = Q'$.  Therefore $\psi' = \sigma^{-1}\psi \sigma$.
 
+\item [12 (a)]  Let $\w = e^{2\pi i / m}$, let $G = \gal{\Q[\omega]}{\Q} \simeq \Z^{\times}_{m}$, $K$ be any subfield of $\Q[\omega]$ and $H$ the subgroup of $G$ fixing $K$.  Let $p \in \Z$ such that $p \nmid m$, and let $f$ denote the least integer such that $\overline{p^f} \in H$.  Show $f$ is the intertial degree $f(P | p)$ for any $P$ of $K$ lying over $p$.
+
+Since $p$ is unramified, $\phi(P | p)$ exists and corresponds to some $b \in G$.  A permutation in $G$ corresponds to taking $\w \mapsto \w^b$.  However the Frobenius automorphism has the property $b(\omega) = \modequiv{\w^{b}}{\w^{p}}{P}$, so we have $\modequiv{b}{p}{n}$.
+
+Let $H\overline{a_1}, \ldots, H\overline{a_n}$ be the cosets of $H$ (with $\overline{a_1}$ being the permutation that takes $\w \mapsto \w^{a_1}$).
+
+Let the cyclic group $\{1, p, p^2, \ldots, p^{f-1} \}$ (with $p^{f} = 1$) act on the right cosets of $H$.  For any coset $Hx$, $p^{a}(Hx) = Hxp^{a}$; if $xp^{a} = x$ then $\w^{xp^{a}} = \w^{x}$ and so $\modequiv{xp^{a}}{x}{m}$.  Therefore $\modequiv{p^a}{1}{m}$; as $p \nmid m$, $a = 0$.  By the orbit stabilizer theorem, the size of an orbit of $Hx$ is the size of the whole group, i.e. $f$, by Theorem 33 the inertial degree of any prime $P$ of $K$ lying over $p$ is $f$.
+
+\item [12. (b)] Let $\Q[\w + \w^{-1}]$ be a subfield of $Q$.  The subgroup of $G$ that fixes $\Q[\w + \w^{-1}]$ is the subgroup of order 2 consisting of the identity and complex conjugation $\tau$ that takes $\omega \mapsto \omega^{-1}$.  This $\tau$ is identified with the permutation $m - 1 \in \Z^{\times}_{m}$, so the subgroup $H$ consists of $\{1, m - 1 \} = \{1, -1 \}$.
+
+Let $K = \Q[\w + \w^{-1}$.  By the tower law, $\phi(m) = [\Q[\w] : \Q] = [\Q[\w] : K][K : \Q] = 2 \cdot[K : \Q]$, so $[K : \Q] = \phi(m) / 2$.  For any odd prime such that $p \nmid m$, $p$ is unramified in $\Q[\w]$ and so also in $K$.  By (a), $p$ will split into $\phi(m) / 2f$ primes in $K$, where $f$ is the smallest integer such that $\modequiv{p^f}{\pm 1}{m}$.
+
+\item [12. (c)] Letting $p$ be a prime not dividing $m$, and take $K$ to be any quadratic subfield $\Q[\sqrt{d}] \subset \Q[\w]$.  Let $H$ be the subgroup fixing $K$. Since $p \nmid m$, $p$ is unramified in $\Q[\w]$ and so also unramified in $\Q[\sqrt{d}]$.  Therefore either $p$ remains inert or splits into two primes in $\Q[\w]$.
+
+Let $p$ be odd. We will show that $\bar{p} \in H$ iff $d$ is a square mod $p$; this is equivalent to $f = 1$ iff $d$ is a square mod $p$.  As $p$ is unramified, Theorem 25 gives that $f = 1$ iff $d$ is a square mod $p$.
+
+Now let $p = 2$.  We will show that $\bar{p} \in H$ iff $\modequiv{d}{1}{8}$.  This is equivalent to $f = 1$ iff $\modequiv{d}{1}{8}$.  As $p$ is unramified, Theorem 25 gives the only possibility where $f = 1$ is $\modequiv{d}{1}{8}$.
+
+\item [13.] Let $m \in \Z$.  Assume $m$ is not square and $m \neq -1$.  Let $K = \Q[\sqrt[4]{m}]$ and $L = \Q[\sqrt[4]{m}, i]$; then $L$ is a normal extension of $\Q$ such that $K \subset L$.  Denote the roots $\alpha, i\alpha, -\alpha, -i\alpha$ as 1, 2, 3, and 4.
+
+\item [13. (a)] $[K : \Q] = 4$ and $[L : K] = 2$ so $L$ is a degree 8 extension of $\Q$ where $f(x) = x^4 - m$ splits.  Let $G = \text{Gal}(L / K)$; so $|G| = 8$.  Letting the roots of $f$ be $\alpha, i\alpha, -\alpha, -i\alpha$, $G \subset S_4$ and so $G \simeq D_8$ (the dihedral group on 4 objects) as this is the only subgroup of $S_4$ of order 8.  Therefore $G = \{ 1, \tau, \sigma, \tau \sigma, \sigma^2, \tau \sigma^2, \sigma^3, \tau \sigma^3 \}$.  In $D_8$, $\tau^2 = 1$ and $\sigma^4 = 1$, with $\tau \sigma = \sigma^{-1} \tau$.  Note $\tau$ corresponds to complex conjugation (switching $i\alpha$ with $-i\alpha$).
+
+\item [13. (b)] Let $p$ be an odd prime not dividing $m$.  Prove $p$ is unramified in $L$.
+
+Let $S = \ringofintegers{L}$ and consider $\disc{\alpha}$.  $\disc{\alpha} = \norm(f'(\alpha)) = \pm \norm(4\alpha^3) = \pm 4^8 \norm(\alpha)^3 = \pm 4^8 (-m)^3$; therefore $p \nmid \disc{\alpha}$.  Because $\disc{R} \mid \disc{\alpha}$, $p \nmid \disc{R}$ also, so $p$ is unramified in $L$.
+
+\item [13. (c)] Let $Q$ be a prime lying over $p$.  Since $p$ is unramified in $L$, the Frobenius automorphism $\phi(Q|p)$ exists.  The subgroup $H$ of $G$ that fixes $K$ is the subgroup corresponding to complex conjugation: $\{1, \tau \}$.  The right cosets of $H$ are $H, H\sigma, H\sigma^2, H\sigma^3$.
+
+Suppose $\phi(Q|p) = \tau$. Since $H\sigma\tau = H\tau \sigma^3 = H\sigma^3$, these two cosets are in the same partition.  $H\tau = H$ and $H\sigma^2 \tau = H\tau \sigma^2 \tau = H\sigma^2$.  Therefore we have three partitions of cosets: $\{H\}, \{H\sigma, H\sigma^3 \}, \{H\sigma^2\}$, and by Theorem 32, $Q$ splits into 3 primes in $K$.
+
+\item [13. (d)] For each permutation of $G$, we follow a similar process to (c) to give how $Q$ splits.  The subgroup $H$ fixing $K$ remains the same as in (c).
+
+The partitions are straightforward to calculate since right-multiplication of any $H\sigma^{n}$ by any permutation gives another coset of the form $H\sigma^{m}$.  This is straightforward for permutations $\sigma^a$, whereas for permutations $\sigma^a \tau$, \[H\sigma^n(\sigma^a \tau) = H\sigma^{n + a}\tau = H\tau\sigma^{-(n + a)} = H\sigma^{-(n + a)} \]
+
+\begin{tabular}{|l|l|r|}
+    \hline
+    $\psi(Q|p)$ & Partitions & Number of Primes \\
+    \hline
+    1 & $\{H\}, \{H\sigma\}, \{H\sigma^2\}, \{H\sigma^3\}$ & 4 \\
+    $\sigma$, $\sigma^3$ & $\{H, H\sigma, H\sigma^2, H\sigma^3\}$ & 1\\
+    $\sigma^2$ & $\{H, H\sigma^2\}, \{H\sigma, H\sigma^3\}$ & 2\\
+    $\tau$ & $\{H\}, \{H\sigma, H\sigma^3\}, \{H\sigma^2\}$ & 3 \\
+    $\sigma\tau$ & $\{H, H\sigma^3\}, \{H\sigma, H\sigma^2\}$ & 2 \\
+    $\sigma^2\tau$ & $\{H, H\sigma^2\}, \{H\sigma\}, \{H\sigma^3\}$ & 3 \\
+    $\sigma^3\tau$ & $\{H, H\sigma\}, \{H\sigma^2, H\sigma^3\}$ & 2 \\
+    \hline
+\end{tabular}
+
+% \item[14.] Let $\w = e^{2\pi i / m}$.  Take $m = p^k n$ where $p \nmid n$.  Then we can identify the Galois group of $\Q[\w]$ with $\gal{\Q[\omega]}{\Q} \simeq \Z^{\times}_{m} \simeq \Z^{\times}_{p^k} \times \Z^{\times}_n$.  Describe $D$ and $E$ corresponding to $p$ in terms of this direct product.
+
+% By Theorem 26, the ramification degree of $p$ is $\phi(p^k)$ and the inertial degree of $p$ is its multiplicative order modulo $n$.  Therefore $E$ is a subgroup of $G$ of order $\phi(p^k)$ and $D$ is a subgroup of $G$ of order $\phi(p^k)f$.
+
+% TODO
+
+% Mirroring the proof of Theorem 26, $Q[\w]$ contains the subfields $\Q[\w^n]$ and $\Q[\w^{p^k}]$.  $p$ is ramified with degree $\phi(p^k)$ in $\Q[\w^n]$ and so
+
+% In $\w^n$, any permutation that takes $\w^n \mapsto {\w^{n p^a}} = \w^{p^a} \w^{n}$
 
 \end{enumerate}
 
