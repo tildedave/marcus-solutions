@@ -936,7 +936,23 @@ Subtracting a column times a linear factor has no effect on the determinant of t
 
 \item[19.] Let $K$ and $L$ be number fields, $K \subset L$, and let $R = \ringofintegers{K}$, $S = \ringofintegers{L}$.  Let $P$ be a prime of $R$.
 
-\item[19. (a) - TODO] Show that if $\alpha \in S$, $\beta \in R$, and $\alpha \beta \in PS$, then either $\alpha \in PS$ or $\beta \in P$.
+\item[19. (a)] Show that if $\alpha \in S$, $\beta \in R$, and $\alpha \beta \in PS$, then either $\alpha \in PS$ or $\beta \in P$.
+
+Let $\psi : S / PS \to P / R$ be the homomorphism defined by taking a coset in $S / PS$ to the corresponding coset in $P / R$.  If $\alpha\beta \in PS$, then $\psi(\alpha\beta) = 0$.  Since $P$ is maximal, $R / P$ is an integral domain, so as $\psi$ is a homomorphism into $R / P$ either $\psi(\alpha) = 0$, or $\psi(\beta) = 0$; equivalently, $\alpha \in PS$ or $\beta \in P$.
+
+\item[22. ($\alpha^5 = 2\alpha + 2$)]
+
+Let $\alpha^5 = 2\alpha + 2$ and $R = \ringofintegers{\Z[\alpha]}$.  By Exercise 43, $\disc{\alpha} = 4^4 \cdot (-2)^5 + 5^5 2^4 = 2^4 \cdot 3 \cdot 13 \cdot 67$.
+
+As 2 is the prime with power greater than 1 dividing $\disc{\alpha}$,  we focus on its factorization.  (If $\disc{\alpha}$ we not the whole ring of integers, the order $|R / \Z[\alpha]|$ would be divisible by a power of 2.)
+
+By 43 (d), $\alpha + 1$ is a unit, so we can determine the factorization of 2 by factoring the minimum polynomial of $\alpha + 1$ over $\Q$ mod 2.  Sage gives this as $x^5 - 5x^4 + 10x^3 - 10x^2 + 3x - 1$; mod 2 this is $x^5 + x^4 + x + 1 = (x - 1)^5$; therefore the prime 2 has the factorization $2R = (2, \alpha)^5$ and the inertial degree of the primes lying over 2 is 1.  Using the improvement of Theorem 24, $2^4 \mid \disc{R}$; therefore $\disc{R} = \disc{\alpha}$ and $\ringofintegers{\Z[\alpha]} = \Z[\alpha]$.
+
+\item[22. ($\alpha^5 = 2\alpha^4 + 2$)]
+
+We proceed in a similar method to the previous case: we calculate the discriminant of $\alpha$, take the prime factors that have square terms, and factor the minimum polynomial of $\alpha^4 + 1$ (a unit by 44 (d)) modulo those prime factors.
+
+By 44 (a), $\disc{\alpha} = (-2)^3 (4^4 (-2)^5 + 5^5 (-2)) = 2^4 \cdot 3 \cdot 29 \cdot 83$, so again we only need to focus on $p = 2$.  Sage gives the minimum polynomial of $\alpha^4 + 1$ as $x^5 - 21x^4 + 10x^3 - 10x^2 + 5x - 1$; mod 2 this is $x^5 + x^4 + x + 1 = (x - 1)^5$, so $2R = (2, \alpha^4)^5$ and so $\sum f_i = 1$ and by the improvement of Theorem 24, $2^4 \mid \disc{R}$.  Therefore $\disc{\alpha} = \disc{R}$ and $\ringofintegers{\Z[\alpha]} = \Z[\alpha]$.
 
 \item[24.] Let $R, K, S, L$ be as usual.  A prime $P \subset R$ is {\it totally ramified} if $PS = Q^{n}$, $n = [L : K]$.
 
