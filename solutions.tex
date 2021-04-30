@@ -1348,5 +1348,17 @@ sage: [-(840-CRT_list(list(rs),prime_list))
 
 \end{enumerate}
 
+\section*{Chapter 6}
+
+\begin{enumerate}
+    \item [1. (a)]
+    \begin{eqnarray*}
+        1 - \frac{1}{2^s} + \frac{1}{3^s} - \frac{1}{4^s} + \ldots &=& 1 + \frac{1}{2^s} + \frac{1}{3^s} + \cdots - 2 \left( \frac{1}{2^s} + \frac{1}{4^s} + \frac{1}{6^s} + \ldots \right) \\
+        &=& \zeta(s) - 2\left(2^{-s} + \frac{2^{-s}}{2} + \frac{2^{-s}}{3} + \ldots \right) \\
+        &=& \zeta(s) - 2^{1-s}\zeta(s) = \zeta(s) (1 - 2^{1-s}) \\
+    \end{eqnarray*}
+    \item [1. (b)]
+        $\frac{d}{ds} (1 - 2^{1-s}) = 2^{1-s} \ln (2)$ has the value $\ln(2)$ at $s = 1$ so it has a simple zero (order 1).
+\end{enumerate}
 \end{document}
 
