@@ -12,6 +12,7 @@
 \newcommand{\Q}[0]{\mathbb{Q}}
 \newcommand{\R}[0]{\mathbb{R}}
 \newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\Zmult}[1]{\mathbb{Z}_{#1}^{*}}
 \newcommand{\p}[0]{\mathfrak{p}}
 \newcommand{\q}[0]{\mathfrak{q}}
 \newcommand{\zquad}[1]{\mathbb{Z}[\sqrt{#1}]}
@@ -1359,6 +1360,17 @@ sage: [-(840-CRT_list(list(rs),prime_list))
     \end{eqnarray*}
     \item [1. (b)]
         $\frac{d}{ds} (1 - 2^{1-s}) = 2^{1-s} \ln (2)$ has the value $\ln(2)$ at $s = 1$ so it has a simple zero (order 1).
+    \item [3.]
+    \[ \z_{K, A \cup B}(s) = \prod_{P \in A, B} \left(1 - \frac{1}{||P||^{s}}\right) = \prod_{P \in A} \left(1 - \frac{1}{||P||^{s}}\right) \prod_{P \in B} \left(1 - \frac{1}{||P||^{s}}\right) \] The last equality follows as $A$, $B$ are disjoint.Therefore $\z_{K, A \cup B} = \z_{K, A} \z_{K, B}$.
+
+    As the quotient and the product of two non-zero analytic functions on the same region is also analytic, the relationship $\z_{K, A \cup B} = \z_{K, A} \z_{K, B}$ shows that if any two of these functions are well-defined on the half plane $x > 1/2$, the third must also be.
+
+    Let $\z_{K, A \cup B}^{n}$ has a pole of order $m$ (so $d(A \cup B) = m /n$).  Therefore the product $\z_{K, A}^{n} \z_{K, B}^{n}$ has a pole of order $m$.  Letting $k$ and $j$ be the largest negative numbers for the Laurent expansion of $A$ and $B$, we must have $k + j = m$.  Therefore $\z_{K, A}^{n}$ has polar density $k / n$ and $\z_{K, B}^{n}$ has polar density $j / n$, and so $d(A \cup B) = d(A) + d(B)$.
+
+    \item [4.] Let $H$ be the normal subgroup of $\{1, -1\} \in \Z^{*}_m$. By Corollary 3 of Theorem 43, this set has density $2 / \varphi(m)$.  Similarly, the subgroup $\{1\}$ (primes $\modequiv{p}{1}{m}$ has density $1 / \varphi(m)$).  Applying the result of Exercise 3, $d(\modequiv{\text{primes}}{1, -1}{m}) = d(\modequiv{\text{primes}}{1}{m}) + d(\modequiv{\text{primes}}{-1}{m})$, so $2 / \varphi(m) = 1 / \varphi(m) + d(\modequiv{\text{primes}}{-1}{m})$.  The result follows.
+
+    \item [5.] $\varphi(24) = 8$, and $\Zmult{24} \simeq \Zmult{8} \times \Zmult{3} = \Z_{2} \times \Z_{2} \times \Z_{2}$, so every element $a \in \Zmult{24}$ has order 2.  Applying Corollary 3 of Theorem 43, each subgroup $\{1, a\}$ has polar density $2 / 8$.  $\{1\}$ has polar density $1 / 8$, so by applying Exercise 3, we see $\{a\}$ has polar density $1 / 8$ as desired.
+
 \end{enumerate}
 \end{document}
 
