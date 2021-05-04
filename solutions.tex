@@ -11,6 +11,8 @@
 \newcommand{\z}[0]{\zeta}
 \newcommand{\Q}[0]{\mathbb{Q}}
 \newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\F}[0]{\mathbb{F}}
+\newcommand{\C}[0]{\mathbb{C}}
 \newcommand{\Z}[0]{\mathbb{Z}}
 \newcommand{\Zmult}[1]{\mathbb{Z}_{#1}^{*}}
 \newcommand{\p}[0]{\mathfrak{p}}
@@ -1248,7 +1250,7 @@ Conversely assume $\tau' \in E'$; then $\alpha - \tau'(\alpha) \in Q'$ for any $
 
 \item [9. (b)] Let $\modequiv{\psi(\alpha)}{\alpha^{||P||}}{Q}$; then $\psi(\alpha) - \alpha^{||P||} \in Q$ for any $\alpha \in S$.  In particular $\psi(\sigma(\alpha)) - \sigma(\alpha)^{||P||} \in Q$ and so $\sigma^{-1}\psi(\sigma(\alpha)) - \alpha^{||P||} \in \sigma^{-1}Q = Q'$.  Therefore $\psi' = \sigma^{-1}\psi \sigma$.
 
-\item [12 (a)]  Let $\w = e^{2\pi i / m}$, let $G = \gal{\Q[\omega]}{\Q} \simeq \Z^{\times}_{m}$, $K$ be any subfield of $\Q[\omega]$ and $H$ the subgroup of $G$ fixing $K$.  Let $p \in \Z$ such that $p \nmid m$, and let $f$ denote the least integer such that $\overline{p^f} \in H$.  Show $f$ is the intertial degree $f(P | p)$ for any $P$ of $K$ lying over $p$.
+\item [12 (a)]  Let $\w = e^{2\pi i / m}$, let $G = \gal{\Q[\omega]}{\Q} \simeq \Z^{\times}_{m}$, $K$ be any subfield of $\Q[\omega]$ and $H$ the subgroup of $G$ fixing $K$.  Let $p \in \Z$ such that $p \nmid m$, and let $f$ denote the least integer such that $\overline{p^f} \in H$.  Show $f$ is the inertial degree $f(P | p)$ for any $P$ of $K$ lying over $p$.
 
 Since $p$ is unramified, $\phi(P | p)$ exists and corresponds to some $b \in G$.  A permutation in $G$ corresponds to taking $\w \mapsto \w^b$.  However the Frobenius automorphism has the property $b(\omega) = \modequiv{\w^{b}}{\w^{p}}{P}$, so we have $\modequiv{b}{p}{n}$.
 
@@ -1258,7 +1260,7 @@ Let the cyclic group $\{1, p, p^2, \ldots, p^{f-1} \}$ (with $p^{f} = 1$) act on
 
 \item [12. (b)] Let $\Q[\w + \w^{-1}]$ be a subfield of $Q$.  The subgroup of $G$ that fixes $\Q[\w + \w^{-1}]$ is the subgroup of order 2 consisting of the identity and complex conjugation $\tau$ that takes $\omega \mapsto \omega^{-1}$.  This $\tau$ is identified with the permutation $m - 1 \in \Z^{\times}_{m}$, so the subgroup $H$ consists of $\{1, m - 1 \} = \{1, -1 \}$.
 
-Let $K = \Q[\w + \w^{-1}$.  By the tower law, $\phi(m) = [\Q[\w] : \Q] = [\Q[\w] : K][K : \Q] = 2 \cdot[K : \Q]$, so $[K : \Q] = \phi(m) / 2$.  For any odd prime such that $p \nmid m$, $p$ is unramified in $\Q[\w]$ and so also in $K$.  By (a), $p$ will split into $\phi(m) / 2f$ primes in $K$, where $f$ is the smallest integer such that $\modequiv{p^f}{\pm 1}{m}$.
+Let $K = \Q[\w + \w^{-1}]$.  By the tower law, $\phi(m) = [\Q[\w] : \Q] = [\Q[\w] : K][K : \Q] = 2 \cdot[K : \Q]$, so $[K : \Q] = \phi(m) / 2$.  For any odd prime such that $p \nmid m$, $p$ is unramified in $\Q[\w]$ and so also in $K$.  By (a), $p$ will split into $\phi(m) / 2f$ primes in $K$, where $f$ is the smallest integer such that $\modequiv{p^f}{\pm 1}{m}$.
 
 \item [12. (c)] Letting $p$ be a prime not dividing $m$, and take $K$ to be any quadratic subfield $\Q[\sqrt{d}] \subset \Q[\w]$.  Let $H$ be the subgroup fixing $K$. Since $p \nmid m$, $p$ is unramified in $\Q[\w]$ and so also unramified in $\Q[\sqrt{d}]$.  Therefore either $p$ remains inert or splits into two primes in $\Q[\w]$.
 
@@ -1311,7 +1313,7 @@ The partitions are straightforward to calculate since right-multiplication of an
 \section*{Chapter 5}
 
 \begin{enumerate}
-\item[6.] Show that $\ringofintegers{\Q[\sqrt{m}]}$ is principal for $m = 2, 3, 5, 6, 7, 173, 293, 437$.  As each of these $m$ is positive, these are real quadratic fields and so the number of complex embeddings $s = 0$.  Therefore the bound given by Minowski's Theorem is that every ideal class contains an ideal with $||J|| < \frac{2!}{2^2} \cdot \sqrt{|\disc{R}|}$, where $\disc{R} = m$ if $\modequiv{m}{1}{4}$ and $\disc{R} = 4m$ otherwise.  Therefore \[ ||J|| < \begin{cases}\frac{\sqrt{m}}{2} &\modequiv{m}{1}{4}\\ \sqrt{m} &\modequiv{m}{2, 3}{4}\end{cases} \]
+\item[6.] Show that $\ringofintegers{\Q[\sqrt{m}]}$ is principal for $m = 2, 3, 5, 6, 7, 173, 293, 437$.  As each of these $m$ is positive, these are real quadratic fields and so the number of complex embeddings $s = 0$.  Therefore the bound given by Minkowski's Theorem is that every ideal class contains an ideal with $||J|| < \frac{2!}{2^2} \cdot \sqrt{|\disc{R}|}$, where $\disc{R} = m$ if $\modequiv{m}{1}{4}$ and $\disc{R} = 4m$ otherwise.  Therefore \[ ||J|| < \begin{cases}\frac{\sqrt{m}}{2} &\modequiv{m}{1}{4}\\ \sqrt{m} &\modequiv{m}{2, 3}{4}\end{cases} \]
 
     \begin{itemize}
         \item[$m = 2$: ] $||J|| < \sqrt{2} \approx 1.4$ so every ideal class contains an ideal with norm 1.  Therefore every ideal must be principal.
@@ -1348,14 +1350,49 @@ sage: [-(840-CRT_list(list(rs),prime_list))
 \end{verbatim}
 \item[10. (d)] TODO (base off (c))
 \item[11.]
-    The Minowski bound for $\Z[\sqrt{-6}]$ is $\frac{2!}{2^2}\left(\frac{4}{\pi}\right)\sqrt{24} \approx 3.11$.  Both 2 and 3 ramify in $\Z[\sqrt{-6}]$ as they divide the discriminant; $(2, \sqrt{-6})^2 = (2)$ and $(3, \sqrt{-6})^2 = (3)$.  Neither of these ideals is principal as $x^2 + 6y^2 = \{2, 3\}$ has no integer solutions. $(2, \sqrt{-6}) = \frac{\sqrt{-6}}{3}(3, \sqrt{-6})$, so they are in the same ideal class element.  Therefore the ideal class group of $\Z[\sqrt{-6}]$ has order 2.
+    The Minkowski bound for $\Z[\sqrt{-6}]$ is $\frac{2!}{2^2}\left(\frac{4}{\pi}\right)\sqrt{24} \approx 3.11$.  Both 2 and 3 ramify in $\Z[\sqrt{-6}]$ as they divide the discriminant; $(2, \sqrt{-6})^2 = (2)$ and $(3, \sqrt{-6})^2 = (3)$.  Neither of these ideals is principal as $x^2 + 6y^2 = \{2, 3\}$ has no integer solutions. $(2, \sqrt{-6}) = \frac{\sqrt{-6}}{3}(3, \sqrt{-6})$, so they are in the same ideal class element.  Therefore the ideal class group of $\Z[\sqrt{-6}]$ has order 2.
 
-    The Minowski bound for $\Z[\sqrt{-10}$ is $\frac{2!}{2^2}\left(\frac{4}{\pi}\right)\sqrt{40} \approx 4.02$, so again we only need to consider 2 and 3.  2 ramifies as $(2, \sqrt{-10})^2$; as in the previous case this is not a principal ideal due to $x^2 + 10y^2 = 2$ having no integer solutions.  3 remains inert; $\modequiv{-10}{2}{3}$ and $\legendre{2}{3} = -1$, so 3 does not factor in $\Z[\sqrt{-10}]$.
+    The Minkowski bound for $\Z[\sqrt{-10}$ is $\frac{2!}{2^2}\left(\frac{4}{\pi}\right)\sqrt{40} \approx 4.02$, so again we only need to consider 2 and 3.  2 ramifies as $(2, \sqrt{-10})^2$; as in the previous case this is not a principal ideal due to $x^2 + 10y^2 = 2$ having no integer solutions.  3 remains inert; $\modequiv{-10}{2}{3}$ and $\legendre{2}{3} = -1$, so 3 does not factor in $\Z[\sqrt{-10}]$.
 
 \item[12.]
-    The Minowski bound for $\Z[\sqrt{-23}]$ is $3.053$, so only 2 and 3 need to be considered.  As $\legendre{2}{-23} = 1$, 2 factors as $2 = \left(2, \frac{\sqrt{-23} - 1}{2}\right)\left(2, \frac{\sqrt{-23} + 1}{2}\right)$.  $x^2 + 23y^2 = 8$ has no integer solutions, so this must be a non-principal ideal.  $\left(2, \frac{\sqrt{-23} - 1}{2}\right)^2 = (4, \sqrt{-23} - 1, \frac{\sqrt{-23} - 11}{2}) = (4, \frac{\sqrt{-23} + 3}{2})$.  This is also not a principal ideal since $x^2 + 23y^2 = 16$ has no solutions with $y \neq 0$ (since $\frac{\sqrt{-23} + 3}{2}$ is in the ideal it can't just be generated by an integer).  However, $\left(2, \frac{\sqrt{-23} - 1}{2}\right)^3 = (8, \sqrt{-23} - 1, \sqrt{-23} + 3, \frac{\sqrt{-23} - 13}{2})$.  First observe $\frac{\sqrt{-23} + 3}{2}$ is in this ideal.  Next, observe $8 = \norm(\frac{\sqrt{-23} + 3}{2})$, so the ideal is principal.  Therefore there are 3 elements in the ideal class group.
+    The Minkowski bound for $\Z[\sqrt{-23}]$ is $3.053$, so only 2 and 3 need to be considered.  As $\legendre{2}{-23} = 1$, 2 factors as $2 = \left(2, \frac{\sqrt{-23} - 1}{2}\right)\left(2, \frac{\sqrt{-23} + 1}{2}\right)$.  $x^2 + 23y^2 = 8$ has no integer solutions, so this must be a non-principal ideal.  $\left(2, \frac{\sqrt{-23} - 1}{2}\right)^2 = (4, \sqrt{-23} - 1, \frac{\sqrt{-23} - 11}{2}) = (4, \frac{\sqrt{-23} + 3}{2})$.  This is also not a principal ideal since $x^2 + 23y^2 = 16$ has no solutions with $y \neq 0$ (since $\frac{\sqrt{-23} + 3}{2}$ is in the ideal it can't just be generated by an integer).  However, $\left(2, \frac{\sqrt{-23} - 1}{2}\right)^3 = (8, \sqrt{-23} - 1, \sqrt{-23} + 3, \frac{\sqrt{-23} - 13}{2})$.  First observe $\frac{\sqrt{-23} + 3}{2}$ is in this ideal.  Next, observe $8 = \norm(\frac{\sqrt{-23} + 3}{2})$, so the ideal is principal.  Therefore there are 3 elements in the ideal class group.
 
-    I am omitting the part of the exercise which asks that we do the same for $-31, -83, -139$.
+    I am (for now) omitting the part of the exercise which asks that we do the same for $-31, -83, -139$.
+
+    (Skip a bunch of quadratic field exercises.)
+
+    \item [17.] Let $\w = e^{2\pi i / 7}$.  $\disc{\Z[\w]} = -7^5$, and $\Z[\w]$ has degree 6 over $\Q$.  There are 6 embeddings from $\Z[\w]$ into $\Q$; each taking $\w$ to a different root of unit.  Therefore the Minkowski bound is $\frac{6!}{6^6}\left((\frac{4}{\pi}\right)^{3}\sqrt{7^5} = \frac{720 \cdot 64 \cdot 49\sqrt{7}}{\pi^3 6^6} = \frac{3920\sqrt{7}}{81\pi^3} \approx 4.12$.  So the only prime ideals we need to examine contain 2 or 3.
+
+    By the Corollary to Theorem 26, $2$ splits into $\frac{\varphi(7)}{3} = 2$ ideals mod 7 ($\modequiv{2^3}{1}{7}$, while $3$ remains inert.  Mod 2, $x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$ factors as $(x^3 + x + 1)(x^3 + x^2 + 1)$, so $2 = (2, \w^3 + \w + 1)(2, \w^3 + \w^2 + 1)$.  As $(\w^3 + \w + 1)(\w^3 + \w^2 + 1)(\w^4) = 2$, so both of these ideals is principal.  Therefore $\Z[\w]$ is a PID.
+
+    Next, let $\Z[\w + \w^{-1}]$.  By Exercise 35, Chapter 2, the discriminant over this number field is $7^{2} = 49$.  This is a real subfield of order 3 over $\Q$ (no embeddings in $\C$) so its Minkowski bound is $\frac{3!}{3^3}{\sqrt(49)} = \frac{14}{9} < 2$, so $\Z[\w + \w^{-1}]$ is a PID.
+
+    \item[18.] Let $\w = e^{2\pi i / 11}$.
+    This is a real subfield of degree 5 over $\Q$ with discriminant $11^{4}$, so its Minkowski bound is $\frac{5!}{5^5}\cdot 11^2 = \frac{2904}{625} \approx 4.6$.  So we must investigate the prime ideals 2 and 3.
+
+    By Exercise 12 Chapter 4 primes in $\Z[\z_{p} + \z_{p}^{-1}]$ for $\z_{p}$ a $p$th root of unity split into $\frac{p - 1}{2f}$ ideals, where $f$ the smallest integer so that $\modequiv{p^f}{\pm 1}{p}$.  Letting $p = 11$ and looking at 2 and 3, we have both $\modequiv{2^5}{-1}{11}$ and $\modequiv{3^5}{1}{11}$, so both 2 and 3 remain inert in $\Z[\w]$.  Therefore $\Z[\w]$ is a PID.
+
+    We repeating the same process for $\w = e^{2\pi i / 13}$.  In this case the discriminant of $\Z[\w + \w^{-1}] = 13^{5}$ so the Minkowski bound is $\frac{6! 169 \sqrt{13}}{6^6} = \frac{845\sqrt{13}}{324} \approx 9.403$.  We must examine the primes 2, 3, 5, 7.  Here the ideal splitting formula that a prime splits into $\frac{6}{f}$ ideals.
+
+    $2$ and $7$ remain inert in $\Z[\w + \w^{-1}]$ ($\modequiv{2^6, 7^6}{-1}{13}$), but $3$ splits into 2 ideals ($\modequiv{3^3}{1}{13}$) and $5$ splits into 3 ideals ($\modequiv{5^2}{-1}{13}$).  Computation via Sage shows each of these ideals is principal.  Therefore $\Z[\w + \w^{-1}]$ is a PID.
+
+    % NB: argument is wrong.  Same (theoretically) holds for e^{2\pi i / 23} but that is not a PID.
+    % Neither 2 or 3 ramifies, so by Theorem 25 (Dedekind factoring), the ideals lying over 2 factor as $(2, g_1(\w + \w^{-1})) \cdot (2, g_2(\w^{-1}))$ for $f = g_1 g_2$ the decomposition of the minimum polynomial for $\w + \w^{-1}$ over $\Q$.  $g_1(\w + \w^{-1})g_2(\w + \w^{-1}) \in (2)$; therefore the ideals lying over 2 are principal.  The same argument shows that the 3 ideals lying over the prime 3 are also principal.
+
+    \item [21.] By the binomial theorem, $(\sqrt[3]{m} + a)^3 = m + 3a(\sqrt[3]{m})^2 + 3a^2(\sqrt[3]{m}) + a^3$.  Therefore the minimum polynomial for $\sqrt[3]{m} + a$ is $x^3 - \text{something}\cdot x^2 - \text{something} \cdot x - (m + a^3)$, so $\norm(\sqrt[3]{m} + a) = m + a^3$.
+
+    \item [22.] Any purely cubic field has 2 complex embeddings, so the Minkowski bound is $\frac{3!}{3^3}\left(\frac{4}{\pi}\right)\sqrt{|-27m^2|}$ = $\frac{27m\sqrt{3}}{3^2}$.  By Exercise 41, the $\ringofintegers{K} = \Z[\sqrt[3]{m}]$ as $\modnotequiv{m}{\pm 1}{9}$ for these values of $m$.
+
+    $m = 3$: the Minkowski bound is $\approx 4.4$ and 3 ramifies as $(\sqrt[3]{3})^3$ (principal).  $(\sqrt[3]{3}^2 + \sqrt[3]{3} + 1)(\sqrt[3]{3} - 1) = (2)$; by Exercise 21, $\norm(\sqrt[3]{3} - 1) = 3 + (-1)^3 = 2$ and so both the ideals lying over 2 are principal.  Therefore $\Q[\sqrt[3]{3}]$ is a PID.
+
+    $m = 5$: the Minkowski bound is $\approx 7.3$.  Since $5$ ramifies as $(\sqrt[3]{5})^3$ (principal) we need to examine the ideal classes of 2, 3, and 7.  Let $\alpha = \sqrt[3]{5}$.
+
+    The polynomial $\modequiv{x^3 - 5}{x^3 + 1}{2}$ factors as $(x + 1)(x^2 + x + 1)$, so by Dedekind factoring (Theorem 25) 2 splits into two factors, $(2, \alpha + 1)(2, \alpha^2 + \alpha + 1)$.  Sage indicates that these are principal ideals and equal to $(\alpha^2 - \alpha - 1)(\alpha^2 + 2\alpha + 3)$.  [Not sure how to see this without a computer algebra program]
+
+    $\alpha - 2$ has norm $-3$ and so the ideal $(\alpha - 2)$ that lies over 3 is principal (in fact this ideal ramifies over 3).
+
+    Considering the ideal class of $(7)$: $x^3 - 5$ is irreducible mod 7; if it were reducible it would have a root, but 5 is not a cubic residue mod 7.  Therefore 7 remains inert.  Therefore $\Q[\sqrt[3]{5}]$ is a PID.
+
 \end{enumerate}
 
 \section*{Chapter 7}
@@ -1379,7 +1416,6 @@ sage: [-(840-CRT_list(list(rs),prime_list))
     \item [4.] Let $H$ be the normal subgroup of $\{1, -1\} \in \Z^{*}_m$. By Corollary 3 of Theorem 43, this set has density $2 / \varphi(m)$.  Similarly, the subgroup $\{1\}$ (primes $\modequiv{p}{1}{m}$ has density $1 / \varphi(m)$).  Applying the result of Exercise 3, $d(\modequiv{\text{primes}}{1, -1}{m}) = d(\modequiv{\text{primes}}{1}{m}) + d(\modequiv{\text{primes}}{-1}{m})$, so $2 / \varphi(m) = 1 / \varphi(m) + d(\modequiv{\text{primes}}{-1}{m})$.  The result follows.
 
     \item [5.] $\varphi(24) = 8$, and $\Zmult{24} \simeq \Zmult{8} \times \Zmult{3} = \Z_{2} \times \Z_{2} \times \Z_{2}$, so every element $a \in \Zmult{24}$ has order 2.  Applying Corollary 3 of Theorem 43, each subgroup $\{1, a\}$ has polar density $2 / 8$.  $\{1\}$ has polar density $1 / 8$, so by applying Exercise 3, we see $\{a\}$ has polar density $1 / 8$ as desired.
-
 \end{enumerate}
 \end{document}
 
