@@ -1162,7 +1162,7 @@ For $i = n - 1$, $\gamma_{n-1} = 1$ since $f(x)$ is a monic polynomial.   There 
         \alpha &\equiv& \alpha\mod Q \\
         \tau(\alpha) &\equiv& \tau(\alpha)\mod Q\\
         \sigma(\tau(\alpha)) &\equiv& \tau(\alpha) \mod Q\\
-        \tau^-1(\sigma(\tau(\alpha))) &\equiv& \tau^{-1}\tau(\alpha) \equiv \alpha\mod Q
+        \tau^{-1}(\sigma(\tau(\alpha))) &\equiv& \tau^{-1}\tau(\alpha) \equiv \alpha\mod Q
     \end{eqnarray*}
     Therefore $E$ is normal in $D$.
 
@@ -1307,6 +1307,22 @@ The partitions are straightforward to calculate since right-multiplication of an
 % Mirroring the proof of Theorem 26, $Q[\w]$ contains the subfields $\Q[\w^n]$ and $\Q[\w^{p^k}]$.  $p$ is ramified with degree $\phi(p^k)$ in $\Q[\w^n]$ and so
 
 % In $\w^n$, any permutation that takes $\w^n \mapsto {\w^{n p^a}} = \w^{p^a} \w^{n}$
+
+
+\item[18. (a)] TODO
+\item[18. (b)]  Suppose $\sigma \in \cap\ V_{m}$, then for any $\alpha \in S$, $\sigma(\alpha) - \alpha \in \cap\ Q^{m} = 0$.  Since $\alpha$ was chosen arbitrarily $\sigma$ must be the identity permutation.  Therefore the descending chain of subgroups eventually stabilizes at the identity.
+
+\item[19.] Let $\sigma \in V_{m-1}$, $\pi \in Q - Q^2$, and $\modequiv{\sigma(\pi)}{\sigma}{Q^{m+1}}$.
+
+\item[19. (a)] Suppose $\alpha \in \pi S$, so it must have form $\alpha = \pi \beta$ for $\beta \in S$.  By the definition of $\sigma$, $\modequiv{\sigma(\beta)}{\beta}{Q^{m}}$.  As $\pi \in Q - Q^{2}$, $\modequiv{\pi\sigma(\beta)}{\pi(\beta)}{Q^{m+1}}$.  Since $\modequiv{\pi}{\sigma(\pi)}{Q^{m+1}}$, $\modequiv{\sigma(\pi)\sigma(\beta) = \sigma(\pi\beta) = \sigma(\alpha)}{\alpha}{Q^{m+1}}$.
+
+\item[19. (b)] Since $\pi \not\in Q^2$, the principal ideal $(\pi)$ has a decomposition $JQ$ where $J \not \in Q$.  If the ideal $(\alpha)$ has a decomposition $IQ^{n}$ where $I \not\subset Q$, then $IJQ \subset \pi S$ and $IJ \not\subset Q$.
+
+$IJ$ also contains an integer $m$ ($m$ = $||IJ||$), take $\beta = m$.  Then $\sigma(\beta) = \beta$ and $\beta \alpha \in \pi S$.
+
+Given $\alpha \in Q$, $\beta \alpha \in \beta Q = \pi S$.  By (a), $\modequiv{\sigma(\beta \alpha)}{\beta \alpha}{Q^{m + 1}}$.  As $\sigma(\beta) = \beta$, $\modequiv{\beta\sigma(\alpha)}{\beta \alpha}{Q^{m+1}}$.  Since $\beta \not\in Q$ we can cancel both sides and so $\modequiv{\sigma(\alpha)}{\alpha}{Q^{m+1}}$.
+
+\item[19. (c)] Following the hint, $S = S_{E} + Q$; so every $\alpha \in S$ can be written as a sum of an element of the number ring of the fixed field of $E$ and an element of $Q$.  Let $\alpha = \beta + \gamma$ where $\beta \in S_{E}$ and $\gamma \in Q$.  By (b), $\modequiv{\sigma(\gamma)}{\gamma}{Q^{m+1}}$, so $\modequiv{\sigma(\gamma) + \beta}{\gamma + \beta}{Q^{m+1}}$.  Since $\beta \in S_{E}$, $\sigma(\beta) = \beta$ and so, $\modequiv{\sigma(\gamma + \beta)}{\gamma + \beta}{Q^{m+1}}$.  This is the required result.
 
 \end{enumerate}
 
