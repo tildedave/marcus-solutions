@@ -1101,6 +1101,40 @@ Given two different factorizations of $A$, $A = P_1^{e_1} \cdots P_k^{e_k} = Q_1
 
 \item[31. (d-f)] TODO
 
+\item[33.] Let $A$ be an additive subgroup of $L$.  Define \[ A^{-1} = \{\alpha \in L : \alpha A \subset S \} \] and \[ A^{*} = \{ \alpha \in L : \text{Tr}^{L}_{K}(\alpha A) \subset R \} \]
+
+\item[33. (a)] Show $A^{-1}$ is an $S$-submodule of $L$ and $A^{*}$ is an $R$-submodule.
+
+First note $A^{-1}$ is an additive subgroup of $L$: if $\alpha, \beta \in A^{-1}$, $\alpha A \subset S$ and $\beta A \subset S$ so $(\alpha + \beta) A \subset S$.  To show $A^{-1}$ is an $S$-submodule of $L$, take $\alpha \in A^{-1}$, $s \in S$, $a \in A$; as $\alpha a \in S$ then $\alpha a s \in S$ so $\alpha s A \subset S$ and so $A^{-1}$ is an $S$-submodule.
+
+As the trace property is additive, $A^{*}$ is an additive subgroup of $L$.  To show $A^{*}$ is an $R$-submodule take $\alpha \in A^{*}$ and $r \in R$; so $\text{Tr}^{L}_{K}(\alpha A) \subset R$.  As $\text{Tr}^{L}_{K}(r \alpha A) = r \text{Tr}^{L}_{K}(\alpha A)$, $r\alpha \in A^{*}$ and so $A^{*}$ is an $R$-submodule.
+
+Finally given $\alpha \in A^{-1}$; given $a \in A$, $\alpha a \in S$.  The relative trace or norm of an element in $L$ is a member of the base field $K$; as the relative trace is just the sum of the diagonal entries of the permutation matrix of $\alpha a$, $\text{Tr}^{L}_{K}(\alpha a) \in R$.
+
+\item[33. (b)] Let $A$ be a fractional ideal; then from the definition in exercise 31, $A = \alpha I$, $\alpha \in L$, $I$ an ideal of $S$.  Take $s \in S$; then any element of $sA$ has the form $s\alpha k$, for $k \in I$.  As $I$ is an ideal, $sk \in I$ and so $\alpha s k \in A$.  $\alpha^{-1} \in A^{-1}$ as $\alpha^{-1} A = \alpha^{-1} \alpha I = I \subset S$.
+
+To prove the converse, suppose $SA = A$ and $A^{-1} \neq \{ 0 \}$.  Take some $\alpha^{-1} \neq 0 \in A^{-1}$ so that $\alpha^{-1} A \subset S$.  Given $a \in A$, $\alpha^{-1} a \in S \implies a \in \alpha S$; therefore $a = \alpha s$ for $s \in S$.  Let $I = \{ x : \alpha x \in A \}$.  Take $a, b \in A$; then $a = \alpha x_0$, $b = \alpha x_1$ ($x_0, x_1 \in I$); as $A$ is additive $\alpha (x_0 + x_1) in A \implies x_0 + x_1 \in I$; therefore $I$ is an additive subset of $S$.  Finally take $s \in S$, $x \in I$; as $SA = A$, then $s\alpha x \in A$ and so $\alpha sx \in A$ and so $sx \in I$.  $I$ is therefore an ideal, and so $A = \alpha I$ is a fractional ideal.
+
+\item [33. (c)] Define $\diff A = (A^{*})^{-1}$.  $A$ and $B$ are subgroups of $L$ and $I$ is a fractional ideal of $S$.
+
+$A \subset B \implies A^{-1} \supset B^{-1}$: take $\beta^{-1} \in B^{-1}$; then $\beta^{-1} A \subset \beta^{-1} B \subset S$ and so $\beta^{-1} \in A^{-1}$.
+
+$A \subset B \implies A^{*} \supset B^{*}$: take $\beta \in B^{*}$; then $\text{Tr}^{L}_{K}(\beta B) \subset R$; as $A \subset B$ then $\beta A \subset \beta B$ and so $\text{Tr}^{L}_{K}(\beta A) \subset R$ as well.  So $\beta \in A^{*}$.
+
+$\diff{A} \subset (A^{-1})^{-1}$: $\diff{A} = (A^{*})^{-1}$.  $A^{-1} \subset A^{*}$ (by 33. (a)), so $(A^{-1})^{-1} \supset (A^{*})^{-1} = \diff{A} \implies \diff{A} \subset (A^{-1})^{-1}$.
+
+$(I^{-1})^{-1} = I$: By 31 (b), the fractional ideals form a group under multiplication and $I I^{-1} = S$; therefore $(I^{-1})^{-1} = I$.
+
+$\diff{I} \subset I$: $\diff{I} \subset (I^{-1})^{-1} = I$ by the two previous steps.
+
+$\diff{I}$ is a fractional ideal: $I^{*}$ is an additive subgroup of $L$, by 33 (a), the inverse of $I^{*}$ is an $S$-module and so $S(\diff {I}) = \diff{I}$.  $\diff{I}^{-1} \supset I^{-1}$ and as $\gamma^{-1} \in I^{-1}$, $\gamma^{-1} \in \diff{I}^{-1}$ and so $\diff{I}$ has a non-empty inverse.  Therefore $I$ is a fractional ideal by 33 (b).
+
+$A \subset I \implies \diff{A} \text{ is a fractional ideal}$:  As $A^{*}$ is an additive subgroup, $\diff{A}$ is an $S$-module.  Similarly $\diff{A}^{-1} \supset A^{-1}$ and $\gamma \in A^{-1}$ (as $A \subset I$, $\gamma I \subset S \implies \gamma A \subset S$), so $\diff{A}$ is also a fractional ideal by 33 (b).
+
+$I^{*}$ is an $S$-submodule of $L$:  By the additive property of the trace, $I^{*}$ is an additive subgroup.  Take $s \in S$: as $\trace{\alpha I} \subset R \implies \trace{\alpha \gamma J} \subset R$; as $J$ is an $S$-ideal, $s J\subset J$, so $\trace{s \alpha\gamma J} = \trace{\alpha \gamma J} \subset R$, so $I^{*}$ is an $S$-submodule.
+
+$I^{*}$ is a fractional ideal: $I^{*} = ((I^{*})^{-1})^{-1} = (\diff{I})^{-1}$; $\diff{I}$ is a fractional ideal by previous and as the fractional ideals form a multiplicative group so is its inverse.
+
 \item[34.] Let $\{ \alpha_1, \ldots, \alpha_n \}$ be a basis for $L$ over $K$.
 \item[34. (a)] Since the $\alpha_i$s form a basis for $L$ over $K$ their discriminant is nonzero and so the matrix $M$ corresponding to the trace product has nonzero determinant.  Take $\beta_i = \sum_{k = 1}^{n} \alpha_k M^{-1}_{ik}$.  Then $\trace{\beta_i\alpha_j} = \sum_{k = 1}^{n} \alpha_j\alpha_k M^{-1}_{ik} = \sum_{k = 1}^n M_{ki} M^{-1}_{ik} = \delta_{ij}$ where $\delta_{ij}$ is the Kronecker delta function.  Therefore the $\beta_i$ form a dual basis to the $\alpha_i$.
 \item[34. (b)]
@@ -1150,7 +1184,6 @@ For $i = n - 1$, $\gamma_{n-1} = 1$ since $f(x)$ is a monic polynomial.   There 
 
 \item[35. (g)] Let $R[\alpha] \subset S$ so $\diff R[\alpha] = R[\alpha]\ \diff S \subset \diff S$ by the final equality of Exercise 33.  By (f), $\diff R[\alpha] = f'(\alpha) S$.  Since $f'(\alpha) \in \diff f'(\alpha)S$ therefore $f'(\alpha)\in \diff S$.
 \end{enumerate}
-
 
 \section*{Chapter 4}
 
@@ -1323,6 +1356,49 @@ $IJ$ also contains an integer $m$ ($m$ = $||IJ||$), take $\beta = m$.  Then $\si
 Given $\alpha \in Q$, $\beta \alpha \in \beta Q = \pi S$.  By (a), $\modequiv{\sigma(\beta \alpha)}{\beta \alpha}{Q^{m + 1}}$.  As $\sigma(\beta) = \beta$, $\modequiv{\beta\sigma(\alpha)}{\beta \alpha}{Q^{m+1}}$.  Since $\beta \not\in Q$ we can cancel both sides and so $\modequiv{\sigma(\alpha)}{\alpha}{Q^{m+1}}$.
 
 \item[19. (c)] Following the hint, $S = S_{E} + Q$; so every $\alpha \in S$ can be written as a sum of an element of the number ring of the fixed field of $E$ and an element of $Q$.  Let $\alpha = \beta + \gamma$ where $\beta \in S_{E}$ and $\gamma \in Q$.  By (b), $\modequiv{\sigma(\gamma)}{\gamma}{Q^{m+1}}$, so $\modequiv{\sigma(\gamma) + \beta}{\gamma + \beta}{Q^{m+1}}$.  Since $\beta \in S_{E}$, $\sigma(\beta) = \beta$ and so, $\modequiv{\sigma(\gamma + \beta)}{\gamma + \beta}{Q^{m+1}}$.  This is the required result.
+
+\item[20.]  Take $\pi \in Q - Q^2$.  We first show the suggested statement.  Given $\sigma \in V_{i} - V_{i+1}$, by exercise 19 we know $\modequiv{\sigma(\pi)}{\pi}{Q^{i}}$ if and only if $\sigma \in V_{i + 1}$.  As $V_{i} \subset V_{m}$ for $m \leq i$, then $\sigma(\pi)- \pi \in Q^{i + 1}$ if and only if $\sigma \in V_{i}$.  $\sigma \in V_{i}$ impies $\sigma \in V_m$ for $m \leq i$ (ramification subgroups are a descending sequence) and $Q^{i+1} \subset Q^{m + 1}$ for $m \leq i$; therefore $\sigma(\pi) - \pi \in Q^{m + 1}$ if and only if $\sigma \in V_{m}$.
+
+Take $\sigma \in E$.  Since the $V_i$ are a descending sequence of subgroups of $E$, there is some $k \geq 0$ so that $\sigma \in V_{k} - V_{k+1}$.  Applying the suggested statement to this, we see $\sigma \in V_{k} \iff \modequiv{\sigma(\pi)}{\pi}{Q^{k+1}}$.
+
+(What's left here?  This feels incomplete.)
+
+\item[21. (a)] Take $\pi \in Q - Q^2$ and $\sigma \in E$.
+
+TODO: add case where $Q = (\pi)$.
+
+Let $(\pi) = QI$.  As $Q, I$ are relatively prime, we take $x$ be the solution to the system of congruences
+\[
+    \begin{array}{llll}
+        x &\equiv& \sigma(\pi)\ & (Q^2) \\
+        x &\equiv& 0\ & (I) \\
+    \end{array}
+\]
+
+Claim: $x \in Q$.  Proof of claim:  As $\sigma(\pi) - x \in Q^2$, $\pi(\sigma(\pi) - x) \in Q^2$.  Because $\sigma \in E$, $\pi\sigma(\pi) \in Q^2$, subtracting this shows that $\pi x \in Q^2$.  Because $\pi \not\in Q^2$, $x \in Q$.
+
+Now $x \in Q, I$.  Since $Q, I$ are coprime ideals, $Q \cap I = QI$ and so $x \in QI = (\pi)$.  Therefore $x = \alpha \pi$ for some $\alpha \in S$ and $\sigma(\pi) \equiv \alpha \pi \pmod{Q^2}$, the required result.
+
+\item[21. (b)] By (a), $\modequiv{\tau(\pi)}{\alpha_{\tau}\pi}{Q^2}$, $\modequiv{\sigma\tau(\pi)}{\alpha_{\sigma}\alpha_{\tau}\pi}{Q^2}$, thus $\modequiv{\sigma\tau (\pi)}{\alpha_{\sigma}\alpha_{\tau}\pi}{Q^2}$ as required.
+
+\item[21. (c)] Let $\psi : E \to (S / Q)^{*} = \sigma \to \alpha_{\sigma}$.  TODO (basic)
+
+\item[22].  Take $m \ge 2$.  Our goal is to embed $V^{m - 1} / V^{m}$ in the additive group of $S / Q$.
+\item[22. (a)]  Show that for each $\sigma \in V^{m - 1}$, there exists an $\alpha \in S$ dependending on $\sigma$ so \[ \modequiv{\sigma(\pi)}{\pi + \alpha\pi^m}{Q^{m+1}} \]
+
+TODO: add case where $Q = (\pi)$.
+
+We proceed as in 21. (a).  Let $(\pi) = QI$ and take $x$ be a solution to the system of congruences
+\[
+    \begin{array}{llll}
+        x &\equiv& \sigma(\pi) \ & (Q^{m+1}) \\
+        x &\equiv& \pi\ & (I^m) \\
+    \end{array}
+\]
+
+Claim: $x - \pi \in Q^{m}$.  Proof of claim: since $\sigma \in V_{m-1}$, $\sigma(\pi) - \pi \in Q^{m}$; therefore $\pi\sigma(\pi) - \pi^2 \in Q^{m+1}$.  As $\sigma(\pi) - x \in Q^{m+1}$, $\pi\sigma(\pi) - \pi x \in Q^{m+1}$: subtracting this from $\pi\sigma(\pi) - \pi^2$ shows $\pi x - \pi^2 = \pi(x - \pi)\in Q^{m+1}$.  Since $\pi \not \in Q^2$, $x - \pi \in Q^{m}$.
+
+As $x - \pi \in Q^{m} \cap I^{m} = Q^m I^m = (\pi)^m$, $x - \pi = \alpha \pi^m$ for some $\alpha$.  Therefore $\modequiv{\sigma(\pi)}{\pi + \alpha \pi^m}$ as required.
 
 \end{enumerate}
 
