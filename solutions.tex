@@ -21,6 +21,7 @@
 \newcommand{\qext}[1]{\mathbb{Q}[#1]}
 \newcommand{\zext}[1]{\mathbb{Z}[#1]}
 \newcommand{\trace}[1]{\text{Tr}(#1)}
+\newcommand{\image}[1]{\text{Im}(#1)}
 \newcommand{\norm}[0]{\text{N}}
 \newcommand{\diff}[1]{\text{diff}\ #1}
 \newcommand{\disc}[1]{\text{disc}(#1)}
@@ -1365,9 +1366,20 @@ Take $\sigma \in E$.  Since the $V_i$ are a descending sequence of subgroups of 
 
 \item[21. (a)] Take $\pi \in Q - Q^2$ and $\sigma \in E$.
 
-TODO: add case where $Q = (\pi)$.
+If $(\pi) = Q$ then take $\modequiv{x}{\sigma(\pi)}{Q^2}$; $\sigma(\pi) - x \in Q^2$
 
-Let $(\pi) = QI$.  As $Q, I$ are relatively prime, we take $x$ be the solution to the system of congruences
+\begin{lemma}
+    If $\modequiv{x}{\sigma(\pi)}{Q^2}$ and $\sigma \in E$, then $x \in Q$.
+\end{lemma}
+\begin{proof}
+    As $\sigma(\pi) - x \in Q^2$, $\pi(\sigma(\pi) - x) \in Q^2$.  Because $\sigma \in E$, $\pi\sigma(\pi) \in Q^2$, subtracting this shows that $\pi x \in Q^2$.  Because $\pi \not\in Q^2$, $x \in Q$.
+\end{proof}
+
+We split the proof into two parts based on whether $\pi$ generates $Q$ or not.
+
+If $(\pi) = Q$, take $\modequiv{x}{\sigma(\pi)}{Q^2}$: by the above lemma, $x \in Q$ and so $x = \alpha \pi$.
+
+Otherwise, let $(\pi) = QI$ with $Q, I$ relatively prime.  We take $x$ be the solution to the system of congruences
 \[
     \begin{array}{llll}
         x &\equiv& \sigma(\pi)\ & (Q^2) \\
@@ -1375,20 +1387,27 @@ Let $(\pi) = QI$.  As $Q, I$ are relatively prime, we take $x$ be the solution t
     \end{array}
 \]
 
-Claim: $x \in Q$.  Proof of claim:  As $\sigma(\pi) - x \in Q^2$, $\pi(\sigma(\pi) - x) \in Q^2$.  Because $\sigma \in E$, $\pi\sigma(\pi) \in Q^2$, subtracting this shows that $\pi x \in Q^2$.  Because $\pi \not\in Q^2$, $x \in Q$.
-
-Now $x \in Q, I$.  Since $Q, I$ are coprime ideals, $Q \cap I = QI$ and so $x \in QI = (\pi)$.  Therefore $x = \alpha \pi$ for some $\alpha \in S$ and $\sigma(\pi) \equiv \alpha \pi \pmod{Q^2}$, the required result.
+By the above lemma, $x \in Q, I$.  Since $Q, I$ are coprime ideals, $Q \cap I = QI$ and so $x \in QI = (\pi)$.  Therefore $x = \alpha \pi$ for some $\alpha \in S$ and $\sigma(\pi) \equiv \alpha \pi \pmod{Q^2}$, the required result.
 
 \item[21. (b)] By (a), $\modequiv{\tau(\pi)}{\alpha_{\tau}\pi}{Q^2}$, $\modequiv{\sigma\tau(\pi)}{\alpha_{\sigma}\alpha_{\tau}\pi}{Q^2}$, thus $\modequiv{\sigma\tau (\pi)}{\alpha_{\sigma}\alpha_{\tau}\pi}{Q^2}$ as required.
 
-\item[21. (c)] Let $\psi : E \to (S / Q)^{*} = \sigma \to \alpha_{\sigma}$.  TODO (basic)
+\item[21. (c)] Let $\psi : E \to (S / Q)^{*} = \sigma \to \alpha_{\sigma}$.  $E / V_1 \simeq \image\psi \triangleleft (S / Q)^{*}$; as $(S / Q)^{*}$ is the multiplicative group of a field, every subgroup of it is cyclic.  By Lagrange's theorem, $|E / V_1|$ divides $|S / Q| - 1 = p^{f(Q|P)e(Q|P)} - 1$.
 
 \item[22].  Take $m \ge 2$.  Our goal is to embed $V^{m - 1} / V^{m}$ in the additive group of $S / Q$.
 \item[22. (a)]  Show that for each $\sigma \in V^{m - 1}$, there exists an $\alpha \in S$ dependending on $\sigma$ so \[ \modequiv{\sigma(\pi)}{\pi + \alpha\pi^m}{Q^{m+1}} \]
 
-TODO: add case where $Q = (\pi)$.
+\begin{lemma}
+    If $\modequiv{x}{\sigma(\pi)}{Q^{m+1}}$ and $\sigma \in V_{m - 1}$, then $x - \pi \in Q^{m}$.
+\end{lemma}
+\begin{proof}
+    Since $\sigma \in V_{m-1}$, $\sigma(\pi) - \pi \in Q^{m}$; therefore $\pi\sigma(\pi) - \pi^2 \in Q^{m+1}$.  As $\sigma(\pi) - x \in Q^{m+1}$, $\pi\sigma(\pi) - \pi x \in Q^{m+1}$: subtracting this from $\pi\sigma(\pi) - \pi^2$ shows $\pi x - \pi^2 = \pi(x - \pi)\in Q^{m+1}$.  Since $\pi \not \in Q^2$, $x - \pi \in Q^{m}$.
+\end{proof}
 
-We proceed as in 21. (a).  Let $(\pi) = QI$ and take $x$ be a solution to the system of congruences
+As in 21 (a), we split the proof into two parts based on whether $\pi$ generates $Q$ or not.
+
+Suppose $(\pi) = Q$.  Then by the above lemma $x - \pi \in Q^{m}$ and so $x = \pi + \alpha \pi^{m}$ for some $\alpha$.  Therefore $\modequiv{\sigma(\pi)}{\pi + \alpha \pi^{m}}{Q^{m}}$.
+
+If instead $(\pi) = QI$, take $x$ be a solution to the system of congruences
 \[
     \begin{array}{llll}
         x &\equiv& \sigma(\pi) \ & (Q^{m+1}) \\
@@ -1396,9 +1415,35 @@ We proceed as in 21. (a).  Let $(\pi) = QI$ and take $x$ be a solution to the sy
     \end{array}
 \]
 
-Claim: $x - \pi \in Q^{m}$.  Proof of claim: since $\sigma \in V_{m-1}$, $\sigma(\pi) - \pi \in Q^{m}$; therefore $\pi\sigma(\pi) - \pi^2 \in Q^{m+1}$.  As $\sigma(\pi) - x \in Q^{m+1}$, $\pi\sigma(\pi) - \pi x \in Q^{m+1}$: subtracting this from $\pi\sigma(\pi) - \pi^2$ shows $\pi x - \pi^2 = \pi(x - \pi)\in Q^{m+1}$.  Since $\pi \not \in Q^2$, $x - \pi \in Q^{m}$.
+By the above lemma $x - \pi \in Q^{m}$, so $x - \pi \in Q^{m} \cap I^{m} = Q^m I^m = (\pi)^m$, $x - \pi = \alpha \pi^m$ for some $\alpha$.  Therefore $\modequiv{\sigma(\pi)}{\pi + \alpha \pi^m}{Q^{m + 1}}$ as required.
 
-As $x - \pi \in Q^{m} \cap I^{m} = Q^m I^m = (\pi)^m$, $x - \pi = \alpha \pi^m$ for some $\alpha$.  Therefore $\modequiv{\sigma(\pi)}{\pi + \alpha \pi^m}$ as required.
+\item [22. (b)]  We compute $\sigma\tau(\pi)$.
+
+First, we note $\sigma(\pi^m) = \sigma(\pi)^m= (\pi + \alpha \pi^{m})^{m} \equiv \pi^m \ (Q^{m + 1})$.
+Second, we note for all $\alpha \in S$, $\sigma(\alpha) - \alpha \in Q^{m}$ (as $\sigma \in V_{m-1}$) implies $\pi^{m}\sigma(\alpha) - \pi^{m}\alpha \in Q^{m + 1}$.
+
+\[
+\begin{array}{cccc}
+    \sigma\tau(\pi) &\equiv& \sigma(\pi + \alpha_{\tau} \pi^{m}) = \sigma(\pi) + \sigma(\alpha_{\tau}\pi^{m}) & \ (Q^{m + 1}) \\
+    &\equiv& \pi + \alpha_{\sigma}\pi^{m} + \sigma(\alpha_{\tau})\sigma(\pi^m) & \ (Q^{m+1}) \\
+    &\equiv& \pi + \alpha_{\sigma}\pi^{m} + \alpha_{\tau}\pi^{m} = \pi + (\alpha_{\sigma} + \alpha_{\tau})\pi^m & \ (Q^{m + 1}) \\
+\end{array}
+\]
+
+This is the required result.
+
+\item [22. (c)]
+
+The additive group $S / Q$ is an abelian group; by the structure theorem $S / Q = \Z_{p_1^{d_1}} \oplus \cdots \oplus \Z_{p_n^{d_n}}$.  However $p\alpha = 0$ for all $\alpha \in S / Q$; so $p_i = p$ and $d_i = d$ and $S / Q = \Z_{p} \oplus \cdots \oplus \Z_{p}$.
+
+Let $\psi : V_{m - 1} \to S / Q$ be defined by $\psi(\sigma) = \alpha_{\sigma}$ where $\alpha_{\sigma}$ is the $\alpha$ determined in part (a).  Then $V_{m - 1} / V_{m} \simeq \image{\psi} \triangleleft S / Q$ and $V_{m-1} / V_{m}$ is the direct sum of cyclic groups of order $p$.
+
+\item [23.] Let $m$ be such that $V_{m} = \{1\}$; by 18 (b) such an $m$ exists.  As there is a filtration $V_1 \triangleright V_2 \triangleright \cdots \triangleright V_m = \{ 1 \}$, $|V_1| = \prod_{i = 2}^{m} V_{i - 1} / V_{i} = \prod p^{d_i}$ for some $d_i$ (each quotient group is the direct sum of cyclic groups of order $p$ and so has order $p^{d_i}$ for some $d_i$).
+
+Therefore we have $|E| = e(Q|P) = |E/V_1||V_1| = d p^{k}$ for some $k$ and where $d$ divides $(p^{f(Q|P)e(Q|P)} - 1)$, so $d \nmid p$.  Therefore $V_1$ is the Sylow $p$-subgroup of $E$, and is non-trivial iff $p \mid e(Q|P)$.
+
+\item [24.] We have the following filtration $D \triangleright E = V_0 \triangleright V_1 \triangleright \cdots \triangleright V_m = \{1\}$.  $D \triangleright E$ by exercise 4.1.  $V_m \triangleright V_{m-1}$ because $V_{m-1}$ is the kernel of the homomorphism into the additive group of $S / Q$; as the image is abelian so is the quotient.
+$D / E$ is cyclic of order $f$ and is so abelian.  $D$ and $E$ are therefore both solvable groups.
 
 \end{enumerate}
 
