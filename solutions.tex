@@ -1208,6 +1208,7 @@ For $i = n - 1$, $\gamma_{n-1} = 1$ since $f(x)$ is a monic polynomial.   There 
     \item [5.] Let $K$ and $L$ be number fields, $L$ a normal extension of $K$ with Galois group $G$, and $P$ a prime of $K$.  By "intermediate field" we mean "intermediate field distinct from $K$ and $L$".
 
     \item [5. (a)] If $P$ is inert in $L$, then as $ref = n$, $f = n$.  The decomposition group $D(Q|P)$ is thus all of $G$.  As $G$ is normal in itself, Corollary 1 to Theorem 28 gives us that $G$ is cyclic of order $n$.
+
     \item [5. (b)] Suppose $P$ is totally ramified in every intermediate field, but not totally ramified in $L$.  Take $L_E$ to be the inertia field of $P$; by Theorem 28, the ramification index of $L_{E}$ is 1.  By assumption $L_{E}$ is totally ramified and so $[L_{E} : K] = 1$; therefore $L_{E} = K$ and so $f(Q|P) = 1$ and $r(Q|P) = 1$; therefore $P$ must be totally ramified in $L$ also, contradicting our assumption.  Therefore no intermediate fields distinct from $K$ and $L$ must exist.
 
     Since no intermediate fields exist, $G$ must have no proper subgroups and so be of prime order for some prime $p$, and so must also be cyclic.
@@ -1444,6 +1445,8 @@ Therefore we have $|E| = e(Q|P) = |E/V_1||V_1| = d p^{k}$ for some $k$ and where
 
 \item [24.] We have the following filtration $D \triangleright E = V_0 \triangleright V_1 \triangleright \cdots \triangleright V_m = \{1\}$.  $D \triangleright E$ by exercise 4.1.  $V_m \triangleright V_{m-1}$ because $V_{m-1}$ is the kernel of the homomorphism into the additive group of $S / Q$; as the image is abelian so is the quotient.
 $D / E$ is cyclic of order $f$ and is so abelian.  $D$ and $E$ are therefore both solvable groups.
+
+\item [25.] Suppose $L$ is a normal extension of $K$ and $K$ contains a prime $Q$ which becomes a power of a prime in $L$ ($Q^{[L:K]}$).  Thus $\forall \sigma \in \gal{L}{K}, \sigma(Q) = Q$, so $\gal{L}{K} = D$ which is solvable by exercise 24.
 
 \end{enumerate}
 
