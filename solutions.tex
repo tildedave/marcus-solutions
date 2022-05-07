@@ -1191,14 +1191,7 @@ For $i = n - 1$, $\gamma_{n-1} = 1$ since $f(x)$ is a monic polynomial.   There 
 \begin{enumerate}
     \item [1.] Prove from the definitions that $E(Q|P) \triangleleft D(Q|P)$.
 
-    Let $\sigma \in E(Q|P)$ and $\tau \in D(Q|P)$.  We have the following series of equivalences:
-    \begin{eqnarray*}
-        \alpha &\equiv& \alpha\mod Q \\
-        \tau(\alpha) &\equiv& \tau(\alpha)\mod Q\\
-        \sigma(\tau(\alpha)) &\equiv& \tau(\alpha) \mod Q\\
-        \tau^{-1}(\sigma(\tau(\alpha))) &\equiv& \tau^{-1}\tau(\alpha) \equiv \alpha\mod Q
-    \end{eqnarray*}
-    Therefore $E$ is normal in $D$.
+    Let $\sigma \in E(Q|P)$ and $\tau \in D(Q|P)$.  Since $\sigma \in E$, $\modequiv{\sigma\tau^{-1}(\alpha)}{\tau^{-1}(\alpha)}{Q}$; therefore $\modequiv{\tau\sigma\tau^{-1}(\alpha)}{\tau\tau^{-1}(\alpha)= \alpha}{Q}$ and so $\tau\sigma\tau^{-1} \in E$; therefore $E$ is normal in $D$.
 
     \item[3. (a)]
     Let $p$ be an odd prime.  Since the multiplicative group of any prime is cyclic, it must have a generator $g$ with order $p - 1$.  As $\modequiv{g^{p-1}}{1}{p}$, $\modequiv{g^{(p-1)/2}}{-1}{p}$.  Therefore if $\modequiv{p}{1}{4}$ then $\modequiv{g^{(p-1)/4})^2}{-1}{p}$ and $\left(\frac{-1}{p}\right) = 1$.  Conversely, if $\left(\frac{-1}{p}\right) = 1$, let $a$ be such that $\modequiv{a^2}{-1}{p}$; therefore $\modequiv{a^4}{1}{p}$ and so $4 \mid p - 1$.
