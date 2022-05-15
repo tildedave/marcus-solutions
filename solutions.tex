@@ -1341,6 +1341,8 @@ Conversely assume $\tau' \in E'$; then $\alpha - \tau'(\alpha) \in Q'$ for any $
 
 \item [9. (b)] Let $\modequiv{\psi(\alpha)}{\alpha^{||P||}}{Q}$; then $\psi(\alpha) - \alpha^{||P||} \in Q$ for any $\alpha \in S$.  In particular $\psi(\sigma(\alpha)) - \sigma(\alpha)^{||P||} \in Q$ and so $\sigma^{-1}\psi(\sigma(\alpha)) - \alpha^{||P||} \in \sigma^{-1}Q = Q'$.  Therefore $\psi' = \sigma^{-1}\psi \sigma$.
 
+\item [11. (a)]
+
 \item [12 (a)]  Let $\w = e^{2\pi i / m}$, let $G = \gal{\Q[\omega]}{\Q} \simeq \Z^{\times}_{m}$, $K$ be any subfield of $\Q[\omega]$ and $H$ the subgroup of $G$ fixing $K$.  Let $p \in \Z$ such that $p \nmid m$, and let $f$ denote the least integer such that $\overline{p^f} \in H$.  Show $f$ is the inertial degree $f(P | p)$ for any $P$ of $K$ lying over $p$.
 
 Since $p$ is unramified, $\phi(P | p)$ exists and corresponds to some $b \in G$.  A permutation in $G$ corresponds to taking $\w \mapsto \w^b$.  However the Frobenius automorphism has the property $b(\omega) = \modequiv{\w^{b}}{\w^{p}}{P}$, so we have $\modequiv{b}{p}{n}$.
@@ -1450,7 +1452,7 @@ By the above lemma, $x \in Q, I$.  Since $Q, I$ are coprime ideals, $Q \cap I = 
 
 \item[21. (c)] Let $\psi : E \to (S / Q)^{*} = \sigma \to \alpha_{\sigma}$.  $E / V_1 \simeq \image\psi \triangleleft (S / Q)^{*}$; as $(S / Q)^{*}$ is the multiplicative group of a field, every subgroup of it is cyclic.  By Lagrange's theorem, $|E / V_1|$ divides $|S / Q| - 1 = p^{f(Q|P)e(Q|P)} - 1$.
 
-\item[22].  Take $m \ge 2$.  Our goal is to embed $V^{m - 1} / V^{m}$ in the additive group of $S / Q$.
+\item[22]  Take $m \ge 2$.  We embed $V^{m - 1} / V^{m}$ in the additive group of $S / Q$.
 \item[22. (a)]  Show that for each $\sigma \in V^{m - 1}$, there exists an $\alpha \in S$ dependending on $\sigma$ so \[ \modequiv{\sigma(\pi)}{\pi + \alpha\pi^m}{Q^{m+1}} \]
 
 \begin{lemma}
@@ -1503,6 +1505,29 @@ Therefore we have $|E| = e(Q|P) = |E/V_1||V_1| = d p^{k}$ for some $k$ and where
 $D / E$ is cyclic of order $f$ and is so abelian.  $D$ and $E$ are therefore both solvable groups.
 
 \item [25.] Suppose $L$ is a normal extension of $K$ and $K$ contains a prime $Q$ which becomes a power of a prime in $L$ ($Q^{[L:K]}$).  Thus $\forall \sigma \in \gal{L}{K}, \sigma(Q) = Q$, so $\gal{L}{K} = D$ which is solvable by exercise 24.
+
+\item [26. (a)]
+Claim: for $\beta \in \pi S$, $\modequiv{\sigma(\beta)}{\beta}{Q}$.  Proof of claim: first take $\beta \in \pi S$; let $\beta = \pi s$ for some $s \in S$.  As $\sigma \in V_{m - 1}$, $\sigma(s) - s \in Q^{m}$; therefore $\alpha \pi \sigma(s) - \alpha \pi s = \sigma(\pi)\sigma(s) - \alpha \beta = \sigma(\beta) - \alpha \beta\in Q^{m}$.
+
+If $Q = (\pi)$ we are done.  Otherwise take $\beta \in Q$ and let $QI = (\pi)$.  Take $m \in I$ an integer; therefore $m \beta \in \pi S$.  By the claim, $\sigma(m \beta) - m \beta = m\sigma(\beta) - m \beta \in Q^{m}$.  As $\pi \not\in Q^2$, $m \not \in Q$; it can therefore has an inverse mod $Q$ and so $\sigma(\beta) - \beta \in Q^{m}$ as required.
+
+\item [26. (b)] Since $\phi \in D$, $\phi^{-1}(\pi) \in Q$; by (a), we have $\modequiv{\sigma\phi^{-1}(\pi)}{\alpha\phi^{-1}(\pi)}{Q^2}$.  Therefore $\modequiv{\phi \sigma \phi^{-1}(\pi)}{\phi(\alpha)\pi}{Q^2}$.  As $\modequiv{\phi(\alpha)}{\alpha^{||P||}}{Q}$, $\modequiv{\pi\phi(\alpha)}{\alpha^{||P||}\phi}{Q^2}$.  Substituting this into the previous equivalence, $\modequiv{\phi\sigma\phi^{-1}(\pi)}{\alpha^{||P||}\pi}{Q^2}$.
+
+\item [26. (c)]
+
+Let $\bar{\sigma}$ be the image of $\sigma$ under the quotient map $D \to D / V_1$.  If $D / V_1$ is abelian then $\overline{\phi\sigma\phi^{-1}\sigma^{-1}} = \overline{\phi\phi^{-1}}\overline{\sigma\sigma^{-1}} = 1$ and so $\phi\sigma\phi^{-1}\sigma^{-1}\in V_1$.
+
+We show $\modequiv{\alpha^{||P||}}{\alpha}{Q}$:
+\[
+\begin{array}{cccc}
+    \phi\sigma\phi^{-1}\sigma^{-1}(\sigma(\pi)) &\equiv& \sigma(\pi) \ (Q^2) & (\phi\sigma\phi^{-1}\sigma^{-1} \in V_1) \\
+    \phi\sigma\phi^{-1}(\pi) &\equiv& \alpha\pi \ (Q^2 )& (\text{Cancel $\sigma$, $\modequiv{\sigma(\pi)}{\alpha\pi}{Q^2}$}) \\
+    \alpha^{||P||}\pi &\equiv& \alpha \pi\ (Q^2) & (\text{26. (b)}) \\
+    \alpha^{||P||} &\equiv& \alpha \ (Q) & (\pi \not \in Q^2) \\
+\end{array}
+\]
+
+Let $\psi : E / V_{1} \to (S / Q)^{*}$ so that $E / V_1 \simeq \image{\psi}$.  As $||\image{\psi}||$ divides $||P|| - 1$, $\image{\psi} \subset (R / P)^{*}$ and so $E / V_{1}$ is cyclic of order dividing $||P|| - 1$.
 
 \end{enumerate}
 
