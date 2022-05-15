@@ -1136,6 +1136,19 @@ $I^{*}$ is an $S$-submodule of $L$:  By the additive property of the trace, $I^{
 
 $I^{*}$ is a fractional ideal: $I^{*} = ((I^{*})^{-1})^{-1} = (\diff{I})^{-1}$; $\diff{I}$ is a fractional ideal by previous and as the fractional ideals form a multiplicative group so is its inverse.
 
+$II^{*} \subset S^{*}$: take $\alpha \in I^{*}$; then $\trace{\alpha I S} = \trace{\alpha I} \subset R$, so $\alpha S \subset S^{*}$.
+
+$I^{-1}S^{*} \subset I^{*}$: take $\alpha \in S^{*}$; then $\trace{\alpha I^{-1} I} = \trace{\alpha S} \subset R$ and so $\alpha I^{-1} \subset I^{*}$.
+
+$II^{*} = S^{*}$: from the previous step we have $II^{*} \subset S^{*}$.  For the reverse direction, $I^{-1}S^{*} \subset I^{*}$, $II^{-1}S^{*} = SS^{*} = S^{*} \subset II^{*}$.
+
+$I^{*}(I^{*})^{*} = S^{*}$: TODO
+
+$(I^{*})^{*} = I$: TODO
+
+
+$\diff{I} = I\ \diff {S}$: $I(S^{*})^{-1} = I(II^{*})^{-1} = II^{-1}\ \diff{I} = S\ \diff {I} = \diff{I}$.
+
 \item[34.] Let $\{ \alpha_1, \ldots, \alpha_n \}$ be a basis for $L$ over $K$.
 \item[34. (a)] Since the $\alpha_i$s form a basis for $L$ over $K$ their discriminant is nonzero and so the matrix $M$ corresponding to the trace product has nonzero determinant.  Take $\beta_i = \sum_{k = 1}^{n} \alpha_k M^{-1}_{ik}$.  Then $\trace{\beta_i\alpha_j} = \sum_{k = 1}^{n} \alpha_j\alpha_k M^{-1}_{ik} = \sum_{k = 1}^n M_{ki} M^{-1}_{ik} = \delta_{ij}$ where $\delta_{ij}$ is the Kronecker delta function.  Therefore the $\beta_i$ form a dual basis to the $\alpha_i$.
 \item[34. (b)]
@@ -1184,6 +1197,56 @@ For $i = n - 1$, $\gamma_{n-1} = 1$ since $f(x)$ is a monic polynomial.   There 
 \item[35. (f)] Let $\beta \in \diff R[\alpha]$; then $\beta (R[\alpha])^{*} \subset S$.  By (e), $\beta(\frac{1}{f'(\alpha)})R[\alpha] \subset S$ so $\beta R[\alpha] \subset f'(\alpha)S$.  Therefore $\beta \in f'(\alpha)S$.  Therefore $\diff R[\alpha] \subset f'(\alpha)S$.  The reverse inclusion is straightforward.  Therefore $\diff R[\alpha] = f'(\alpha)S$.
 
 \item[35. (g)] Let $R[\alpha] \subset S$ so $\diff R[\alpha] = R[\alpha]\ \diff S \subset \diff S$ by the final equality of Exercise 33.  By (f), $\diff R[\alpha] = f'(\alpha) S$.  Since $f'(\alpha) \in \diff f'(\alpha)S$ therefore $f'(\alpha)\in \diff S$.
+
+\item[36. (a)] We show the contrapositive: if $\alpha_1, \ldots, \alpha_{n}$ are linearly dependent over $K$, then they are linearly dependent mod $P$.  Suppose $k_1 \alpha_1 + \cdots + k_n \alpha_n = 0$ for $k_i \in K$; then clearing denominators we have $r_i \in R$ such that $r_1 \alpha_1 + \cdots + r_n \alpha_n = 0$.  If any of the $r_i \not \in P$, then $\alpha_1, \ldots, \alpha_n$ are linearly dependent mod $P$; it remains to consider the case where each $r_i \in P$.  By the lemma for Theorem 22(b), there is a $\gamma$ so that $\gamma\{r_1, \ldots, r_n\} \subset R$ but $\gamma\{r_1, \ldots, r_n\} \not\subset P$; we therefore have $\gamma r_1 \alpha_1 + \cdots + \gamma r_n \alpha_n = 0$ where $\gamma r_i \neq 0$ for all $i$.  The set $\{\alpha_1, \ldots, \alpha_n\}$ is therefore linearly dependent mod $P$.
+
+\item[36. (b)] Let $A = R\alpha_1 \oplus \cdots \oplus R\alpha_n$.  $A \subset S$ so $PA \subset PS$, $PA \subset A$; therefore $PA \subset PS \cap A$.  We show the other direction.   Suppose $x \in PS \cap A$.  We can thus write $x$ as $x = r_1 \alpha_1 + \cdots + r_n \alpha_n$; since $\{\alpha_1, \ldots, \alpha_n\}$ are linearly independent mod $P$, each $r_i \in P$; therefore $x \in PA$.
+
+\item[36. (c)] Let $I = \text{Ann}_{R}(S/A)$; if $I \subset P$ then $IS \subset PS$.  $IS \subset A$ by definition: if $rs \in IS$, then $rs \in A$.  Therefore $IS \subset PA \cap A = PA$ by 36 (b).  Next, take $qr \in P^{-1}I$ with $q \in P^{-1}$, $r \in I$.  We show $qr \in I$: $qrS = q(rS) = q(PA) = (qP)A \subset SA \subset A$, so $qr \in \text{Ann}_{R}(S/A)$.  Therefore $P^{-1}I \subset P$.  (TODO: why is this a contradiction?)
+
+\item[36. (d)] $A \subset S$ so $A^{*} \supset S^{*}$ and so $\diff{A} \subset \diff{S}$ and $\diff{S} \mid \diff{A}$.  As $IS \subset A$, $\diff{IS} = IS\ \diff{S} \subset \diff{A}$; so $\diff{S} \mid \diff{A} \mid (IS)\ \diff{S}$.  With this chain of divisions, as $I \not\subset P$, we see that the power of $Q$ dividing $\diff{S}$ must be the same as the power of $Q$ that divides $\diff{A}$.
+
+\item[36. (e)]  Let $e(Q|P) = [L:K]$ and $\pi \in Q - Q^2$.  By Exercise 20, $\{ \pi, \ldots, \pi^{n-1} \}$ is independent mod $P$ ($\pi^n \in Q^n - Q^{n+1}$) and so by exercise 36 (a), is a basis of $L$ over $K$.  Finally by applying exercise 36 (d), we have that the exact power of $Q$ in $\diff{S}$ is the same as in $\diff{A} = \diff{R[\pi]} = f'(\pi)S$ (by exercise 35 (f)).
+
+\item[37.] The goal of these exercises is to show that if $P$ is a prime of $R$ and $Q$ is a prime of $S$ lying over $P$, then $Q^{e-1} \mid \diff{S}$, where $e = e(Q|P)$.
+
+\item[37. (a)] We write $PS = Q^{e-1}I$, so that $I$ is divisible by every prime lying over $P$ (including $Q$).  Taking any $\alpha \in I - pR$, we have that $\sigma_i(\alpha) \in Q$ for each $\sigma_i \in G$ (proof of Theorem 24).  Therefore $Q$ contains $\sum_{\sigma \in G} \sigma(\alpha)$ for $\alpha$ and so $\text{Tr}^{L}_{K}(I) \subset Q$ (for example, taking $\alpha$ to range over the generators of $I$); as the trace must be in $R$, $\text{Tr}^{L}_{K}(I) \subset P$.
+
+\item[37. (b)] We show $P^{-1}S = (PS)^{-1}$ by inclusions in both directions.  Taking $qs \in P^{-1}S$ with $q \in P^{-1}, s \in S$, $qsPS = (qP)(sS) \subset S$ ($qP \subset S$ by definition), so $qs \in (PS)^{-1}$.  For the reverse inclusion, take $x \in (PS)^{-1}$.  By definition, $xPS \subset S$; as $P \subset R$, we must have $xP \subset S$; multiplying both sides by $P^{-1}$ we have $x \in P^{-1}S$.
+
+\item[37. (c)] We show $(PS)^{-1}I \subset S^{*}$; by (b), $(PS)^{-1}I = P^{-1}SI = P^{-1}I$.  As $P^{-1}$ is the inverse over $L$, $\trace{P^{-1}IS} = P^{-1}\trace{IS} = P^{-1}\trace{I} \subset P^{-1}P \text{ (37. (b))} = S$.
+
+\item[37. (d)] As $PS = Q^{e-1}I$, $I^{-1} = Q^{e-1}(PS)^{-1}$.  Applying the inverse to the inclusion in 37. (c), we have $\diff{S} \subset ((PS)^{-1}I)^{-1} = PSI^{-1} = (PS)(PS)^{-1}Q^{e-1} = Q^{e-1}$.  Therefore $Q^{e-1} \mid \diff S$.
+
+\item[37. (e)] Any $\alpha \in S$ so that its characteristic polynimial $f$ is irreducible over $K$ serves as a power basis for $L$.  Exercise 35. (g) thus gives $f'(\alpha) \in \diff{S}$, and so $f'(\alpha)S \subset \diff{S}$; therefore $\diff S \mid f'(\alpha)S$.
+
+\item[38.] Prove \[ \diff(S|T) = \diff(S|R)(\diff(R|T)S) \] We first show the suggested inclusions.
+
+Claim 1: $S^{*}_{T} \supset S^{*}_{R}(R^{*}_{T}S)$.  Proof of claim: take $x \in S^{*}_{R}, y \in (R^{*}_{T}S)$.  Then $\text{Tr}^{L}_{M}(xyS) = \text{Tr}^{K}_{M}(\text{Tr}^{L}_{K}(xyS)) = \text{Tr}^{K}_{M}(y\text{Tr}^{L}_{K}(xS))$.  $\text{Tr}^{L}_{K}(xS) \subset R$ so $y\text{Tr}^{L}_{K}(xS) \subset T$ (definition of $y \in R^{*}_{T}S$); therefore $xy \in S^{*}_{T}$.
+
+Claim 2: $S^{*}_{T}(\diff(R|T)S) \subset S_{R}^{*}$.  Proof of claim: take $x \in S^{*}_{T}$, $y \in \diff(R|T)S$.  $\text{Tr}^{L}_{K}(xyS) = y \text{Tr}^{L}_{K}(xS)$ ($y \in K$), and $y \text{Tr}^{L}_{K}(xS) \subset yT$ (definition of $x \in S^{*}_{T}$).  Finally, as $T \subset R^{*}_{T}$, $yT \subset yR^{*}_{T}$.
+
+We now show $\diff(S|T) = \diff(S|R)(\diff(R|T)S)$ showing each side contains the other.
+
+\[
+\begin{array}{llll}
+    S^{*}_{T} &\supset& S^{*}_{R}(R^{*}_{T}S) & \text{Claim 1} \\
+    \diff(S|T) &\subset& (S^{*}_{R}(R^{*}_{T}S))^{-1} & \text{Taking inverses} \\
+    \diff(S|T) &\subset& \diff(S|R)(\diff{R|T})S^{-1} & \text{Definition of diff} \\
+    \diff(S|T) &\subset& \diff(S|R)(\diff{R|T})S & \text{$S^{-1} = S$}
+\end{array}
+\]
+
+\[
+\begin{array}{llll}
+    S^{*}_{T}(\diff(R|T)S) &\subset& S_{R}^{*} & \text{Claim 2} \\
+    \diff(S|T)(\diff(R|T)S))^{-1} &\supset& \diff(S|R) & \text{Taking inverses} \\
+    \diff(S|T) &\supset& \diff(S|R)(\diff(R|T)S) & \text{Multiply by $(\diff(R|T)S))$} \\
+\end{array}
+\]
+
+Having shown each side is included in the other, we have \[ \diff(S|T) = \diff(S|R)(\diff(R|T)S) \]
+
 \end{enumerate}
 
 \section*{Chapter 4}
