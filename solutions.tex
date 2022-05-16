@@ -1102,6 +1102,10 @@ Given two different factorizations of $A$, $A = P_1^{e_1} \cdots P_k^{e_k} = Q_1
 
 \item[31. (d-f)] TODO
 
+\item[32.] First fix $I$ an ideal of $R$, and consider $J$ an ideal of $R$.  $IJ \subset J \subset R$ so by the isomorphism theorem for rings, $R / J \cong \frac{R/IJ}{J/IJ}$.  By Lagrange's Theorem $|R/J||J/IJ| = |R/IJ|$; applying Theorem 22 (a) $|R/IJ| = |R/I||R/J|$; canceling factors of $|R/J|$ we $|R/I| = |J/IJ|$.
+
+Next, let $\alpha J$ be a fractional ideal.  There is a natural isomorphism from $\alpha J / I \alpha J \to J / IJ$; taking $\alpha x + I\alpha J \in \alpha J$, this maps to $x + IJ \in J$.  This map is clearly surjective and has kernel $I \alpha J$.  Therefore $|\alpha J / \alpha I J| = |J / IJ|$ and so $|R/I| = |\alpha J / I\alpha J|$ for all fractional ideals $\alpha J$.
+
 \item[33.] Let $A$ be an additive subgroup of $L$.  Define \[ A^{-1} = \{\alpha \in L : \alpha A \subset S \} \] and \[ A^{*} = \{ \alpha \in L : \text{Tr}^{L}_{K}(\alpha A) \subset R \} \]
 
 \item[33. (a)] Show $A^{-1}$ is an $S$-submodule of $L$ and $A^{*}$ is an $R$-submodule.
