@@ -1251,6 +1251,27 @@ We now show $\diff(S|T) = \diff(S|R)(\diff(R|T)S)$ showing each side contains th
 
 Having shown each side is included in the other, we have \[ \diff(S|T) = \diff(S|R)(\diff(R|T)S) \]
 
+\item[39. (a)] Let $\{\alpha_1, \ldots, \alpha_n\}$ be an integral basis for $R$ and take $\{\beta_1,\ldots\,\beta_n\}$ to be its dual basis.  By Exercise 34, $\trace{\alpha_i\beta_j} = 1$ if $i = j$, $0$ otherwise.  Take $A = [\sigma_{j}(\alpha_i)]$, $B = [\sigma_{i}(\beta_j)]$.  The $i$th row and $j$th column of $AB$ is $\sum_{i = 0}^{n} \sigma_{j}(\alpha_i\beta_j) = \trace{\alpha_i\beta_j}$ and so $AB = I$.  Therefore $|AB|^2 = |A|^2 |B|^2 = \disc{\alpha_1, \ldots, \alpha_n} \disc{\beta_1,\ldots,\beta_n} = 1$, as required.
+
+\item[39. (b)] We apply Exercise 27 of chapter 2 with $H = R$, $G = R^{*}$; thereofre $\disc{R} = |R^* / R|^2\disc{R^*}$.  Multiplying both sides by $\disc{R}$ we have (given that $\disc{R}\ \disc{R^*} = 1$ by 39. (a)) $\disc{R}^2 = |R^* / R|^2$ and so $\disc{R} = |R^{*}/R|$ as the quotient is necessarily positive.
+
+\item[39. (c)] By Exercise 32 of Chapter 2, $||R/I|| = ||J/IJ||$ for any fractional ideal $J$ of $K$; we apply this with $I = \diff{R}$ and $J = R^{*}$ ($R^{*}$ is a fractional ideal).  Thus $||\diff{R}|| = |R/\diff{R}| = |R^{*}/R^{*}\diff{R}| = |R^{*} / \diff{R^*}| = |R^{*} / ((R^{*})^{*})^{-1}| = |R^* / R| = \disc{R}$ with the last equality following from 39(b).
+
+\item[39. (d)] Fix a prime $p$ of $\Z$  By Exercise 37, $Q^{e-1} \mid \diff{R}$ for every prime $Q$ lying over $p$.  Therefore the prime factorization of $\prod Q_{i}^{e_{i}} \mid \diff{R}$; taking norms we have $||\prod Q_{i}^{e_{i}}|| = \prod p^{(e_i - 1)f_i} \mid \disc{R}$.  Taking $k = \sum (e_i - 1)f_i$ we have $p^{k} \mid \disc{R}$.
+
+\item[39. (e)] Let $L$ an extension of $K$ over $\Q$, with $S$ the ring of integers of $L$, $R$ the ring of integers of $K$. We have the following series of equivalences:
+
+\[
+\begin{array}{llll}
+    \diff(S|\Z) &=& \diff(S|R)\diff(R|\Z)S &\text{(Ex. 38)}\\
+    ||\diff(S|\Z)|| &=& ||\diff(S|R)\diff(R|\Z)S|| &\text{Take norms} \\
+    |\disc{S}| &=& ||\diff(S|R)\diff(R|\Z)S|| & \text{(Ex. 39. (c))} \\
+    |\disc{S}| &=& ||\diff(S|R)|| \cdot ||\diff(R|\Z)S|| & \text{(Theorem 22 (a))} \\
+    |\disc{S}| &=& ||\diff(S|R)|| \cdot |\disc{R}|^{[L:K]} & \text{(Ex. 39(c) and Theorem 22 (b))}
+\end{array}
+\]
+
+This shows $\disc{R}^{[L:K]} \mid \disc{S}$ as required.
 \end{enumerate}
 
 \section*{Chapter 4}
