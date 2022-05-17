@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{tikz}
 \usepackage{MnSymbol}
 
 \newcommand{\w}[0]{\omega}
@@ -1253,9 +1254,9 @@ Having shown each side is included in the other, we have \[ \diff(S|T) = \diff(S
 
 \item[39. (a)] Let $\{\alpha_1, \ldots, \alpha_n\}$ be an integral basis for $R$ and take $\{\beta_1,\ldots\,\beta_n\}$ to be its dual basis.  By Exercise 34, $\trace{\alpha_i\beta_j} = 1$ if $i = j$, $0$ otherwise.  Take $A = [\sigma_{j}(\alpha_i)]$, $B = [\sigma_{i}(\beta_j)]$.  The $i$th row and $j$th column of $AB$ is $\sum_{i = 0}^{n} \sigma_{j}(\alpha_i\beta_j) = \trace{\alpha_i\beta_j}$ and so $AB = I$.  Therefore $|AB|^2 = |A|^2 |B|^2 = \disc{\alpha_1, \ldots, \alpha_n} \disc{\beta_1,\ldots,\beta_n} = 1$, as required.
 
-\item[39. (b)] We apply Exercise 27 of chapter 2 with $H = R$, $G = R^{*}$; thereofre $\disc{R} = |R^* / R|^2\disc{R^*}$.  Multiplying both sides by $\disc{R}$ we have (given that $\disc{R}\ \disc{R^*} = 1$ by 39. (a)) $\disc{R}^2 = |R^* / R|^2$ and so $\disc{R} = |R^{*}/R|$ as the quotient is necessarily positive.
+\item[39. (b)] We apply Exercise 2.27 with $H = R$, $G = R^{*}$; thereofre $\disc{R} = |R^* / R|^2\disc{R^*}$.  Multiplying both sides by $\disc{R}$ we have (given that $\disc{R}\ \disc{R^*} = 1$ by 39. (a)) $\disc{R}^2 = |R^* / R|^2$ and so $\disc{R} = |R^{*}/R|$ as the quotient is necessarily positive.
 
-\item[39. (c)] By Exercise 32 of Chapter 2, $||R/I|| = ||J/IJ||$ for any fractional ideal $J$ of $K$; we apply this with $I = \diff{R}$ and $J = R^{*}$ ($R^{*}$ is a fractional ideal).  Thus $||\diff{R}|| = |R/\diff{R}| = |R^{*}/R^{*}\diff{R}| = |R^{*} / \diff{R^*}| = |R^{*} / ((R^{*})^{*})^{-1}| = |R^* / R| = \disc{R}$ with the last equality following from 39(b).
+\item[39. (c)] By Exercise 2.32, $||R/I|| = ||J/IJ||$ for any fractional ideal $J$ of $K$; we apply this with $I = \diff{R}$ and $J = R^{*}$ ($R^{*}$ is a fractional ideal).  Thus $||\diff{R}|| = |R/\diff{R}| = |R^{*}/R^{*}\diff{R}| = |R^{*} / \diff{R^*}| = |R^{*} / ((R^{*})^{*})^{-1}| = |R^* / R| = \disc{R}$ with the last equality following from 39(b).
 
 \item[39. (d)] Fix a prime $p$ of $\Z$  By Exercise 37, $Q^{e-1} \mid \diff{R}$ for every prime $Q$ lying over $p$.  Therefore the prime factorization of $\prod Q_{i}^{e_{i}} \mid \diff{R}$; taking norms we have $||\prod Q_{i}^{e_{i}}|| = \prod p^{(e_i - 1)f_i} \mid \disc{R}$.  Taking $k = \sum (e_i - 1)f_i$ we have $p^{k} \mid \disc{R}$.
 
@@ -1554,6 +1555,51 @@ We show $\modequiv{\alpha^{||P||}}{\alpha}{Q}$:
 
 Let $\psi : E / V_{1} \to (S / Q)^{*}$ so that $E / V_1 \simeq \image{\psi}$.  As $||\image{\psi}||$ divides $||P|| - 1$, $\image{\psi} \subset (R / P)^{*}$ and so $E / V_{1}$ is cyclic of order dividing $||P|| - 1$.
 
+\item[27.]  Suppose $Q^k$ is the exact power of $Q$ dividing $\diff{S} = \diff(S|R)$.  By Exercise 3.37, $k \ge |E| - 1$.
+\item[27. (a)] By Exercise 3.36, $Q^k$ is the exact power of $Q$ dividing $f'(\pi)S$, where $f$ is the monic irreducible polynomial for $\pi$ over $K$.
+\item[27. (b)] For $\sigma \in V_{m-1} - V_{m}$, $\pi - \sigma(\pi) \in Q^{m}$ and $\pi - \sigma(\pi) \not\in Q_{m + 1}$ (definition of ramification group).
+
+By Exercise 2.20, $f'(\pi) = \prod_{\sigma \in G} (\pi - \sigma(\pi))$, so \[ f'(\pi)S = \prod_{m \ge 1} \prod_{\sigma \in V_{m-1} - V_{m}} Q^{m} \]
+
+This establishes an exact value for $k$ (Exercise 3.37 only proved a lower bound).  Therefore $k = \sum_{m \ge 1} m|V_{m-1} - V_{m}|$.  Let $j$ be the first $j$ so that $|V_j| = 1$, this $j$ must exist by Exercise 4.18b.  Expanding the sum for $k$ out we have:
+
+\begin{eqnarray*}
+    k &=& |V_0| - |V_1| + 2|V_1| - 2|V_2| + \cdots + j|V_{j-1}| - j \\
+      &=& |V_0| + |V_1| + \cdots + |V_{j-1}| - |j| \\
+      &=& \sum_{m \ge 0} |V_m| - 1
+\end{eqnarray*}
+
+\item[28.] Take $L$ a normal extension of $K$: then $Q$ is totally ramified in the field extension $L$ over $L_{E}$.  Applying Exercise 4.27, $Q^{k} \mid \diff(S|S_{E})$.  As $Q$ is not ramified in $S_{E}$ (Corollary 2 of Theorem 28), $Q \not\mid \diff(S_{E}|R)$.  By Exercise 3.38, $\diff(S|R) = \diff(S|S_{E})(\diff(S_{E}|R)S)$, so $Q^{k}$ is the exact power of $Q$ dividing $\diff(S|R)$.
+
+By Exercise 4.23, $p \mid e \iff V_1 \text{ nontrivial}$.  Since $k = \sum_{m \ge 0} |V_{m}| - 1$, $V_1$ is nontrivial if and only if $k \ge e$ which is the same as $Q_{e} \mid \diff(S|R)$.
+
+
+\item[31. (a)] TODO - easy
+
+\item[31. (b)] TODO - easy
+
+\item[31. (c)] Let $K$ be an extension of degree $[K : Q] = p^{m}$ and $L$ be the unique subfield of $\Q[\w_{q}]$ having degree $e$ over $\Q$.  We have the following tower of field extensions:
+\[
+\begin{tikzpicture}
+    \node (QBase) at (0,0) {$\Q$};
+    \node (QK) at (0,2) {$K$};
+    \node (QL) at (-2,2) {$L$};
+    \node (QKprime) at (0,4) {$K' = KL_{E(U|q)}$};
+    \node (QKL) at (0,6) {$KL$};
+    \node (Qwq) at (-2,6) {$\Q[\w_q]$};
+
+    \draw (QBase)--(QK) node [pos=0.7, right,inner sep=0.25cm] {$p^{m}$};
+    \draw (QBase)--(QL) node [pos=0.7, left,inner sep=0.25cm] {$e$};
+    \draw (QL)--(Qwq);
+    \draw (QL)--(QKprime);
+    \draw (QK)--(QKprime);
+    \draw (QKprime)--(QKL);
+    \end{tikzpicture}
+\]
+$K'$ is the largest field between $K$ and $KL$ in which no primes ramify, so $q$ is unramified in $K'$.
+
+In $L$, only the prime $q$ is ramifies (it is in fact totally ramified; Exercise 3.24 (a)).  Applying Theorem 31, any prime of $\Q \neq q$ that is not ramified in $K$ is also unramified in $KL$, and so is also unramified in the intermediate subfield $K'$.
+
 \end{enumerate}
 
 \section*{Chapter 5}
@@ -1611,14 +1657,14 @@ sage: [-(840-CRT_list(list(rs),prime_list))
 
     By the Corollary to Theorem 26, $2$ splits into $\frac{\varphi(7)}{3} = 2$ ideals mod 7 ($\modequiv{2^3}{1}{7}$, while $3$ remains inert.  Mod 2, $x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$ factors as $(x^3 + x + 1)(x^3 + x^2 + 1)$, so $2 = (2, \w^3 + \w + 1)(2, \w^3 + \w^2 + 1)$.  As $(\w^3 + \w + 1)(\w^3 + \w^2 + 1)(\w^4) = 2$, so both of these ideals is principal.  Therefore $\Z[\w]$ is a PID.
 
-    Next, let $\Z[\w + \w^{-1}]$.  By Exercise 35, Chapter 2, the discriminant over this number field is $7^{2} = 49$.  This is a real subfield of order 3 over $\Q$ (no embeddings in $\C$) so its Minkowski bound is $\frac{3!}{3^3}{\sqrt(49)} = \frac{14}{9} < 2$, so $\Z[\w + \w^{-1}]$ is a PID.
+    Next, let $\Z[\w + \w^{-1}]$.  By Exercise 2.35, the discriminant over this number field is $7^{2} = 49$.  This is a real subfield of order 3 over $\Q$ (no embeddings in $\C$) so its Minkowski bound is $\frac{3!}{3^3}{\sqrt(49)} = \frac{14}{9} < 2$, so $\Z[\w + \w^{-1}]$ is a PID.
 
     \item[18.] Let $\w = e^{2\pi i / 11}$.
     This is a real subfield of degree 5 over $\Q$ with discriminant $11^{4}$, so its Minkowski bound is $\frac{5!}{5^5}\cdot 11^2 = \frac{2904}{625} \approx 4.6$.  So we must investigate the prime ideals 2 and 3.
 
-    By Exercise 12 Chapter 4 primes in $\Z[\z_{p} + \z_{p}^{-1}]$ for $\z_{p}$ a $p$th root of unity split into $\frac{p - 1}{2f}$ ideals, where $f$ the smallest integer so that $\modequiv{p^f}{\pm 1}{p}$.  Letting $p = 11$ and looking at 2 and 3, we have both $\modequiv{2^5}{-1}{11}$ and $\modequiv{3^5}{1}{11}$, so both 2 and 3 remain inert in $\Z[\w]$.  Therefore $\Z[\w]$ is a PID.
+    By Exercise 4.12, primes in $\Z[\z_{p} + \z_{p}^{-1}]$ for $\z_{p}$ a $p$th root of unity split into $\frac{p - 1}{2f}$ ideals, where $f$ the smallest integer so that $\modequiv{p^f}{\pm 1}{p}$.  Letting $p = 11$ and looking at 2 and 3, we have both $\modequiv{2^5}{-1}{11}$ and $\modequiv{3^5}{1}{11}$, so both 2 and 3 remain inert in $\Z[\w]$.  Therefore $\Z[\w]$ is a PID.
 
-    We repeating the same process for $\w = e^{2\pi i / 13}$.  In this case the discriminant of $\Z[\w + \w^{-1}] = 13^{5}$ so the Minkowski bound is $\frac{6! 169 \sqrt{13}}{6^6} = \frac{845\sqrt{13}}{324} \approx 9.403$.  We must examine the primes 2, 3, 5, 7.  Here the ideal splitting formula that a prime splits into $\frac{6}{f}$ ideals.
+    We repeat the same process for $\w = e^{2\pi i / 13}$.  In this case the discriminant of $\Z[\w + \w^{-1}] = 13^{5}$ so the Minkowski bound is $\frac{6! 169 \sqrt{13}}{6^6} = \frac{845\sqrt{13}}{324} \approx 9.403$.  We must examine the primes 2, 3, 5, 7.  Here the ideal splitting formula that a prime splits into $\frac{6}{f}$ ideals.
 
     $2$ and $7$ remain inert in $\Z[\w + \w^{-1}]$ ($\modequiv{2^6, 7^6}{-1}{13}$), but $3$ splits into 2 ideals ($\modequiv{3^3}{1}{13}$) and $5$ splits into 3 ideals ($\modequiv{5^2}{-1}{13}$).  Computation via Sage shows each of these ideals is principal.  Therefore $\Z[\w + \w^{-1}]$ is a PID.
 
@@ -1626,9 +1672,9 @@ sage: [-(840-CRT_list(list(rs),prime_list))
 
     Let $K = \Q[\sqrt[3]{2}]$.  $\ringofintegers{K} = \Z[\sqrt[3]{2}]$ by Exercise 41 of Chapter 2 ($\modnotequiv{2}{\pm 1}{9}$), and $\disc{\Z[\sqrt[3]{2}]} = -27(2)^2$.  There are 2 complex embeddings for $K$ so the Minkowski bound of $K$ is $\frac{3!}{3^3}\left(\frac{4}{\pi}\right)\sqrt{|-27 \cdot 2^2|} = \frac{16\sqrt{3}}{3\pi} \approx 2.94$.  The only prime ideal class we must investigate is the one lying over $(2)$; however, 2 is fully ramified in $\ringofintegers{A}{K}$, and so its ideal is $(2, \sqrt[3]{2})^3 = (\sqrt[3]{2})^3$ is principal.  Therefore $\Z[\sqrt[3]{2}]$ is a PID.
 
-    Let $\alpha$ be a root of $\alpha^3 - \alpha - 1$.  By Exercise 28 of Chapter 2 $\ringofintegers{\Q[\alpha]} = \Z[\alpha]$, and $\disc{\alpha} = -(-4 + 27) = -23$.  This field also has 2 complex embeddings (there is only 1 real root), so the Minkowski bound is $\frac{8\sqrt{23}}{9\pi} \approx 1.356$.  There are no primes within this bound so every ideal of $\Z[\alpha]$ is a principal ideal.
+    Let $\alpha$ be a root of $\alpha^3 - \alpha - 1$.  By Exercise 2.28 $\ringofintegers{\Q[\alpha]} = \Z[\alpha]$, and $\disc{\alpha} = -(-4 + 27) = -23$.  This field also has 2 complex embeddings (there is only 1 real root), so the Minkowski bound is $\frac{8\sqrt{23}}{9\pi} \approx 1.356$.  There are no primes within this bound so every ideal of $\Z[\alpha]$ is a principal ideal.
 
-    \item [20.] Let $\alpha$ be a root of $\alpha^3 - \alpha - 7$.  By Exercise 28 of Chapter 2, $\disc{\alpha} = (-4 + 27 \cdot 7^2) = -1319$.  This is prime (so squarefree) and so $\ringofintegers{\Q[\alpha]} = \Z[\alpha]$ by Exercise 27 of Chapter 2.  This field has 2 complex embeddings (only 1 real real root) so the Minkowski bound is $\frac{8\sqrt{1319}}{9\pi} \approx 10.27$.  We must investigate the primes 2, 3, 5, and 7.  Since $\disc{\alpha}$ is prime each of these factors in the Dedekind way, e.g. by seeing how the polynomial $\alpha^3 - \alpha - 7$ factors mod $p$.  Additionally, since the minimum polynomial has degree 3 the prime remains inert if there is no root mod $p$.
+    \item [20.] Let $\alpha$ be a root of $\alpha^3 - \alpha - 7$.  By Exercise 2.28, $\disc{\alpha} = (-4 + 27 \cdot 7^2) = -1319$.  This is prime (so squarefree) and so $\ringofintegers{\Q[\alpha]} = \Z[\alpha]$ by Exercise 2.27.  This field has 2 complex embeddings (only 1 real real root) so the Minkowski bound is $\frac{8\sqrt{1319}}{9\pi} \approx 10.27$.  We must investigate the primes 2, 3, 5, and 7.  Since $\disc{\alpha}$ is prime each of these factors in the Dedekind way, e.g. by seeing how the polynomial $\alpha^3 - \alpha - 7$ factors mod $p$.  Additionally, since the minimum polynomial has degree 3 the prime remains inert if there is no root mod $p$.
 
     \begin{itemize}
         \item $p = 2: \modequiv{x^3 - x - 7}{x^3 + x + 1}{2}$.  This has a root if there is an $x$ so that $x(x^2 + 1) = 1$ (clearly not), so 2 remains inert.
@@ -1641,7 +1687,7 @@ sage: [-(840-CRT_list(list(rs),prime_list))
 
     \item [21.] By the binomial theorem, $(\sqrt[3]{m} + a)^3 = m + 3a(\sqrt[3]{m})^2 + 3a^2(\sqrt[3]{m}) + a^3$.  Therefore the minimum polynomial for $\sqrt[3]{m} + a$ is $x^3 - \text{something}\cdot x^2 - \text{something} \cdot x - (m + a^3)$, so $\norm(\sqrt[3]{m} + a) = m + a^3$.
 
-    \item [22.] Any purely cubic field has 2 complex embeddings, so the Minkowski bound is $\frac{3!}{3^3}\left(\frac{4}{\pi}\right)\sqrt{|-27m^2|}$ = $\frac{8m\sqrt{3}}{3\pi}$.  By Exercise 41 of Chapter 2, if $\modnotequiv{m}{\pm 1}{9}$,  $\ringofintegers{K} = \Z[\sqrt[3]{m}]$ (this is the case for $m = 3, 5, 6$).  A real cubic field has degree 3 over $\Q$, so it has no non-trivial subfields and if a prime ramifies, it is totally ramified.
+    \item [22.] Any purely cubic field has 2 complex embeddings, so the Minkowski bound is $\frac{3!}{3^3}\left(\frac{4}{\pi}\right)\sqrt{|-27m^2|}$ = $\frac{8m\sqrt{3}}{3\pi}$.  By Exercise 2.41, if $\modnotequiv{m}{\pm 1}{9}$,  $\ringofintegers{K} = \Z[\sqrt[3]{m}]$ (this is the case for $m = 3, 5, 6$).  A real cubic field has degree 3 over $\Q$, so it has no non-trivial subfields and if a prime ramifies, it is totally ramified.
 
     $m = 3$: the Minkowski bound is $\approx 4.4$ and 3 ramifies as $(\sqrt[3]{3})^3$ (principal).  $(\sqrt[3]{3}^2 + \sqrt[3]{3} + 1)(\sqrt[3]{3} - 1) = (2)$; by Exercise 21, $\norm(\sqrt[3]{3} - 1) = 3 + (-1)^3 = 2$ and so both the ideals lying over 2 are principal.  Therefore $\Q[\sqrt[3]{3}]$ is a PID.
 
@@ -1657,7 +1703,7 @@ sage: [-(840-CRT_list(list(rs),prime_list))
 
     By Exercise 21, $\norm(\alpha - 2) = -2$; as 2 is ramified, 2 factors as $(\alpha - 2)^3$.  3, 5, and 7 are seen as principal via Sage computation.  $3$ is ramified as $(\alpha^2 + 2\alpha +3)^3$, $5$ has the principal ideals $(\alpha -1)$ and $(\alpha^2 + \alpha + 1)$ both with norm $5$ lying over it, and 7 factors as $(7) = (\alpha + 1)(2\alpha^2 + 4\alpha + 7)(\alpha^2 + \alpha - 5)$.  Therefore $\Z[\alpha]$ is a PID.
 
-    \item[23. (a)] We let $K = \Q[\sqrt[3]{m}]$ and take $\alpha = \sqrt[3]{m}$.  By Exercise 17, Chapter 2, the norm of $\alpha + b\alpha + c\alpha^2$ is the determinant of multiplying this element by each of the $K$ basis $\{1, \alpha, \alpha^2\}$.  Therefore:
+    \item[23. (a)] We let $K = \Q[\sqrt[3]{m}]$ and take $\alpha = \sqrt[3]{m}$.  By Exercise 2.17, the norm of $\alpha + b\alpha + c\alpha^2$ is the determinant of multiplying this element by each of the $K$ basis $\{1, \alpha, \alpha^2\}$.  Therefore:
     \[
         \norm(a + b\alpha + c\alpha^2)\ =\det\left(
         \begin{matrix}
@@ -1666,7 +1712,7 @@ sage: [-(840-CRT_list(list(rs),prime_list))
             c & b & a
         \end{matrix}\right) = a^3 + c^3 m^2 + b^3 m - 3abcm
     \]
-    \item[23. (b)] If $m$ is squarefree then $\{1, \alpha, \alpha^2\}$ is an integral basis (Exercise 41, Chapter 2).  Therefore for all $\beta \in \ringofintegers{K}$, $\beta$ has the form $a + b\alpha  + c\alpha^2$ and so by $(a)$, $\modequiv{\norm(\beta)}{a^3}{m}$.
+    \item[23. (b)] If $m$ is squarefree then $\{1, \alpha, \alpha^2\}$ is an integral basis (Exercise 2.41).  Therefore for all $\beta \in \ringofintegers{K}$, $\beta$ has the form $a + b\alpha  + c\alpha^2$ and so by $(a)$, $\modequiv{\norm(\beta)}{a^3}{m}$.
 
     \item[24.]  Let $K = \Z[\sqrt[3]{7}]$ and $\alpha = \sqrt[3]{7}$.  The Minkowski bound $\approx 10.29$ so we must examine the ideals $(2), (3), (5), (7)$.  $(7)$ ramifies as the principal ideal $(\alpha)^3 = 7$.  $(2)$ and $(5)$ factor as per Dedekind.
 
