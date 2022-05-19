@@ -1428,6 +1428,10 @@ The partitions are straightforward to calculate since right-multiplication of an
 % In $\w^n$, any permutation that takes $\w^n \mapsto {\w^{n p^a}} = \w^{p^a} \w^{n}$
 
 
+\item[16.] Let $L$ be the normal closure of $K$.  $\Q[\sqrt{d}]$ is a subfield of $L$ where $p$ ramifies (letting $n, m$ be other squarefree divisors of $d$, take $\sqrt{d} = \sqrt{p^{2k+1}n^2 m} = p^k n\sqrt{pm}$, so $p$ ramifies by Theorem 25).  As $\Q[\sqrt{d}]$ has degree 2 over $\Q$ and has a ramified prime, $L_{D} = L_{E} = \Q$ so there can be no subfields of $L$ where $p$ does not ramify.  In particular $p$ ramifies in $K$.
+
+Letting $\alpha_1, \ldots, \alpha_n$ be another basis of $K$ over $\Q$, \[ \disc{\alpha_1,\ldots,\alpha_n} = m^2 \disc{R} \] where $m$ is the order of $\alpha_1,\ldots,\alpha_n$ over an integral basis (Exercise 2.27(c)).  If $p^{2k + 1} \mid \disc{\alpha_1,\ldots,\alpha_n}$ then $p \mid \disc{R}$ and so $p$ must ramify by the previous argument.
+
 \item [17.] Let $K$ and $L$ be number fields with $K \subset L$, $R = \ringofintegers{K}$, $S = \ringofintegers{L}$, $P$ a prime of $R$, $Q$ a prime of $S$, and suppose $\diff(S)$ is divisible by $Q$.  We will show $e(Q|P) > 1$.
 
 \item [17. (a)] As $\diff{S} \subset Q$, $Q^{-1} \subset (\diff{S})^{-1} = S^{*}$.  Therefore $\text{Tr}^{L}_{K}(Q^{-1}S) \subset R$.
