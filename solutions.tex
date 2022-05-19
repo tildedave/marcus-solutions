@@ -1428,7 +1428,34 @@ The partitions are straightforward to calculate since right-multiplication of an
 % In $\w^n$, any permutation that takes $\w^n \mapsto {\w^{n p^a}} = \w^{p^a} \w^{n}$
 
 
-\item[18. (a)] TODO
+\item [17.] Let $K$ and $L$ be number fields with $K \subset L$, $R = \ringofintegers{K}$, $S = \ringofintegers{L}$, $P$ a prime of $R$, $Q$ a prime of $S$, and suppose $\diff(S)$ is divisible by $Q$.  We will show $e(Q|P) > 1$.
+
+\item [17. (a)] As $\diff{S} \subset Q$, $Q^{-1} \subset (\diff{S})^{-1} = S^{*}$.  Therefore $\text{Tr}^{L}_{K}(Q^{-1}S) \subset R$.
+\item [17. (b)] Letting $PS = QI$, $I = Q^{-1}PS$, so $\text{Tr}^{L}_{K}(I) = P\ \text{Tr}^{L}_{K}(Q^{-1}S) \subset PR = P$.
+
+We now assume $Q$ unramified over $P$, and fix $M$ to be a normal extension of $K$ containing $L$.  Take $U$ a prime of $M$ over $P$ and $E$ the inertia group $E(U|P)$.  $U_{E}$ is thus unramified over $P$.
+
+\item [17. (c)] Let $M_{E}$ be the inertia field of $M$; $M_{E}$ is the largest field in which $Q$ is unramified; as $Q$ is unramified in $L$, $L \subset M_{E}$.
+\item [17. (d)] Taking $T = \ringofintegers{M}$, $\diff(T_E|R) = \diff(T_E|S)(\diff(S|R)T_{E})$; as $Q$ divides $\diff(S|R)$, $QT_{E} = U_{E}$ divides $\diff(T_E|R)$.
+
+This allows us to fix $L = M_{E}$ and show a contradiction from this rather than considering an additional intermediate field.  Now $S = T_{E}$ and $Q = U_{E}$.
+
+\item [17.] (e)] $U$ is a prime ideal, so it is a maximal ideal and it cannot be contained in any larger ideal inside $T$.  $S + U \not\subset U$ as there are elements $s \not\in Q$ so $s \not\in U$, therefore $S + U = T$.
+
+As $Q$ is unramified in $I$, $I \not\mid Q$ and so $\gcd(I, Q) = S$; therefore $S = I + Q$.
+
+Together this shows $T = (I + Q) + U = I + U^{e} + U = I + U$.
+
+\item[17. (f)] As $L = M_{E}$ is the inertia field of $M$ over $K$, every prime over $P$ becomes an $[M : K]$th power in $M$; therefore $U$ is the only prime of $T$ lying over $Q$; in fact $U^{e} = Q$.  Giving some notation, $PS = QI = Q(Q_1 \cdots Q_{r})$; suppose $U_k$ lies over the prime $Q_k$ in $T$; then $PT = U^{e}(U_1 \cdots U_{r})^{e}$.  $U_k^{e} = Q_k \supset I$ so $U_k \supset I$.
+\item[17. (g)] Taking $G = \gal{M}{K}$, $D$ the decomposition group $D(U|P)$.  Take $\sigma \in G - D$; as $\sigma(I) = \sigma(Q_1)\cdots\sigma(Q_{r}) \neq I$, at least one $Q_{k}$ must be mapped to a different prime lying over $P$; the only prime to can be so that $\sigma(I) \neq I$ is $Q$, giving $\sigma(I) \subset Q$.
+
+\item[17. (h)] Take $\alpha \in I$.  Let $\sigma_1, \ldots \sigma_k \in D$ and $\sigma_{k+1}, \ldots, \sigma_{r} \not \in D$.  By (g), $\sum_{\sigma \in G - D} \sigma(\alpha) \in U$. By (a), $\text{Tr}^{L}_{K}(\alpha) \subset P$.  $P \subset U$, so \[\left(\sum_{\sigma \in G - D} \sigma(\alpha)\right ) - \text{Tr}^{L}_{K}(\alpha) = \sum_{\sigma \in D}\sigma_{i}(\alpha) \in U \]
+
+As $T = I + U$, for any $\alpha \in T$ write it as $\alpha = i + \beta$ for $\beta \in U$; then $\sum_{\sigma \in D} \sigma(i + \beta) = \sum_{\sigma \in D}  \sigma_i(i) + \sigma_i(\beta)$; as these $\sigma_i \in D$, $\sum_{i=1}^{k} \sigma_i(\beta) \in U$ and thus the entire sum is in $U$ as well.
+
+\item[17. (i)] Take $\sigma \in D$ and let $\bar{\sigma}^{T}$ be its image in $T/U$.  Each $\sigma$ also induces an automorphism $\bar{\sigma}^{S}$ to the quotient $S/Q$.  If any two mappings in $\bar{\sigma}^{T}$ were the same their image under reduction to $S/Q$ would also be the same.  However, as since $Q$ is unramified over $P$ the automorphisms that $D$ induces in $S/Q$ must be distinct (this is a similar argument as in the proof of Theorem 34).  Each of the $\bar{\sigma_1}^{T}, \ldots, \bar{\sigma_k}^{T}$ must be distinct, but $\bar{\sigma_1}^{T} + \cdots + \bar{\sigma_k}^{T} = 0$.  Applying Exercise 4.15 we have a contradiction.  Therefore $Q$ must be ramified over $P$ with degree $e > 1$.
+
+\item[18. (a)] TODO (easy)
 \item[18. (b)]  Suppose $\sigma \in \cap\ V_{m}$, then for any $\alpha \in S$, $\sigma(\alpha) - \alpha \in \cap\ Q^{m} = 0$.  Since $\alpha$ was chosen arbitrarily $\sigma$ must be the identity permutation.  Therefore the descending chain of subgroups eventually stabilizes at the identity.
 
 \item[19.] Let $\sigma \in V_{m-1}$, $\pi \in Q - Q^2$, and $\modequiv{\sigma(\pi)}{\sigma}{Q^{m+1}}$.
@@ -1599,6 +1626,10 @@ By Exercise 4.23, $p \mid e \iff V_1 \text{ nontrivial}$.  Since $k = \sum_{m \g
 $K'$ is the largest field between $K$ and $KL$ in which no primes ramify, so $q$ is unramified in $K'$.
 
 In $L$, only the prime $q$ is ramifies (it is in fact totally ramified; Exercise 3.24 (a)).  Applying Theorem 31, any prime of $\Q \neq q$ that is not ramified in $K$ is also unramified in $KL$, and so is also unramified in the intermediate subfield $K'$.
+
+\item [31. (d)] TODO - easy
+\item [31. (e)] In the direct product $E(Q|q) \times \gal{L}{\Q}$, both sides of the product have cardinality $e$ which is a power of $p$; as $E(Q|q)$ is an injection its cardinality must also be a power of $p$.  Applying Exercise 4.23, we must have $V_1$ trivial ($q$ does not divide a power of $p$).
+\item [31. (f)] By (e), $V_1$ is trivial so by Exercise 4.21, $E(U|q)$ is a cyclic group.  TODO: not clear why this shows $E(U|q)$ has cardinality $e$.
 
 \end{enumerate}
 
