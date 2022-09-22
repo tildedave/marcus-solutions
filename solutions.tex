@@ -2060,11 +2060,46 @@ sage: results = []
 
 \item[43.] Let $K$ be a normal extension of $\Q$ with Galois group $G$.
 \item[43. (a)] Let $\tau$ be complex conjugation.  If $\tau \in G$ then $K \cap \R$ is the subfield of $K$ fixed by $\tau$ with degree 2.  If $\tau \not\in G$ then $K = K \cap R$ (otherwise $\tau$ would be an automorphism of $K$) so $[K : K\cap \R] = 1$.
-\item[43. (b)] We split the proof based on whether $[K : K \cap \R]$ is 1 or 2.  When $[K : K\cap\R] = 1$, $K = K \cap \R$; by assumption $K$ is normal over $\Q$ so $K \cap \R$ is trivially normal over $\Q$ and has no non-real embeddings in $\C$.
 
-Otherwise let $[K : K \cap \R] = 2$.  TODO
+\item[43. (b)] We assume $K$ a normal extension of $\Q$.  Let $K \cap \R = \Q[\alpha]$ and take $f$ to be the irreducible polynomial corresponding to this extension.
 
+If $K \cap \R$ is a normal extension of $\Q$, for any embedding $\iota : K \cap \R \to \C$, $\iota(\alpha)$ is also a root of $f$; as $\iota$ is an embedding, $\iota$ can be identified with an element of the Galois group $\gal{K \cap \R}{\Q}$ and so $\iota$ is a non-complex embedding.
 
+Conversely, assume $K \cap \R$ has no non-real embeddings into $\C$.  There are $n = [K \cap \R : \Q]$ different embeddings into $\C$; again take $\alpha$ a root in $K \cap \R$ and let $\iota_1, \ldots, \iota_n$ be the embeddings.  These roots $\iota_1(\alpha), \ldots, \iota_n(\alpha)$ are all distinct roots of $f$ in $\C$; as each embedding is non-complex these lie in $\R$.  As $f(\alpha) = 0$ and $\alpha \in K$, $K$ contains each $\iota_1(\alpha), \ldots, \iota_n(\alpha)$.  Since these roots are all real they lie in $K \cap \R$; therefore $K \cap \R$ contains all roots of $f$ and so is a normal extension of $\Q$.
+
+\item [43. (c)]  Since $U$ is a free abelian group, $U / (U \cap \R)$ is finite if and only if $U \subset \R$.  (TODO flesh out)
+
+Let $\tau$ be complex conjugation and suppose $\tau \in \text{Center}(G)$.  As $\tau\sigma = \sigma\tau$ each $\sigma$ (except for $\tau$?) must permute real roots.
+
+\item [44. (a)]  Letting $u$ be a unit in $\A$, it must be the root of a polynomial $f$ so $f(u) = 0$; $f(\bar{u}) = 0$ as well so $\bar{u} \in \A$.  $|u|^2 = u \bar{u}$; as $\A$ is closed under taking multiplication and taking square roots, $|u| \in \A$.
+\item [44. (b)] Letting $K$ be the normal closure of one of the pure cubic fields $\Q[\sqrt[3]{m}]$, $K = \Q[\sqrt[3]{m}, \w]$, where $\w = \frac{-1 + \sqrt{-3}}{2}$.  $\gal{K}{\Q} = \{ \tau, \sigma \}$ where $\tau$ is complex conjugation and $\sigma$ takes $\sqrt[3]{m} \to \w\sqrt[3]{m} \to \w^2 \sqrt[3]{m}$; $\sigma\tau (\sqrt[3]{m}) = \w\sqrt[3]{m}$ but $\tau\sigma(\sqrt[3]{m}) = \w^2\sqrt[3]{m}$; therefore $\tau \not\in \text{Center}(\gal{K}{\Q})$ and so $U / (U \cap \R)$ is infinite by Exercise 5.43 (c).
+\item [44. (c)] $K$ has 3 complex embeddings and so has unit group with rank 2; it contains all the units of its real subfield $\Q[\sqrt[3]{m}]$ which has 1 real embedding and 2 complex embeddings and so has unit group with rank 1.  There is therefore 1 unit in $K$ that is not in $\Q[\sqrt[3]{m}]$.  Taking this unit, let $u / \bar{u}$; then $abs{u / \bar{u}} = \sqrt{u / \bar{u} \cdot \bar{u} / u} = 1$.
+
+We look around for an example and focus on $\alpha = \sqrt[3]{2}$; by Exercise 5.37, $\w\alpha - 1$ is a unit in $K$ for $\w = e^{2\pi i / 3}$.  Therefore \[ u = \frac{\w\alpha - 1}{\w^2\alpha - 1} = \frac{\alpha - \alpha\sqrt{-3} + 2}{\alpha + \alpha\sqrt{-3} + 2} \] is a unit of $K$ on the unit circle but not a root of 1.  Sage shows this value $\approx 0.381 - 0.924*I$ and has norm 1.
+
+\item [45.] TODO - difference with 43 is that $K$ is abelian not normal.
+
+\item [47.] Let $\w = e^{2\pi i / 5}$, $u = -\w^2(1+\w)$.
+\item [47. (a)] By Exercise 2.34, $1 + \w$ is a unit (apply with $k = 2$).  $\w^2$ is also unit, so $u = -\w^2(1 + \w)$ is a unit as well.
+\item [47. (b)] $u = -\w^2 ( 1 + \w) = -(\w^2 + \w^3) = -(\w^{-2} + \w^{2})$; this is $\w^{2}$ added to its complex conjugate so the result is real.  The triangle formed by $\w^2$ and the y-axis has hypotenuse 1 and adjacent side $\cos{\pi}$, meaning $-(\w^{-2} + \w^{2}) = 2\cos(\pi/5)$.  This is $\approx 1.618$.
+\item [47. (c)] We know $R \cap \Q[\w] = \Q[\w + \w^{-1}]$ is a real subfield over $\Q$ of degree two, so it has the form $\Q[\sqrt{m}]$ for some $m > 0$.  As $\disc{\Q[\w]} = p^{p - 2} = 5^{3}$, 5 is the only prime that can ramify in $\Q[\w + \w^{-1}]$, so $\Q[\w+ \w^{-1}] = \Q[\sqrt{5}]$.
+\item [48. (d)] $\Q[\w]$ is a totally imaginary field and so has the signature $2s = 4$; $s = 2$ and so its unit group has rank $1$. (TODO - this argument is a little squishy, maybe this could be a power of something else?  Not clear why being between 1 and 2 makes this special.)
+\item [48. (e)] By above $\Q[\w]$ has a unit group with the free abelian part having rank 1.  $\Q[\w]$ contains 5 roots of 1 (including 1) as well as -1.  By part (d), $u$ is a unit; $u = -\w^2 (\w + 1)$.  $-\w^2$ first applies a rotation of $4\pi/5$ radians and then mirrors across the y-axis so it is just the product of two of 1.  We can thus take $\w + 1$ to be the fundamental unit of $\Q[\w]$ and so any unit in $\Q[\w]$ has the form $\pm \w^{h} \cdot (\w + 1)^k$ where $0 \le h \le 4$ and $k \ge 0$.
+
+\item [48. (f)] $u = \frac{1 + \sqrt{5}}{2} = 2\cos{\pi / 5}$; as therefore $\cos(\pi / 5) = \frac{1 + \sqrt{5}}{4}$.
+
+To establish a formula for $\sin$ we recall $\sin^2 + \cos^2 = 1$; therefore \[ \sin(\pi/5) = \sqrt{1 - \left(\frac{1 + \sqrt{5}}{4}\right)^2} = \sqrt{1 - \frac{6 + 2\sqrt{5}}{16}} = \sqrt{\frac{5 - \sqrt{5}}{8}} \]
+
+\item [49.] Let $m \ge $, set $\w = e^{2\pi i / m}$ and $\alpha = e^{\pi i /m }$.
+\item [49. (a)]
+\begin{eqnarray*}
+1 - \w^k = 1 - e^{2k\pi i/m} &=& 1 - \cos(2k\pi/m) - i \sin(2k\pi / m) \\
+                             &=& 1 - \cos^{2}(k\pi/m) + \sin^{2}(k\pi/m) - 2i \sin(k\pi/m) \cos(k\pi/m) \\
+                             &=& -2i\sin(k\pi/m) (i\sin(k\pi/m) + \cos(k\pi/m)) = -2i\alpha^{k}\sin(k\pi/m)
+\end{eqnarray*}
+Dividing, we have \[ \frac{1 - \w^{k}}{1 - \w} = \frac{-2i\alpha^{k}\sin(k\pi/m)}{-2i\alpha\sin(\pi/m)} = \alpha^{k-1}\frac{\sin(k\pi/m)}{\sin(\pi/m)}\]
+\item [49. (b)] Suppose $m$ is odd; then $m = 2j + 1$.  Then $j = \frac{m - 1}{2}$ so $j + 1 \frac{m + 1}{2}$; therefore $\w^{2\pi i(j + 1)/m} = \w^{\pi i (m + 1) / m} = \w^{\pi i + \pi i / m}$.  The negative of a root of unity is the same as rotating it by an angle $\pi i$.  Therefore \[ -\w^{2\pi i(j + 1)/m} = \w^{\pi i + \pi i /m + \pi i} = \w^{\pi i /m} = \alpha \]  Thus $\alpha^{k - 1}$ is $\pm$ a power of $\w$ (and so is a unit).
+\item [49. (c)] If $k$ is relatively prime to $m$, by Exercise 2.34, $1 + \w + \ldots + \w^{k-1} = \frac{1 - \w^{k}}{1- \w}$.  By (a), \[ \frac{1 - \w^{k}}{1 - \w} = \alpha^{k-1}\frac{\sin(k\pi/m)}{\sin(\pi/m)} \] By (b), $\alpha^{k}$ has the form $\pm\w^{h}$ we can cancel it by multiplying by $\pm \w^{m - h}$ (a unit); therefore \[ u_k = \frac{\sin(k\pi/m)}{\sin(\pi/m)} \] is a real unit in $\Z[\w]$.
 \end{enumerate}
 
 \section*{Chapter 7}
