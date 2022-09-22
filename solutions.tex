@@ -770,6 +770,39 @@ sage: -(b*n^n - a^n * (n - 1)^(n - 1))*b^(n-2)
 1569628125
 \end{verbatim}
 
+\item [46.] Let $f$ be a monic irreducible polynomial in $\Z$, and let $\alpha$ be a root of $f$.
+\item [46. (a)] Suppose $f'$ has a root r; then $\disc{\alpha} = \norm(f'(\alpha)) = \norm(\alpha - r)\norm(g(\alpha))$; $\alpha - r$ is a root of $f(x + r)$, which has constant term $f(r)$; therefore $\norm(\alpha - r) = f(r)$ and so $f(r) \mid \disc{\alpha}$.
+\item [46. (b)] If $f'$ has a rational root $r / s$ then $\disc{\alpha} = \norm(f'(\alpha)) = \norm(\alpha - r/s)\norm(g(\alpha))$, where $g \in \Q[x]$.  As $f'$ is reducible in $\Q$ it must also be reducible in $\Z$; therefore $\norm(\alpha) = \norm(s\alpha - r)\norm(g(\alpha)) = s^n \norm(\alpha - r/s)\norm(g(\alpha))$.  $\norm(\alpha - r/s) = f(-r/s)$ - this is an integer - so $s^n f(-r/s) \mid \disc{\alpha}$.
+\item [46. (c)] If there exist polynomials $g(x)$ and $h(x)$ that split over $\Q$ into rational factors, let $q_0, \ldots, q_j$ be roots of $g(x)$ and $r_0, \ldots, r_k$ be roots of $h(x)$.  If $\modequiv{gf'}{h}{f}$ then $f \mid gf' - h$ and so $g(\alpha)f'(\alpha) - h(\alpha) = 0$; therefore \[ \disc{\alpha} = \norm(f'(\alpha)) = \frac{\norm(h(\alpha))}{\norm(g(\alpha))} = \frac{f(r_0)\cdots f(r_k)}{g(q_0)\cdots g(q_j)}\]
+\item [47.] Let $\alpha$ be a root of $f(x) = x^5 - x^2 + 15$.  Then $\disc{\alpha} = N(4\alpha^5 - 2\alpha)$.  As $\modequiv{xf'(x) = 5x^5 - 2x^2}{3x^2 - 75 = 3(x + 5)(x - 5)}{f(x)}$ then $\disc{\alpha} = \frac{3^3 \cdot f(5)f(-5)}{15}$.  $f(5) = 3115 = 5 \cdot 7 \cdot 89$ while $f(-5) = -3135 = -1 \cdot 3 \cdot 5 \cdot 11 \cdot 9$; therefore \[ \disc{\alpha} = \frac{3^6 \cdot 5^2 \cdot 7 \cdot 11 \cdot 19 \cdot 89}{3 \cdot 5} = 3^5 \cdot 5 \cdot 7 \cdot 11 \cdot 19 \cdot 89 = 158201505 \]  Sage confirms this is correct:
+\begin{verbatim}
+sage: 3^5 * 11 * 19 * 5* 7*89
+158201505
+sage: K.<a> = QQ.extension(x^5 - x^2 + 15)
+sage: K.discriminant()
+158201505
+\end{verbatim}
+\item[48.] Suppose $f(x) = x^3 + ax^2 + bx + c$ and let $\alpha$ be a root of $f$.  Then $f'(x) = 3x^2 + 2ax + b$.
+\item [48. (a)]  If $a^2 - 3b = d^2$ then $b = \frac{(a - d)(a + d)}{3}$ and $f'(x) = 3(x - \frac{-a  + d}{3})(x - \frac{-a - d}{3})$.  Therefore \[ \disc{\alpha} = N(f'(\alpha)) = 3^3 \cdot f(\frac{d - a}{3}) f(\frac{-a - d}{3}) \]
+\item[48. (b)] The same factorization works with $d = \pm \sqrt{a^2 - 3b}$; this element is a member of the field $\Q[\alpha]$ (why?) and so finding the norm of $\alpha - \frac{-a \pm d}{3}$ still makes sense.
+\item[48. (c)] $(x + \frac{a}{3})f'(x) = 3x^3 + 3ax^2 + \frac{3b + 2a^2}{3} + \frac{ab}{3}$, this is equivalent to the polynomial $\frac{2a^2 - 6b}{3}x + \frac{ab - 9c}{3}$ mod $f(x)$.  Therefore by Exercise 2.46,
+\[ \disc{\alpha} = \frac{\norm(\frac{6b - a^2}{3}) f(\frac{9c - ab}{2a^2 - 6b})}{f(\frac{-a}{3})} = \frac{8\cdot N(3b - a^2)^3 f(\frac{9c - ab}{2a^2 - 6b})}{27 \cdot f(\frac{-a}{3})}\]
+\item[49. (d)] Plugging in $a = -6$, $b = 9$, $c = 3$ gives: \[ \disc{\alpha} = \frac{8\cdot(27 - 36)^3 f(9/2)}{27f(2)} \] Through use of the calculator we have $f(2) = 5$, $f(9/2) = 105/8$, therefore \[ \disc{\alpha} = \frac{8\cdot(-3)^6\cdot 105}{3^3\cdot 5 \cdot 8} = -1 \cdot 3^3 \cdot 27 = -567 \]  Sage agrees:
+\begin{verbatim}
+sage: K.<a> = QQ.extension(x^3 - 6*x^2 + 9*x + 3)
+sage: K.discriminant([1, a, a^2])
+-567
+\end{verbatim}
+
+Plugging in $a = -6$, $b = -9$, $c = 3$ gives: \[ \disc{\alpha} =\frac{8 \cdot (-27 - 36)^3 \cdot f(\frac{-3}{14})}{27\cdot f(2)} \] Here $f(-3/14) = \frac{3 \cdot 31 \cdot 137}{2^3 \cdot 7^3}$ and $f(2) = -31$; therefore \[ \disc{\alpha} = \frac{8 \cdot -3^6 \cdot 7^3 \cdot 3 \cdot 31 \cdot 137}{3^3 \cdot 2^3 \cdot 7^3 \cdot -31} = 3^4 \cdot 137 = 11097 \]
+Sage agrees:
+\begin{verbatim}
+sage: 3^4 * 137
+11097
+sage: K.<a> = QQ.extension(x^3 - 6*x^2 - 9*x + 3)
+sage: K.discriminant([1, a, a^2])
+11097
+\end{verbatim}
 \end{enumerate}
 
 \section*{Chapter 3}
