@@ -1566,7 +1566,9 @@ Otherwise, let $(\pi) = QI$ with $Q, I$ relatively prime.  We take $x$ be the so
 
 By the above lemma, $x \in Q, I$.  Since $Q, I$ are coprime ideals, $Q \cap I = QI$ and so $x \in QI = (\pi)$.  Therefore $x = \alpha \pi$ for some $\alpha \in S$ and $\sigma(\pi) \equiv \alpha \pi \pmod{Q^2}$, the required result.
 
-\item[21. (b)] By (a), $\modequiv{\tau(\pi)}{\alpha_{\tau}\pi}{Q^2}$, $\modequiv{\sigma\tau(\pi)}{\alpha_{\sigma}\alpha_{\tau}\pi}{Q^2}$, thus $\modequiv{\sigma\tau (\pi)}{\alpha_{\sigma}\alpha_{\tau}\pi}{Q^2}$ as required.
+\item[21. (b)] By (a), $\modequiv{\tau(\pi)}{\alpha_{\tau}\pi}{Q^2}$, $\modequiv{\sigma\tau(\pi)}{\sigma(\alpha_{\tau}\pi) = \sigma(\alpha_{\tau})\alpha_{\sigma}\pi}{Q^2}$.  As $\sigma \in E$, $\modequiv{\sigma(\alpha_\tau)}{\alpha_{\tau}}{Q}$; therefore $\modequiv{\sigma(\alpha_\tau)\pi}{\alpha_{\tau}\pi}{Q^2}$.  Combined with above we have $\modequiv{\sigma\tau(\pi)}{\alpha_{\tau}\alpha_{\sigma}\pi}{Q^2}$.
+
+As $\modequiv{\sigma\tau(\pi)}{\alpha_{\sigma\tau}\pi}{Q^2}$, $\modequiv{\alpha_{\sigma\tau}\pi}{\alpha_\sigma \alpha_\tau \pi}{Q^2}$; therefore $\modequiv{\alpha_{\sigma \tau}}{\alpha_{\sigma} \alpha_{\tau}}{Q}$.
 
 \item[21. (c)] Let $\psi : E \to (S / Q)^{*} = \sigma \to \alpha_{\sigma}$.  $E / V_1 \simeq \image\psi \triangleleft (S / Q)^{*}$; as $(S / Q)^{*}$ is the multiplicative group of a field, every subgroup of it is cyclic.  By Lagrange's theorem, $|E / V_1|$ divides $|S / Q| - 1 = p^{f(Q|P)e(Q|P)} - 1$.
 
