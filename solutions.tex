@@ -43,9 +43,10 @@
 
 \begin{enumerate}
 \item [23.]  If $\modequiv{\beta}{\gamma}{p}$, then $\beta - \gamma = \delta p$; therefore $\overline{\beta - \gamma} = \bar{\delta}\bar{p}$, so $\bar{\beta} - \bar{\gamma} = \bar{\delta}p$; therefore $\modequiv{\bar{\beta}}{\bar{\gamma}}{p}$.
+
 \item [24.]  $(\beta + \gamma)^p = \beta^p + \gamma^{p} + \sum_{i=1}^{p - 1} \binom{p}{i} \beta^{i} \gamma^{p - i}$; each of the terms in the summation  are divisible by $p$ and so are 0 mod $p$, so $\modequiv{(\beta + \gamma)^{p}}{\beta^{p} + \gamma^{p}}{p}$.
 
-\item [25.]  Take $\alpha \in \Z[\w]$; then $\alpha = a_{p-2}\w^{p-2} + \ldots + a_0$; by Exercise 1.24, $\modequiv{\alpha^{p}}{a_{p-2}^{p}\w^{p(p-2)} + \ldots + a_0^{p}}$; as $\w^{p} = 1$, \[ \modequiv{\alpha^{p}}{a_{p-2}^{p} + \cdots + a_0^{p} \in \Z}{p} \]
+\item [25.]  Take $\alpha \in \Z[\w]$; then $\alpha = a_{p-2}\w^{p-2} + \ldots + a_0$.  By Exercise 1.24 \[ \modequiv{\alpha^{p}}{a_{p-2}^{p}\w^{p(p-2)} + \ldots + a_0^{p}}{p} \] As $\w^{p} = 1$, \[ \modequiv{\alpha^{p}}{a_{p-2}^{p} + \cdots + a_0^{p} \in \Z}{p} \]
 
 \item [26.] Suppose $\modequiv{x + y\w}{u\alpha^{p}}{p}$; by Exercise 1.25, $\modequiv{x + y\w}{um}{p}$ for some $m \in Z$.  Applying Exercise 1.23 we have $\modequiv{x + y\w^{-1}}{\bar{u}m}{p}$; therefore $\modequiv{x + y\w}{(u/\bar{u})(x + y\w^{-1})}{p}$.  By the lemma on units $u / \bar{u} = \w^{k}$ for some $k$, so $\modequiv{x + y\w}{(x + y\w^{-1})\w^{k}}{p}$ for some $0 \le k < p$.
 
