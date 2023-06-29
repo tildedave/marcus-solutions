@@ -247,7 +247,85 @@ From eliminating the coefficients $a, b, c$, we have $d\sqrt[4]{8} = \sqrt{3}$ a
 
 (Where would this argument break down for $\sqrt{2}$?  $\sqrt{2} = \alpha^2$ so $\sqrt{2} / \alpha^2 = 1$ and so we would conclude that $c = 1$ rather than $c = 0$.)
 
-\item[17 - TODO]
+\item[17.]  Let $K \subset L$; taking $\alpha \in L$, we have the tower of fields $K \subset K[\alpha] \subset L$; let $d = [K : K[\alpha]]$ and $n = [K : L]$.  Let $\{\beta_1, \beta_2, \ldots, \beta_{n/d}\}$ be a basis for $L$ over $K[\alpha]$; then $\bigcup_{\substack{0 \le m \le d - 1 \\ 1 \le k \le n / d}} \{\beta_k\alpha^m\}$ is a basis for $L$ over $K$.
+
+As $\alpha \in L$, there is a polynomial $f$ so that $f(\alpha) = 0$; take $f = x^m + a_{m-1}x^{m-1} + \ldots + a_0$ (as $L$ is a field there is no issue with requiring $f$ to be monic).
+
+Letting $A$ be the transformation matrix for multiplication by $\alpha$, the matrix for $A$ can be expressed in terms of this basis.  A sends $\beta_k \alpha_m$ to $\beta_k \alpha_{m+1}$, so for every $m < d - 1$, the $k + m$th column of the matrix.  When $m = d - 1$, the $m$ column is $\beta^{k}\alpha_{m}$; $\alpha_{m} = -a_{m-1}\alpha^{m-1} - \ldots - a_0$.  Therefore the matrix $A$ is made up of copies of the following matrix $B$ laid out diagonally.
+\[
+B = \left(
+\begin{matrix}
+    0 & 0 & \cdots & -a_0 \\
+    1 & 0 & \cdots & -a_1\\
+    0 & 1 & \cdots & -a_2\\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & -a_{m-1} \\
+\end{matrix}
+\right)
+\]
+$\trace{A} = \trace{B} \cdot (n/d) = -a_{m-1} (n/d$); as $-a_{m-1}$ is the first coefficient of the characteristic polynomial of $\alpha$, $-a_{m-1} = \text{tr}(\alpha)$; by Theorem 4', $\trace{A} = \text{Tr}^{L}_{K}(\alpha)$.
+
+To compute $\det{A}$, we go column by column multiplying by the 1s in the diagonals of the $B$s; for column $m$ we take each $-a_0$.  Therefore $\det{A} = (-a_0)^{n/d}$, as $-a_0$ is the last coefficient of the characteristic polynomial of $\alpha$, $\det{A} = \text{n}(\alpha)^{n/d}$; by Theorem 4', $\det{A} = \text{N}^{L}_{K}(\alpha)$.
+
+\item[19.]
+    Considering the determinant
+    \[
+\det\left(\begin{matrix}
+    1 & a_1 & \cdots & a_1^n \\
+    1 & a_2^2 & \cdots & a_2^n \\
+    \vdots & \vdots & \ddots & \vdots \\
+    1 & a_{n+1} & \cdots & a_{n + 1}^n \\
+\end{matrix}
+\right)
+\]
+    Let $f$ be a monic polynomial of degree $n$; e.g. $f = x^n + b_{n-1}x^{n-1} + \ldots + b_0$.  Apply the following series of column operations to the above matrix: add $b_{n-1}$ times the $n-1$th column to the $n$th column, add $b_{n-2}$ times the $n - 1$th column to the $n-2$th column, etc, the same determinant as the following.  None of these operations modifies the determinant of the resulting matrix; therefore
+    \[
+\det\left(\begin{matrix}
+    1 & a_1 & \cdots & a_1^n \\
+    1 & a_2^2 & \cdots & a_2^n \\
+    \vdots & \vdots & \ddots & \vdots \\
+    1 & a_{n+1} & \cdots & a_{n + 1}^n \\
+\end{matrix}
+\right)
+ =
+\det\left(\begin{matrix}
+    1 & a_1 & \cdots & f(a_1) \\
+    1 & a_2^2 & \cdots & f(a_2) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    1 & a_{n+1} & \cdots & f(a_{n + 1}) \\
+\end{matrix}
+\right)
+\]
+    We now show the required result by induction.  Assuming the result for $n$, take
+\[
+    \det\left(\begin{matrix}
+        1 & a_1 & \cdots & a_1^n \\
+        1 & a_2^2 & \cdots & a_2^n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        1 & a_{n+1} & \cdots & a_{n + 1}^n \\
+    \end{matrix}
+    \right)
+\]
+    Apply the above transform to $f = (x - a_1)(x - a_2) \cdots (x - a_n)$.  Then
+\[
+    \det\left(\begin{matrix}
+        1 & a_1 & \cdots & a_1^n \\
+        1 & a_2^2 & \cdots & a_2^n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        1 & a_{n+1} & \cdots & a_{n + 1}^n \\
+    \end{matrix}
+    \right)
+    =
+    \det\left(\begin{matrix}
+        1 & a_1 & \cdots & a_1^{n-1} & 0 \\
+        1 & a_2^2 & \cdots & a_2^{n-1}  & 0\\
+        \vdots & \vdots & & \ddots & \vdots \\
+        1 & a_n & \cdots & a_{n}^{n - 1} & 0 \\
+        1 & a_{n+1} & \cdots & a_{n+1}^{n-1} &  \prod_{1 \le r \le n} (a_{n-1} - a_r)  \\
+    \end{matrix}
+    \right)
+    \]
+Applying induction we have the required result.
 
 \item[18 - TODO]
 
