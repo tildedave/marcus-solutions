@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage{fancyhdr}
 \usepackage{amsmath}
@@ -34,28 +34,83 @@
 \newcommand{\gal}[2]{\text{Gal}(#1 / #2)}
 \newcommand{\ringofintegers}[1]{\mathbb{A} \cap #1}
 \newcommand{\legendre}[2]{\genfrac{(}{)}{}{}{#1}{#2}}
+\newcommand{\exercise}[1]{\noindent {\bf Exercise #1.}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}
 
 \begin{document}
 
-\section*{Chapter 1}
+\section*{Chapter 1: A special case of Fermat's conjecture}
 
-\begin{enumerate}
-\item [23.]  If $\modequiv{\beta}{\gamma}{p}$, then $\beta - \gamma = \delta p$; therefore $\overline{\beta - \gamma} = \bar{\delta}\bar{p}$, so $\bar{\beta} - \bar{\gamma} = \bar{\delta}p$; therefore $\modequiv{\bar{\beta}}{\bar{\gamma}}{p}$.
+\exercise{1.23} Show that if $\modequiv{\beta}{\gamma}{p}$, then $\modequiv{\bar{\beta}}{\bar}{\gamma}{p}$, where the bar denotes complex conjugate.
+\begin{proof}
 
-\item [24.]  $(\beta + \gamma)^p = \beta^p + \gamma^{p} + \sum_{i=1}^{p - 1} \binom{p}{i} \beta^{i} \gamma^{p - i}$; each of the terms in the summation  are divisible by $p$ and so are 0 mod $p$, so $\modequiv{(\beta + \gamma)^{p}}{\beta^{p} + \gamma^{p}}{p}$.
+If $\modequiv{\beta}{\gamma}{p}$, then $\beta - \gamma = \delta p$; therefore $\overline{\beta - \gamma} = \bar{\delta}\bar{p}$, so $\bar{\beta} - \bar{\gamma} = \bar{\delta}p$; therefore $\modequiv{\bar{\beta}}{\bar{\gamma}}{p}$.
+\end{proof}
 
-\item [25.]  Take $\alpha \in \Z[\w]$; then $\alpha = a_{p-2}\w^{p-2} + \ldots + a_0$.  By Exercise 1.24 \[ \modequiv{\alpha^{p}}{a_{p-2}^{p}\w^{p(p-2)} + \ldots + a_0^{p}}{p} \] As $\w^{p} = 1$, \[ \modequiv{\alpha^{p}}{a_{p-2}^{p} + \cdots + a_0^{p} \in \Z}{p} \]
+\exercise{1.24} Show that $\modequiv{(\beta + \gamma)^{p}}{\beta^p + \gamma^p}{p}$ and generalize this to arbitrary many terms by induction.
 
-\item [26.] Suppose $\modequiv{x + y\w}{u\alpha^{p}}{p}$; by Exercise 1.25, $\modequiv{x + y\w}{um}{p}$ for some $m \in Z$.  Applying Exercise 1.23 we have $\modequiv{x + y\w^{-1}}{\bar{u}m}{p}$; therefore $\modequiv{x + y\w}{(u/\bar{u})(x + y\w^{-1})}{p}$.  By the lemma on units $u / \bar{u} = \w^{k}$ for some $k$, so $\modequiv{x + y\w}{(x + y\w^{-1})\w^{k}}{p}$ for some $0 \le k < p$.
+\begin{proof}
+$(\beta + \gamma)^p = \beta^p + \gamma^{p} + \sum_{i=1}^{p - 1} \binom{p}{i} \beta^{i} \gamma^{p - i}$; each of the terms in the summation  are divisible by $p$ and so are 0 mod $p$, so $\modequiv{(\beta + \gamma)^{p}}{\beta^{p} + \gamma^{p}}{p}$.
+\end{proof}
 
-\item [27.] Multiplying $(x + y\w^{-1})\w^{k}$ through by $\w^k$ and subtracting gives an expression that $\equiv$ 0 mod $p$; $\modequiv{x + y\w - y\w^{k-1} - x\w^{k}}{0}{p}$.  By Exercise 22 $p$ must divide all coefficients of this expression.  However $x, y \not\mid p$.  If $k = 0$ or $k > 1$ then the constant term of the expression would be $x$, a contradiction.
+\exercise{1.25} Show that $\forall \alpha \in \Z[\w]$, $\alpha^{p}$ is congruent (mod $p$) to some $a \in \Z$.
 
-\item [28.] Taking $k$ the above expression reduces to $\modequiv{x + y\w - y - x\w = (x - y) + (y - x)\w}{0}{p}$; by Exercise 22, $p \mid x - y$ and $p \mid y - x$; therefore $\modequiv{x}{y}{p}$.
+\begin{proof}
+Take $\alpha \in \Z[\w]$; then
 
-\item [29.]  We use Sage to avoid multiplying the terms out by hand:
+\begin{equation}
+\tag{Exercise 1.21}
+\alpha = a_{p-2}\w^{p-2} + \ldots + a_0
+\end{equation}
+
+Raising both sides to the $p$-th power:
+
+\[
+\tag{Exercise 1.24}\modequiv{\alpha^{p}}{a_{p-2}^{p}\w^{p(p-2)} + \ldots + a_1^{p}\w^{p} + a_0^{p}}{p} \]
+
+Since $\w^{p} = 1$, \[ \modequiv{\alpha^{p}}{a_{p-2}^{p} + \cdots + a_1^{p} + a_0^{p} \in \Z}{p} \]
+This is the required result.
+\end{proof}
+
+For Exercises 1.26-1.28, assume $p \ge 5$, $\alpha \in \Z[\w]$, and let $u$ be a unit of $\Z[\w]$.  We assume the following: (proved in Exercise 2.12):
+\begin{lemma}[Kummer's Lemma on Units]
+If $u \in \Z[\w]^{\times}$, then $u / \bar{u}$ is a power of $\w$.
+\end{lemma}
+
+\exercise{1.26} Show that if $\modequiv{x + y\w}{u\alpha^{p}}{p}$, then $\modequiv{x + y\w}{(x + y\w^{-1})\w^{k}}{p}$ for some $k \in \Z$.
+
+\begin{proof}
+    By Exercise 1.25, $\modequiv{\alpha^p}{m}{p}$ for some $m \in \Z$, so $\modequiv{x + y\w}{um}{p}$.
+
+    Applying Exercise 1.23 we have $\modequiv{x + y\w^{-1}}{\bar{u}m}{p}$; therefore $\modequiv{x + y\w}{(u/\bar{u})(x + y\w^{-1})}{p}$.  By the lemma on units $u / \bar{u} = \w^{k}$ for some $k$, so $\modequiv{x + y\w}{(x + y\w^{-1})\w^{k}}{p}$ for some $0 \le k < p$.
+\end{proof}
+
+\exercise{1.27} Use Exercise 1.22 to show that a contradiction results unless $\modequiv{k}{1}{p}$.
+
+\begin{proof}
+    \begin{eqnarray*}
+        x + y \w &\equiv& (x+ y\w^{-1})\w^{k}\ (p)\ (\text{Exercise 1.26}) \\
+        x + y\w - x\w^{k} - yw^{k-1} &\equiv& 0\ (p)
+    \end{eqnarray*}
+    This expression is divisible by $p$, so by Exercise 1.22 $p$ must divide all coefficients of this expression.
+    If $k = 0$ or $k > 1$ then the constant term of the expression would be $x$, contradicting $x \not\mid p$.
+\end{proof}
+
+\exercise{1.28} Finally, show $\modequiv{x}{y}{p}$.
+
+\begin{proof}
+As $k = 1$, $\modequiv{(x - y) + (y - x)\w}{0}{p}$; by Exercise 1.22, $p \mid x - y$ and so $\modequiv{x}{y}{p}$.
+\end{proof}
+
+\exercise{1.29} Let $\w = e^{2\pi i / 23}$.  Verify that the product
+\[ (1 + \w^2 + \w^4 + \w^6 + \w^{10} + \w^{11})(1 + \w + \w^{5} + \w^{6} + \w^{7} + \w^{9} + \w^{11}) \]
+is divisible by 2 in $\Z[\w]$, although neither factor is.  It can be shown that 2 is an irreducible element in $\Z[\w]$; it follows that $\Z[\w]$ cannot be a UFD.
+
+
+\begin{proof}
+    We use Sage to avoid multiplying the terms out by hand:
 \begin{verbatim}
 sage: K.<w> = CyclotomicField(23)
 sage: e1 = (1+w^2+w^4 + w^5 + w^6 + w^10 + w^11)
@@ -64,8 +119,7 @@ sage: e1 * e2
 2*w^17 + 2*w^16 + 2*w^15 + 2*w^13 + 2*w^12
 + 6*w^11 + 2*w^10 + 2*w^9 + 2*w^7 + 2*w^6 + 2*w^5
 \end{verbatim}
-
-\end{enumerate}
+\end{proof}
 
 \section*{Chapter 2}
 
