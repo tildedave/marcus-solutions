@@ -43,6 +43,68 @@
 
 \section*{Chapter 1: A special case of Fermat's conjecture}
 
+\exercise{1.16} Show that $(1 - w)(1 - w^2) \cdots (1 - \w^{p-1}) = p$ by considering \[ t^{p} - 1 = (t - 1)(t - \w) \cdots (t - \w^{p - 1})\]
+
+\begin{proof}
+    We consider
+\[
+f(t) = \frac{t^{p} - 1}{(t - 1)} = (t - \w) \cdots (t - \w^{p - 1}) \]
+
+The right-hand side has the value of $\lim_{t \to 1} f(t)$; the left-hand side has a discontinuity at $t = 1$ of the form $0 / 0$ so L'Hôpital's rule applies:
+
+\[
+(1 - \w) \cdots (1 - \w^{p - 1}) = \lim_{t \to 1}  \frac{t^{p} - 1}{(t - 1)} = \frac{pt^{p-1}}{1} \Bigg|_{t = 1} = p
+ \]
+\end{proof}
+
+\exercise{1.17} Suppose that $\Z[\w]$ is a UFD and $\pi \divides x + y\omega$.  Show that $\pi$ does not divide any of the other factors on the left-hand side of \[ (x + y)(x + y\w)(x + y\w^2)\cdots(x + y\w^{p-1}) = z^{p} \ (1) \].
+
+\begin{proof}
+If $\pi \divides x + y\omega$ and $\pi \divides x + y\omega^{k}$ ($k \neq 1$), then there exist $\alpha, \beta$ so that $\alpha\pi = x + y\omega$ and $\beta\pi = x + y\omega^{k}$.
+
+\begin{eqnarray*}
+    \alpha\pi - x - y\omega &=& \beta\pi - x - y\omega^{k} \\
+    \pi(\alpha - \beta) &=& y\omega(1 - \omega^{k-1}) \\
+    \pi(\alpha - \beta) \w^{p-1} &=& y(1-\omega^{k-1}) \\
+    \pi(\alpha - \beta) \w^{p-1} \prod_{\begin{subarray}{c} 0 \le j \le p - 1 \\ j \neq k-1\end{subarray}} (1-w^{j}) &=& y(1-\w)(1- w^2)\cdots (1-\w^{p-1}) = yp \\
+\end{eqnarray*}
+(This relies on $\w^{p} = 1$ and $\w^{-1} = \w^{p-1}$.)  Therefore, $\pi \divides yp$.  Since $\pi$ divides the left-hand-side of (1), $\pi$ must divide the right-hand-side ($z$) as well.
+
+As we are considering case 1 of Fermat's Conjecture, $(x,y,z,p) = 1$ so there exist $m, n \in \Z$ so that $mz + nyp = 1$; since $\pi \divides yp, z$, $\pi(m\star_1 + n\star_2) = 1$; therefore $\pi$ is a unit.  This contradicts $\pi$ being an irreducible prime of $\Z[\w]$.
+\end{proof}
+
+\exercise{1.18} Use Exercise 1.17 to show that if $\Z[\w]$ is a UFD then $x + y\w = u\alpha^{p}$, $\alpha \in \Z[\w]$, $u \in \Z[\w]^{\times}$.
+
+\begin{proof}
+Let $x + y\w$ have the factorization $u \cdot \pi_0^{n_0} \cdots \pi_{k}^{n_k}$; by 1.18, if $\pi_i \divides x + y\w$, then $\pi_i$ does not divide any other factor on the LHS of (1) and so $\pi_i \divides z^{p}$; factor of $\pi_i^{n_i}$ occurring in the unique factorization of $z$ is a factor of $(\pi_i)^{pn_i}$ dividing $z^{p}$.  Therefore $x + y\w = u(\alpha^{p}$, where $\alpha = \prod \pi_i^{p n_i}$.
+\end{proof}
+
+\exercise{1.19} Dropping the assumption that $\Z[\w]$ is a UFD but using the fact that ideals factor uniquely (up to order) into prime ideals, show that the principal ideal $(x + y\w)$ has no prime ideal factor in common with any of the other principal ideals on the left side of the equation
+
+\[ ( x + y)(x + y\w) \cdots (x + y\w^{p-1}) = (z)^{p} \]
+
+\begin{proof}
+Let $P$ be a prime ideal such that $P \supset (x + y\w)$ and $P \supset (x + y\w^{k})$, $k \neq 1$.  Then $x + y\w, x + y\w^{k} \in P$ and so $y\omega(1 - \w^{k-1}) \in P$.  Multipliying through by $\w^{p-1}$ and the other factors from equation (1), $yp \in P$; as $P$ is prime, either $y \in P$ or $p \in P$.  However, $z \in P$ (as $P \supset (z)^p$), contradicting $(x, y, z, p) = 1$.
+\end{proof}
+
+\exercise{1.20} Use Exercise 1.19 to show that $(x + y\w) = I^{p}$ for some ideal $I$.
+
+\begin{proof}
+The proof is exactly the same as the proof for Exercise 1.18, except that the unit factor doesn't occur in the prime decomposition.  Each ideal dividing $(x + y\w)$ does not share a factor with any other ideal dividing $(z)^{p}$, so $(x + y\w) = P_0^{pn_0} \cdots P_{k}^{pn_k}$; this is the required $I$.
+\end{proof}
+
+\exercise{1.21} Show that every member of $\Q[\w]$ is uniquely representable in the form \[ a_0 + a_1\w + \ldots + a_{p-2}\w^{p-2}, a_i \in \Q \] by showing $\w$ is a root of the polynomial \[ f(t) = t^{p-1} + t^{p-2} + \ldots + t + 1 \] and that $f(t)$ is irreducible over $\Q$.
+
+\begin{proof}
+Following the hint, $f(t + 1) = ((t + 1)^p  - 1)/t$ (follows from the closed form of the geometric series for $(t+1)^k$).  Using this identity and the Binomial Theorem, the $t^k$th term of the polynomial has coefficient $\binom{p}{k + 1}$ and so by Eisenstein's criterion, $f(t + 1)$ is irreducible.  $f(\w) = ((\w - 1 + 1)^{p} - 1)/(\w - 1) = (\w^p - 1)/(\w - 1) = 0$ and so it is a root of $f$.  Therefore $\w$ is a primitive element of $\Q[\w]$ and so $\{1, \ldots, \w^{p-2}\}$ forms a basis of $\Q[\w]$ over $\Q$, and any element $\alpha \in \Q[\w]$ can be written as $\alpha = a_0 + a_1\w + \ldots + a_{p-2}\w^{p-2}$.
+\end{proof}
+
+\exercise{1.22} Use Exercise 1.21 to show that if $\alpha \in \Z[\w]$ and $p \divides \alpha$, then (writing $\alpha = a_0 + a_1\w + \ldots + a_{p-2}\w^{p-2}, a_i \in \Z$), each $\modequiv{a_i}{0}{p}$.
+
+\begin{proof}
+If $p \divides \alpha$, write $\alpha = p\gamma$; write $\gamma = g_0 + g_1\w + \ldots + g_{p-2}\w^{p-2}$.  Termwise, each $a_i = pg_i$ and $a_i \in \Z[\w]$, so $g_i \in \Z[\w]$ and $p \divides a_i$.
+\end{proof}
+
 \exercise{1.23} Show that if $\modequiv{\beta}{\gamma}{p}$, then $\modequiv{\bar{\beta}}{\bar}{\gamma}{p}$, where the bar denotes complex conjugate.
 \begin{proof}
 
@@ -108,7 +170,6 @@ As $k = 1$, $\modequiv{(x - y) + (y - x)\w}{0}{p}$; by Exercise 1.22, $p \mid x 
 \[ (1 + \w^2 + \w^4 + \w^6 + \w^{10} + \w^{11})(1 + \w + \w^{5} + \w^{6} + \w^{7} + \w^{9} + \w^{11}) \]
 is divisible by 2 in $\Z[\w]$, although neither factor is.  It can be shown that 2 is an irreducible element in $\Z[\w]$; it follows that $\Z[\w]$ cannot be a UFD.
 
-
 \begin{proof}
     We use Sage to avoid multiplying the terms out by hand:
 \begin{verbatim}
@@ -120,6 +181,14 @@ sage: e1 * e2
 + 6*w^11 + 2*w^10 + 2*w^9 + 2*w^7 + 2*w^6 + 2*w^5
 \end{verbatim}
 \end{proof}
+
+For Exercises 1.30 - 1.32, let $R$ be an integral domain (commutative ring with 1 and no zero divisors).
+
+\exercise{1.30} Show that two ideals in $R$ are isomorphic as $R$-modules if and only if they are in the same ideal class.
+
+\exercise{1.31} Show that if $I$ is an ideal in $R$ and if $\alpha I$ is principal for some $\alpha \in R$, then $I$ is principal.  Conclude that the principal ideals form an ideal class.
+
+\exercise{1.32} Show that the ideal classes in $R$ form a group if and only if for each ideal $I$ there is an ideal $J$ such that $IJ$ is principal.
 
 \section*{Chapter 2}
 
